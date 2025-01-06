@@ -5,7 +5,7 @@ return {
 	{
 
 		"CopilotC-Nvim/CopilotChat.nvim",
-		branch = "canary",
+		branch = "main",
 		dependencies = {
 			{
 				"zbirenbaum/copilot.lua",
@@ -15,7 +15,7 @@ return {
 					require("copilot").setup({})
 				end,
 			},
-			"nvim-lua/plenary.nvim", -- for curl, log wrapper
+			"nvim-lua/plenary.nvim",
 		},
 		opts = {
 			window = {

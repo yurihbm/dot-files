@@ -1,4 +1,4 @@
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#AFAFAF" })
 
 return {
 	"hrsh7th/nvim-cmp",
@@ -29,6 +29,7 @@ return {
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
+					before = require("tailwind-tools.cmp").lspkind_format,
 					mode = "symbol",
 					with_text = true,
 					ellipsis_char = "...",
@@ -63,6 +64,18 @@ return {
 			dependencies = {
 				"saadparwaiz1/cmp_luasnip",
 			},
+		},
+		{
+
+			"luckasRanarison/tailwind-tools.nvim",
+			name = "tailwind-tools",
+			build = ":UpdateRemotePlugins",
+			dependencies = {
+				"nvim-treesitter/nvim-treesitter",
+				"nvim-telescope/telescope.nvim",
+				"neovim/nvim-lspconfig",
+			},
+			opts = {},
 		},
 	},
 }
