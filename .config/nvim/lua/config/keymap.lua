@@ -8,6 +8,11 @@ vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR
 -- Go to definition using LSP in insert mode
 vim.api.nvim_set_keymap("i", "<C-g>", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 
+-- Show code actions using LSP in normal mode
+vim.api.nvim_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
+-- Show code actions using LSP in insert mode
+vim.api.nvim_set_keymap("i", "<C-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
+
 -- Insert mode mappings
 vim.api.nvim_set_keymap("i", "<C-h>", "<Left>", {})
 vim.api.nvim_set_keymap("i", "<C-j>", "<Down>", {})
