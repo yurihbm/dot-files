@@ -5,7 +5,6 @@ vim.api.nvim_set_keymap("n", "<leader>fb", ":Telescope buffers<CR>", { noremap =
 vim.api.nvim_set_keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>fr", ":Telescope resume<CR>", { noremap = true, silent = true })
 
-
 return {
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",

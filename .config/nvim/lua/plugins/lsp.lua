@@ -4,6 +4,15 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 
+			-- For eslilit install vscode-langserver-extracted (https://github.com/hrsh7th/vscode-langservers-extracted)
+			lspconfig.eslint.setup({
+				on_attach = function(client, bufnr)
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						command = "EslintFixAll",
+					})
+				end,
+			})
 			-- For lua install lua-language-server(https://luals.github.io/#neovim-install)
 			lspconfig.lua_ls.setup({
 				settings = {
@@ -30,10 +39,7 @@ return {
 			settings = {
 				publish_diagnostic_on = "change",
 				tsserver_plugins = {
-					-- for TypeScript v4.9+
-					-- "@styled/typescript-styled-plugin",
-					-- or for older TypeScript versions
-					"typescript-styled-plugin",
+					"@styled/typescript-styled-plugin",
 				},
 			},
 		},
