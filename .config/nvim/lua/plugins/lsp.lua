@@ -1,37 +1,72 @@
 return {
 	{
-		"neovim/nvim-lspconfig",
+		"williamboman/mason.nvim",
+		opts = {
+			ui = {
+				icons = {
+					---@since 1.0.0
+					-- The list icon to use for installed packages.
+					package_installed = "",
+					---@since 1.0.0
+					-- The list icon to use for packages that are installing, or queued for installation.
+					package_pending = "󰦗",
+					---@since 1.0.0
+					-- The list icon to use for packages that are not installed.
+					package_uninstalled = "",
+				},
+			},
+		},
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			local lspconfig = require("lspconfig")
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"ts_ls",
+					"eslint",
+					"tailwindcss",
+					"lua_ls",
+					"gopls",
+					"clangd",
+					"pyright",
+				},
+			})
 
-			-- For eslilit install vscode-langserver-extracted (https://github.com/hrsh7th/vscode-langservers-extracted)
-			lspconfig.eslint.setup({
-				on_attach = function(client, bufnr)
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = bufnr,
-						command = "EslintFixAll",
+			require("mason-lspconfig").setup_handlers({
+				function(server_name)
+					-- ts_ls (typescript-language-server) setup is handled by the typescript-tools plugin
+					if server_name == "ts_ls" then
+						return
+					end
+					lspconfig[server_name].setup({})
+				end,
+				["eslint"] = function()
+					lspconfig.eslint.setup({
+						on_attach = function(_, bufnr)
+							vim.api.nvim_create_autocmd("BufWritePre", {
+								buffer = bufnr,
+								command = "EslintFixAll",
+							})
+						end,
+					})
+				end,
+				["lua_ls"] = function()
+					lspconfig.lua_ls.setup({
+						settings = {
+							Lua = {
+								diagnostics = {
+									-- Get the language server to recognize the `vim` global
+									globals = { "vim" },
+								},
+							},
+						},
 					})
 				end,
 			})
-			-- For lua install lua-language-server(https://luals.github.io/#neovim-install)
-			lspconfig.lua_ls.setup({
-				settings = {
-					Lua = {
-						diagnostics = {
-							-- Get the language server to recognize the `vim` global
-							globals = { "vim" },
-						},
-					},
-				},
-			})
-			-- For go install see gopls (https://github.com/golang/tools/blob/master/gopls/doc/vim.md#neovim-install)
-			lspconfig.gopls.setup({})
-			-- For C/C++ install clangd (https://clangd.llvm.org/installation.html)
-			lspconfig.clangd.setup({})
-			-- For python install pyright (https://github.com/microsoft/pyright/blob/main/docs/installation.md#command-line)
-			lspconfig.pyright.setup({})
 		end,
 	},
+	"neovim/nvim-lspconfig",
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
