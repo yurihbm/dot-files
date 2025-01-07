@@ -21,7 +21,9 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			local lspconfig = require("lspconfig")
+
 			require("mason-lspconfig").setup({
+				automatic_installation = false,
 				ensure_installed = {
 					"ts_ls",
 					"eslint",
