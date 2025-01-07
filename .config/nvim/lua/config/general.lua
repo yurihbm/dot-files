@@ -9,6 +9,10 @@ vim.wo.relativenumber = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Folding configuration
+vim.wo.foldmethod = "indent"
+vim.wo.foldenable = false
+
 -- Remove line numbers on TermOpen and add again on TermClose
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
