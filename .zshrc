@@ -64,7 +64,7 @@ alias gll="git pull --all"
 alias explorer="explorer.exe ."
 alias ls="eza --icons -T -L=1"
 alias python="python3"
-alias tmux="tmux -f ~/.tmux.conf"
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 
 # Functions
 # Load environment variables from file
