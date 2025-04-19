@@ -18,7 +18,7 @@ declare -A TITLES=(
    ["11-themes.sh"]="Themes"
    ["12-chrome.sh"]="Chrome"
    ["13-insomnia.sh"]="Insomnia"
-   ["14-eza.zsh"]="Eza"
+   ["14-eza.sh"]="Eza"
    ["15-solaar.sh"]="Solaar"
    ["16-update.sh"]="Update"
 )
@@ -37,7 +37,7 @@ ORDER=(
    "10-gnome_extensions.sh"
    "11-themes.sh"
    "12-chrome.sh"
-   "13-insomnia.zsh"
+   "13-insomnia.sh"
    "14-eza.sh"
    "15-solaar.sh"
    "16-update.sh"
