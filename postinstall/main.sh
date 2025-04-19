@@ -8,27 +8,46 @@ exec > >(tee -a "$LOG_FILE") 2>&1
 
 # Function to handle errors
 error_handler() {
-    echo "❌ An error occurred during the post-installation setup."
-    echo "Please check the log file at: $LOG_FILE for more details."
+   echo "❌ An error occurred during the post-installation setup."
+   echo "Please check the log file at: $LOG_FILE for more details."
 }
 trap error_handler ERR
 
 
-# Checking superuser privileges
-if [ "$EUID" -ne 0 ]; then
-    echo -e "This script must be run as root. Attempting to elevate privileges...\n"
-    exec sudo -E "$0" "$@"
+# Ask for sudo upfront and cache it
+if ! sudo -v; then
+   echo "This script requires sudo privileges to run. Exiting."
+   exit 1
 fi
+
+# Keep sudo session alive while script runs
+# This runs in background and will keep the sudo session alive
+( while true; do sudo -v; sleep 60; done ) &
+SUDO_KEEPALIVE_PID=$!
 
 # Checking if the script is run from its own directory
+PUSHED=false
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 if [ "$PWD" != "$SCRIPT_DIR" ]; then
-    echo "Script is not being run from its own directory. Changing directory..."
-    pushd "$SCRIPT_DIR" > /dev/null
+   echo "Script is not being run from its own directory. Changing directory..."
+   pushd "$SCRIPT_DIR" > /dev/null
+   PUSHED=true
 fi
 
+# Function to clean up the background sudo process and return to the original
+# directory
+cleanup() {
+   if [ -n "$SUDO_KEEPALIVE_PID" ]; then
+      kill "$SUDO_KEEPALIVE_PID" 2>/dev/null
+      wait "$SUDO_KEEPALIVE_PID" 2>/dev/null
+   fi   
+   if [ "$PUSHED" = true ]; then
+      popd > /dev/null
+   fi
+}
+
 # Ensure to return to the original directory
-trap 'popd > /dev/null' EXIT
+trap cleanup EXIT
 
 # Load variables
 source ./scripts/00-vars.sh
@@ -48,19 +67,18 @@ echo -e "\nStarting post-installation setup...\n"
 ./scripts/10-gnome_extensions.sh
 ./scripts/11-icons.sh
 
-echo "✅ Variables"
-echo "✅ ZSH"
-echo "✅ Neovim"
-echo "✅ NVM and Node"
-echo "✅ Pyenv"
-echo "✅ Go"
-echo "✅ Git"
-echo "✅ GitHub CLI"
-echo "✅ GPG (GitHub)"
-echo "✅ Docker"
-echo "✅ Gnome Extensions"
-
-echo -e "\nPost-installation setup completed successfully.\n"
+echo -e "\n✅ Post-installation steps completed:"
+printf " - %-25s %s\n" "Variables" "✅"
+printf " - %-25s %s\n" "ZSH" "✅"
+printf " - %-25s %s\n" "Neovim" "✅"
+printf " - %-25s %s\n" "NVM and Node" "✅"
+printf " - %-25s %s\n" "Pyenv" "✅"
+printf " - %-25s %s\n" "Go" "✅"
+printf " - %-25s %s\n" "Git" "✅"
+printf " - %-25s %s\n" "GitHub CLI" "✅"
+printf " - %-25s %s\n" "GPG (GitHub)" "✅"
+printf " - %-25s %s\n" "Docker" "✅"
+printf " - %-25s %s\n" "Gnome Extensions" "✅"
 
 # Delete log file if everything succeeded
 rm -f "$LOG_FILE"
