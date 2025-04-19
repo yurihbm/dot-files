@@ -17,6 +17,8 @@ sudo dnf install gh --repo gh-cli -y
 echo "$GH_TOKEN" | gh auth login -p ssh --skip-ssh-key --with-token
 gh ssh-key add ~/.ssh/id_github_ed25519;
 
+gh extension install github/gh-copilot
+
 echo -e "\Github CLI installed and authenticated. SSH key added to GitHub."
 
 clear

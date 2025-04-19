@@ -72,3 +72,5 @@ source "./scripts/helpers/status.sh"
 # Delete log file if everything succeeded.
 rm -f "$LOG_FILE"
 
+echo "Type zsh to start using your new shell."
+
