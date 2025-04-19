@@ -13,7 +13,6 @@ error_handler() {
 }
 trap error_handler ERR
 
-
 # Ask for sudo upfront and cache it.
 if ! sudo -v; then
    echo "This script requires sudo privileges to run. Exiting."
@@ -22,7 +21,10 @@ fi
 
 # Keep sudo session alive while script runs.
 # This runs in background and will keep the sudo session alive.
-( while true; do sudo -v; sleep 60; done ) &
+(while true; do
+   sudo -v
+   sleep 60
+done) &
 SUDO_KEEPALIVE_PID=$!
 
 # Checking if the script is run from its own directory.
@@ -30,7 +32,7 @@ PUSHED=false
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 if [ "$PWD" != "$SCRIPT_DIR" ]; then
    echo "Script is not being run from its own directory. Changing directory..."
-   pushd "$SCRIPT_DIR" > /dev/null
+   pushd "$SCRIPT_DIR" >/dev/null
    PUSHED=true
 fi
 
@@ -39,9 +41,9 @@ cleanup() {
    if [ -n "$SUDO_KEEPALIVE_PID" ]; then
       kill "$SUDO_KEEPALIVE_PID" 2>/dev/null
       wait "$SUDO_KEEPALIVE_PID" 2>/dev/null
-   fi   
+   fi
    if [ "$PUSHED" = true ]; then
-      popd > /dev/null
+      popd >/dev/null
    fi
 }
 
@@ -70,6 +72,7 @@ scripts=(
    "./scripts/14-eza.sh"
    "./scripts/15-solaar.sh"
    "./scripts/16-update.sh"
+   "./scripts/17-config.sh"
 )
 
 # Run each script in the array.
@@ -87,4 +90,3 @@ source "./scripts/helpers/status.sh"
 rm -f "$LOG_FILE"
 
 exec zsh
-

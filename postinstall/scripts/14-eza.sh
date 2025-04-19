@@ -13,7 +13,6 @@ fi
 
 trap 'rm -rf *.tar.gz' EXIT
 
-echo "Installing eza..."
 EZA_URL=$(
    curl -s https://api.github.com/repos/eza-community/eza/releases/latest |
       grep "browser_download_url" |
