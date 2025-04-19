@@ -2,12 +2,7 @@
 
 set -e
 
-echo "✅ Variables"
-echo "✅ ZSH"
-echo "✅ Neovim"
-echo "✅ NVM and Node"
-echo "✅ Pyenv"
-echo "✅ Go"
+source "$(dirname "$0")/scripts/helpers/status.sh"
 
 echo -e "\nConfiguring git..."
 # Configure SSH key for GitHub

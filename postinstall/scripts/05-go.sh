@@ -2,11 +2,7 @@
 
 set -e
 
-echo "✅ Variables"
-echo "✅ ZSH"
-echo "✅ Neovim"
-echo "✅ NVM and Node"
-echo "✅ Pyenv"
+source "$(dirname "$0")/scripts/helpers/status.sh"
 
 echo -e "\nInstalling go..."
 

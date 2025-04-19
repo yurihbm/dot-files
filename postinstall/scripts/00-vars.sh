@@ -40,16 +40,16 @@ fi
 
 printf "\nGo version: %s\n" "$GO_VERSION"
 printf "\nNVM version: %s\n" "$NVM_VERSION"
-# Mask GitHub token (show first 1/4, hide 3/4)
+# Mask GitHub token (show first 1/4, hide 3/4).
 GITHUB_TOKEN_MASKED="${GH_TOKEN:0:${#GH_TOKEN}/4}****"
 printf "\nGitHub token: %s\n" "$GITHUB_TOKEN_MASKED"
-# Mask Git name (hide second half)
+# Mask Git name (hide second half).
 GIT_NAME_MASKED="${GIT_NAME:0:${#GIT_NAME}/2}****"
 printf "\nGit name: %s\n" "$GIT_NAME_MASKED"
-# Mask Git email (show first letter and domain)
+# Mask Git email (show first letter and domain).
 GIT_EMAIL_MASKED="${GIT_EMAIL:0:1}****${GIT_EMAIL#*@}"
 printf "\nGit email: %s\n" "$GIT_EMAIL_MASKED"
-# Mask GPG passphrase (show first 1/4, hide 3/4)
+# Mask GPG passphrase (show first 1/4, hide 3/4).
 GPG_PASSPHRASE_MASKED="${GPG_PASSPHRASE:0:${#GPG_PASSPHRASE}/4}****"
 printf "\nGPG passphrase: %s\n" "$GPG_PASSPHRASE_MASKED"
 printf "\nGPG key title: %s\n" "$GPG_KEY_TITLE"

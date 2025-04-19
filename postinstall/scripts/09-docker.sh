@@ -2,15 +2,7 @@
 
 set -e
 
-echo "✅ Variables"
-echo "✅ ZSH"
-echo "✅ Neovim"
-echo "✅ NVM and Node"
-echo "✅ Pyenv"
-echo "✅ Go"
-echo "✅ Git"
-echo "✅ GitHub CLI"
-echo "✅ GPG (GitHub)"
+source "$(dirname "$0")/scripts/helpers/status.sh"
 
 echo -e "\nInstalling Docker Engine and setting up rootless mode..."
 sudo dnf config-manager addrepo --from-file=https://download.docker.com/linux/fedora/docker.repo

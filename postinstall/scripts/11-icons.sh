@@ -2,18 +2,7 @@
 
 set -e
 
-echo "✅ Variables"
-echo "✅ ZSH"
-echo "✅ Neovim"
-echo "✅ NVM and Node"
-echo "✅ Pyenv"
-echo "✅ Go"
-echo "✅ Git"
-echo "✅ GitHub CLI"
-echo "✅ GPG (GitHub)"
-echo "✅ Docker"
-echo "✅ Gnome Extensions"
-
+source "$(dirname "$0")/scripts/helpers/status.sh"
 
 echo -e "\nInstalling whitesur-icon-theme-mod...\n"
 mkdir -p "$HOME/.icons"
