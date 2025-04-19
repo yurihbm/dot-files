@@ -2,6 +2,14 @@
 
 set -e
 
+echo "\n✅ Variables"
+echo "\n✅ ZSH"
+echo "\n✅ Neovim"
+echo "\n✅ NVM and Node"
+echo "\n✅ Pyenv"
+echo "\n✅ Go"
+echo "\n✅ Git"
+
 echo "\nInstalling github-cli..."
 
 if [[ -z "$GH_TOKEN" ]]; then
@@ -12,7 +20,9 @@ fi
 sudo dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
 sudo dnf install gh --repo gh-cli -y
 
-echo "$GH_TOKEN" | gh auth login -p ssh --skip-ssh-key --with-token
+echo "$GH_TOKEN" | gh auth login -p ssh --skip-ssh-key --with-token > /dev/null 2>&1
 gh ssh-key add ~/.ssh/id_github_ed25519;
 echo "github-cli installed and configured."
+
+clear
 
