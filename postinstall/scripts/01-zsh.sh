@@ -5,7 +5,7 @@ set -e
 source ./scripts/helpers/status.sh
 
 echo -e "\nInstalling zsh..."
-sudo dnf install zsh -y
+sudo dnf install zsh -y -q
 echo -e "\nzsh installed."
 
 echo -e "\nInstalling oh-my-zsh..."
@@ -37,10 +37,9 @@ ZSH_CUSTOM="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"
 echo -e "\nPlugins installed."
 
 echo -e "\nInstalling theme (spaceship)..."
-[ ! -f "$ZSH_CUSTOM/themes/spaceship.zsh-theme" ] && \
-  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1 && \
-  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+[ ! -f "$ZSH_CUSTOM/themes/spaceship.zsh-theme" ] &&
+   git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1 &&
+   ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 echo -e "\nTheme installed."
 
 clear
-
