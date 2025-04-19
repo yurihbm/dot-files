@@ -7,9 +7,9 @@ mkdir -p "$LOCAL_DIR"
 GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1 | sed 's/go//')
 NVM_VERSION=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
 
-read -p $'Enter your GitHub personal access token (for gh-cli authentication): ' -r GH_TOKEN
+read -p $'Enter your GitHub personal access token (for gh-cli authentication): ' -r GH_TEMP_TOKEN
 clear
-if [[ -z "$GH_TOKEN" ]]; then
+if [[ -z "$GH_TEMP_TOKEN" ]]; then
   echo -e "\nError: GitHub token not provided. Exiting..."
   exit 1
 fi
@@ -45,7 +45,7 @@ fi
 printf "\nGo version: %s\n" "$GO_VERSION"
 printf "\nNVM version: %s\n" "$NVM_VERSION"
 # Mask GitHub token (show first 1/4, hide 3/4).
-GITHUB_TOKEN_MASKED="${GH_TOKEN:0:${#GH_TOKEN}/4}****"
+GITHUB_TOKEN_MASKED="${GH_TEMP_TOKEN:0:${#GH_TEMP_TOKEN}/4}****"
 printf "\nGitHub token: %s\n" "$GITHUB_TOKEN_MASKED"
 # Mask Git name (hide second half).
 GIT_NAME_MASKED="${GIT_NAME:0:${#GIT_NAME}/2}****"
@@ -67,7 +67,7 @@ clear
 
 export GO_VERSION
 export NVM_VERSION
-export GH_TOKEN
+export GH_TEMP_TOKEN
 export GIT_NAME
 export GIT_EMAIL
 export GPG_PASSPHRASE
