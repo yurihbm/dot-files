@@ -2,6 +2,8 @@
 
 set -e
 
+echo "\n✅ Variables"
+
 echo "\nInstalling zsh..."
 sudo dnf install zsh -y
 echo "zsh installed."
@@ -33,3 +35,6 @@ echo "\nInstalling theme (spaceship)..."
   git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1 && \
   ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 echo "Theme installed."
+
+clear
+

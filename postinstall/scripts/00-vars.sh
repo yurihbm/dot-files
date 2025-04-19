@@ -1,32 +1,46 @@
 GO_VERSION="1.24.2"
 NVM_VERSION="0.40.2"
 
+echo "\nGetting necessary variables...\n"
+
 read -p $'\nEnter Go version (default: '"$GO_VERSION"'): ' -r INPUT_GO_VERSION
 GO_VERSION="${INPUT_GO_VERSION:-$GO_VERSION}"
+clear
 
 read -p $'\nEnter NVM version (default: '"$NVM_VERSION"'): ' -r INPUT_NVM_VERSION
 NVM_VERSION="${INPUT_NVM_VERSION:-$NVM_VERSION}"
+clear
 
 read -p $'\nEnter your GitHub personal access token (for gh-cli authentication): ' -r GH_TOKEN
+clear
 if [[ -z "$GH_TOKEN" ]]; then
   echo "\nError: GitHub token not provided. Exiting..."
   exit 1
 fi
 
 read -p $'\nEnter your Git name: ' -r GIT_NAME
+clear
+if [[ -z "$GIT_NAME" ]]; then
+  echo "\nError: Git name not provided. Exiting..."
+  exit 1
+fi
+
 read -p $'\nEnter your Git email: ' -r GIT_EMAIL
-if [[ -z "$GIT_NAME" || -z "$GIT_EMAIL" ]]; then
+clear
+if [[ -z "$GIT_EMAIL" ]]; then
   echo "\nError: Git name or email not provided. Exiting..."
   exit 1
 fi
 
 read -p $'\nEnter your GPG (GitHub) passphrase: ' -r GPG_PASSPHRASE
+clear
 if [[ -z "$GPG_PASSPHRASE" ]]; then
   echo "\nError: GPG passphrase not provided. Exiting..."
   exit 1
 fi
 
 read -p $'\nEnter your GPG (GitHub) key title: ' -r GPG_KEY_TITLE
+clear
 if [[ -z "$GPG_KEY_TITLE" ]]; then
   echo "\nError: GPG key title not provided. Exiting..."
   exit 1
@@ -53,6 +67,7 @@ if [[ $REPLY != "y" ]]; then
   echo "Exiting..."
   exit 1
 fi
+clear
 
 export GO_VERSION
 export NVM_VERSION
@@ -61,4 +76,6 @@ export GIT_NAME
 export GIT_EMAIL
 export GPG_PASSPHRASE
 export GPG_KEY_TITLE
+
+clear
 

@@ -2,6 +2,9 @@
 
 set -e
 
+echo "\n✅ Variables"
+echo "\n✅ ZSH"
+
 echo "\nInstalling neovim...";
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 [ -d "/opt/nvim" ] && sudo rm -rf /opt/nvim
@@ -10,11 +13,13 @@ sudo rm -rf nvim-linux-x86_64.tar.gz
 echo "neovim installed.";
 
 echo "\nInstalling neovim packages dependencies...";
-sudo dnf install ripgrep cmake gcc g++ xclip clang-tools-extra;
+sudo dnf install ripgrep cmake gcc g++ xclip clang-tools-extra -y;
 echo "Dependencies installed.";
 
 echo "\nCopying neovim config...";
 mkdir -p ~/.config;
-cp .config/nvim ~/.config/nvim -r;
+cp ../.config/nvim ~/.config/nvim -r;
 echo "Configuration copied.";
+
+clear
 
