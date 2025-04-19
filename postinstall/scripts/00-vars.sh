@@ -1,15 +1,7 @@
-GO_VERSION="1.24.2"
-NVM_VERSION="0.40.2"
-
 echo -e "Getting necessary variables..."
 
-read -p $'\nEnter Go version (default: '"$GO_VERSION"'): ' -r INPUT_GO_VERSION
-GO_VERSION="${INPUT_GO_VERSION:-$GO_VERSION}"
-clear
-
-read -p $'Enter NVM version (default: '"$NVM_VERSION"'): ' -r INPUT_NVM_VERSION
-NVM_VERSION="${INPUT_NVM_VERSION:-$NVM_VERSION}"
-clear
+GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1 | sed 's/go//')
+NVM_VERSION=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
 
 read -p $'Enter your GitHub personal access token (for gh-cli authentication): ' -r GH_TOKEN
 clear
