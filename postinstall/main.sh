@@ -17,7 +17,7 @@ trap error_handler ERR
 # Checking superuser privileges
 if [ "$EUID" -ne 0 ]; then
     echo -e "This script must be run as root. Attempting to elevate privileges...\n"
-    exec sudo "$0" "$@"
+    exec sudo -E "$0" "$@"
 fi
 
 # Checking if the script is run from its own directory

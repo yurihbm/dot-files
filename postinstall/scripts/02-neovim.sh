@@ -2,8 +2,8 @@
 
 set -e
 
-echo -e "\n✅ Variables"
-echo -e "\n✅ ZSH"
+echo "✅ Variables"
+echo "✅ ZSH"
 
 echo -e "\nInstalling neovim...";
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz

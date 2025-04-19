@@ -20,7 +20,7 @@ fi
 sudo dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
 sudo dnf install gh --repo gh-cli -y
 
-echo "$GH_TOKEN" | gh auth login -p ssh --skip-ssh-key --with-token > /dev/null 2>&1
+echo "$GH_TOKEN" | gh auth login -p ssh --skip-ssh-key --with-token
 gh ssh-key add ~/.ssh/id_github_ed25519;
 
 echo -e "\Github CLI installed and authenticated. SSH key added to GitHub."
