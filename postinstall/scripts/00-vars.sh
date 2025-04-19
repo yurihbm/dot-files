@@ -2,9 +2,6 @@ clear
 
 echo "Getting necessary variables..."
 
-# Local dir for installation of tools.
-LOCAL_DIR="$HOME/.local"
-mkdir -p "$LOCAL_DIR"
 
 GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1 | sed 's/go//')
 NVM_VERSION=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
@@ -69,6 +66,10 @@ if [[ $REPLY != "y" ]]; then
 fi
 clear
 
+# Local dir for installation of tools.
+export LOCAL_DIR="$HOME/.local"
+export NVM_DIR="$LOCAL_DIR/nvm"
+export PYENV_ROOT="$LOCAL_DIR/pyenv"
 export GO_VERSION
 export NVM_VERSION
 export GH_TEMP_TOKEN
@@ -76,6 +77,8 @@ export GIT_NAME
 export GIT_EMAIL
 export GPG_PASSPHRASE
 export GPG_KEY_TITLE
+
+mkdir -p "$LOCAL_DIR"
 
 clear
 
