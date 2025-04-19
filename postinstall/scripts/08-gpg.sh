@@ -34,7 +34,6 @@ EOF
 
 # Generate the GPG key
 gpg --batch --generate-key "$TEMP_KEYPARAMS"
-rm keyparams
 
 # Export the GPG key
 KEY_ID=$(gpg --list-keys --with-colons "$GIT_EMAIL" | grep '^pub' | cut -d: -f5)
