@@ -2,20 +2,20 @@
 
 set -e
 
-echo "\n✅ Variables"
-echo "\n✅ ZSH"
-echo "\n✅ Neovim"
-echo "\n✅ NVM and Node"
-echo "\n✅ Pyenv"
-echo "\n✅ Go"
-echo "\n✅ Git"
-echo "\n✅ GitHub CLI"
-echo "\n✅ GPG (GitHub)"
-echo "\n✅ Docker"
-echo "\n✅ Gnome Extensions"
+echo "✅ Variables"
+echo "✅ ZSH"
+echo "✅ Neovim"
+echo "✅ NVM and Node"
+echo "✅ Pyenv"
+echo "✅ Go"
+echo "✅ Git"
+echo "✅ GitHub CLI"
+echo "✅ GPG (GitHub)"
+echo "✅ Docker"
+echo "✅ Gnome Extensions"
 
 
-echo "\nInstalling whitesur-icon-theme-mod..."
+echo -e "\nInstalling whitesur-icon-theme-mod...\n"
 mkdir -p "$HOME/.icons"
 # Clone the repository if not already cloned
 if [ -d "$HOME/.icons/whitesur-icon-theme-mod" ]; then
@@ -27,14 +27,14 @@ fi
 # Run the install script
 if [ -f "$HOME/.icons/whitesur-icon-theme-mod/install.sh" ]; then
     pushd "$HOME/.icons/whitesur-icon-theme-mod" > /dev/null
-    ./install.sh || { echo "Error: Failed to run install.sh. Exiting..."; exit 1; }
+    ./install.sh || { echo -e "\nError: Failed to run install.sh. Exiting..."; exit 1; }
     popd > /dev/null
 else
-    echo "Error: install.sh not found in the repository. Exiting..."
+    echo "\nError: install.sh not found in the repository. Exiting..."
     exit 1
 fi
 
-echo "whitesur-icon-theme-mod installed. Use Gnome Tweaks to set it up."
+echo -e "whitesur-icon-theme-mod installed. Use Gnome Tweaks to set it up."
 
 clear
 
