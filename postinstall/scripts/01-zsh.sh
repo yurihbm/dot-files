@@ -17,7 +17,7 @@ cp ~/.zshrc ~/.zshrc.bak
 echo -e "\nBack up complete."
 
 echo -e "\nSetting zsh as default shell..."
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $USER
 echo -e "Done."
 
 echo -e "\nCopying new .zshrc file..."
