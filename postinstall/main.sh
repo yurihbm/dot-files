@@ -64,7 +64,7 @@ scripts=(
    "./scripts/08-gpg.sh"
    "./scripts/09-docker.sh"
    "./scripts/10-gnome_extensions.sh"
-   "./scripts/11-icons.sh"
+   "./scripts/11-themes.sh"
    "./scripts/12-chrome.sh"
    "./scripts/13-insomnia.sh"
    "./scripts/14-eza.sh"
