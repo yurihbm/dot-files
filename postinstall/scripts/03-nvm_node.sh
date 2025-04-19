@@ -2,7 +2,7 @@
 
 set -e
 
-source "$(dirname "$0")/scripts/helpers/status.sh"
+source ./scripts/helpers/status.sh
 
 echo -e "\nInstalling NVM and latest LTS Node..."
 curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh" | bash

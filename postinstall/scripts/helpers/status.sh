@@ -18,18 +18,33 @@ declare -A TITLES=(
     ["11-icons.sh"]="Icons"
 )
 
+# Order of scripts to ensure consistent output.
+ORDER=(
+    "01-zsh.sh"
+    "02-neovim.sh"
+    "03-nvm_node.sh"
+    "04-pyenv.sh"
+    "05-go.sh"
+    "06-git.sh"
+    "07-gh_cli.sh"
+    "08-gpg.sh"
+    "09-docker.sh"
+    "10-gnome_extensions.sh"
+    "11-icons.sh"
+)
+
 echo -e "🔧 Post-installation progress:\n"
 
 # If the script is run from main.sh, show all steps as completed.
 # Otherwise, show status based on current script.
 if [[ "$CALLER_SCRIPT" == "main.sh" ]]; then
-    for script in "${!TITLES[@]}"; do
+    for script in "${ORDER[@]}"; do
         echo "✅ ${TITLES[$script]}"
     done
     echo -e "\n🎉 All steps completed successfully!"
 else
     FOUND_CURRENT=false
-    for script in "${!TITLES[@]}"; do
+    for script in "${ORDER[@]}"; do
         label="${TITLES[$script]}"
 
         if [ "$script" = "$CALLER_SCRIPT" ]; then

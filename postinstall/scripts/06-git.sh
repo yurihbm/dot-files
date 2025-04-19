@@ -2,7 +2,7 @@
 
 set -e
 
-source "$(dirname "$0")/scripts/helpers/status.sh"
+source ./scripts/helpers/status.sh
 
 echo -e "\nConfiguring git..."
 # Configure SSH key for GitHub

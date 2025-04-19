@@ -2,7 +2,7 @@
 
 set -e
 
-source "$(dirname "$0")/scripts/helpers/status.sh"
+source ./scripts/helpers/status.sh
 
 echo -e "\nInstalling whitesur-icon-theme-mod...\n"
 mkdir -p "$HOME/.icons"

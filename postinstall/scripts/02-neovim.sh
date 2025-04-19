@@ -2,7 +2,7 @@
 
 set -e
 
-source "$(dirname "$0")/scripts/helpers/status.sh"
+source ./scripts/helpers/status.sh
 
 echo -e "\nInstalling neovim...";
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
