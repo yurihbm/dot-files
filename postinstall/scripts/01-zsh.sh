@@ -2,7 +2,7 @@
 
 set -e
 
-echo -e "\n✅ Variables"
+echo "✅ Variables"
 
 echo -e "\nInstalling zsh..."
 sudo dnf install zsh -y
