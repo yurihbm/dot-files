@@ -22,7 +22,7 @@ sudo dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/
 sudo dnf install gh --repo gh-cli -y
 
 echo "$GH_TEMP_TOKEN" | gh auth login -p ssh --skip-ssh-key --with-token
-gh ssh-key add ~/.ssh/id_github_ed25519;
+gh ssh-key add ~/.ssh/id_github_ed25519.pub;
 
 gh extension install github/gh-copilot
 
