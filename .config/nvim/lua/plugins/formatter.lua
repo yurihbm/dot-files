@@ -24,6 +24,9 @@ return {
 				python = {
 					require("formatter.filetypes.python").ruff,
 				},
+				sh = {
+					require("formatter.filetypes.sh").shfmt,
+				},
 			},
 		})
 
