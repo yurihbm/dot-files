@@ -1,11 +1,16 @@
 # Environment variables
-export GOPATH="$HOME/.go"
+export LOCAL_DIR="$HOME/.local"
+export GO_LOCATION="$LOCAL_DIR/go"
+export GOPATH="$GO_LOCATION/workspace"
+export PYENV_ROOT="$LOCAL_DIR/pyenv"
+export DOCKER_HOST="unix:///run/user/1000/docker.sock"
 
 # Path configuration
-NVIM_BIN="/opt/nvim-linux64/bin"
-GO_BIN="/usr/local/go/bin:$GOPATH/bin"
-LUA_LSP_BIN="/usr/local/lua-lsp/bin"
-export PATH="$PATH:$NVIM_BIN:$GO_BIN:$GOPATH:$LUA_LSP_BIN"
+PYENV_BIN="$PYENV_ROOT/bin"
+EZA_BIN="$LOCAL_DIR/eza/bin"
+NVIM_BIN="$LOCAL_DIR/nvim-linux-x86_64/bin"
+GO_BIN="$GO_LOCATION/bin:$GOPATH/bin"
+export PATH="$PATH:$NVIM_BIN:$GO_BIN:$GOPATH:$PYENV_BIN:$EZA_BIN"
 
 # Path oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -37,16 +42,12 @@ export SPACESHIP_PROMPT_ORDER=(
 
 # ZSH plugins
 plugins=(
-   git 
-   zsh-syntax-highlighting 
+   git
+   zsh-syntax-highlighting
    zsh-autosuggestions
    docker
    tmux
 )
-
-ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_AUTOCONNECT=false
-ZSH_TMUX_AUTOQUIT=true
 
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -56,15 +57,20 @@ bindkey "\E[1~" beginning-of-line
 bindkey "\E[4~" end-of-line
 
 # Aliases
-alias zshconfig="nvim ~/.zshrc"
+alias zsh-config="nvim ~/.zshrc"
 alias gac="ga -A && gc"
 alias gacm="ga -A && gc -m"
 alias gaca="ga -A && gc --amend"
 alias gll="git pull --all"
 alias explorer="explorer.exe ."
 alias ls="eza --icons -T -L=1"
-alias python="python3"
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+alias docker-start="systemctl --user start docker"
+alias docker-stop="systemctl --user stop docker"
+alias docker-restart="systemctl --user restart docker"
+alias docker-status="systemctl --user status docker"
+alias ce="gh copilot explain"
+alias cs="gh copilot suggest"
 
 # Functions
 # Load environment variables from file
@@ -83,7 +89,7 @@ unset-env-file() {
 }
 
 # NVM
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$LOCAL_DIR/nvm"
 # This loads nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # This loads nvm bash_completion
@@ -113,6 +119,8 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+# Pyenv
+eval "$(pyenv init - zsh)"
 
 # Load SSH keys
 if [ -z "$SSH_AUTH_SOCK" ] ; then
