@@ -16,7 +16,7 @@ trap error_handler ERR
 
 # Checking superuser privileges
 if [ "$EUID" -ne 0 ]; then
-    echo "This script must be run as root. Attempting to elevate privileges..."
+    echo -e "This script must be run as root. Attempting to elevate privileges...\n"
     exec sudo "$0" "$@"
 fi
 
@@ -33,7 +33,7 @@ trap 'popd > /dev/null' EXIT
 # Load variables
 source ./scripts/00-vars.sh
 
-echo "\nStarting post-installation setup...\n"
+echo -e "\nStarting post-installation setup...\n"
 
 # Execute each script in order
 ./scripts/01-zsh.sh
@@ -48,19 +48,19 @@ echo "\nStarting post-installation setup...\n"
 ./scripts/10-gnome_extensions.sh
 ./scripts/11-icons.sh
 
-echo "\n✅ Variables"
-echo "\n✅ ZSH"
-echo "\n✅ Neovim"
-echo "\n✅ NVM and Node"
-echo "\n✅ Pyenv"
-echo "\n✅ Go"
-echo "\n✅ Git"
-echo "\n✅ GitHub CLI"
-echo "\n✅ GPG (GitHub)"
-echo "\n✅ Docker"
-echo "\n✅ Gnome Extensions"
+echo "✅ Variables"
+echo "✅ ZSH"
+echo "✅ Neovim"
+echo "✅ NVM and Node"
+echo "✅ Pyenv"
+echo "✅ Go"
+echo "✅ Git"
+echo "✅ GitHub CLI"
+echo "✅ GPG (GitHub)"
+echo "✅ Docker"
+echo "✅ Gnome Extensions"
 
-echo "\nPost-installation setup completed successfully.\n"
+echo -e "\nPost-installation setup completed successfully.\n"
 
 # Delete log file if everything succeeded
 rm -f "$LOG_FILE"

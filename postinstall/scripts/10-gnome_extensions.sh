@@ -2,23 +2,23 @@
 
 set -e
 
-echo "\n✅ Variables"
-echo "\n✅ ZSH"
-echo "\n✅ Neovim"
-echo "\n✅ NVM and Node"
-echo "\n✅ Pyenv"
-echo "\n✅ Go"
-echo "\n✅ Git"
-echo "\n✅ GitHub CLI"
-echo "\n✅ GPG (GitHub)"
-echo "\n✅ Docker"
+echo "✅ Variables"
+echo "✅ ZSH"
+echo "✅ Neovim"
+echo "✅ NVM and Node"
+echo "✅ Pyenv"
+echo "✅ Go"
+echo "✅ Git"
+echo "✅ GitHub CLI"
+echo "✅ GPG (GitHub)"
+echo "✅ Docker"
 
-echo "\nInstalling Gnome extensions..."
+echo -e "\nInstalling Gnome extensions..."
 
 # Check if necessary commands are available
 for cmd in curl jq wget gnome-extensions; do
     if ! command -v "$cmd" &> /dev/null; then
-        echo "Error: $cmd is not installed. Please install it and try again."
+        echo -e "\nError: $cmd is not installed. Please install it and try again."
         exit 1
     fi
 done
@@ -44,18 +44,18 @@ trap 'rm -rf "$TEMP_DIR"' EXIT
 for i in "${array[@]}"; do
     EXTENSION_ID=$(curl -s "$i" | grep -oP 'data-uuid="\K[^"]+')
     if [ -z "$EXTENSION_ID" ]; then
-        echo "Error: Failed to fetch extension ID from $i. Skipping..."
+        echo -e "\nError: Failed to fetch extension ID from $i. Skipping..."
         continue
     fi
 
     if gnome-extensions list | grep --quiet "$EXTENSION_ID"; then
-        echo "Extension $EXTENSION_ID is already installed. Skipping..."
+        echo -e "\nExtension $EXTENSION_ID is already installed. Skipping..."
         continue
     fi
 
-    VERSION_TAG=$(curl -Lfs "https://extensions.gnome.org/extension-query/?search=$EXTENSION_ID" | jq '.extensions[0] | .shell_version_map | map(.pk) | max' || echo "")
+    VERSION_TAG=$(curl -Lfs "https://extensions.gnome.org/extension-query/?search=$EXTENSION_ID" | jq '.extensions[0] | .shell_version_map | map(.pk) | max' || echo -e "")
     if [ -z "$VERSION_TAG" ]; then
-        echo "Error: Failed to fetch version tag for $EXTENSION_ID. Skipping..."
+        echo -e "\nError: Failed to fetch version tag for $EXTENSION_ID. Skipping..."
         continue
     fi
 
@@ -67,7 +67,7 @@ for i in "${array[@]}"; do
     gnome-extensions enable "$EXTENSION_ID"
 done
 
-echo "Gnome extensions installed."
+echo -e "\nGnome extensions installed."
 
 clear
 
