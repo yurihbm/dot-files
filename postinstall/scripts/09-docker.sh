@@ -11,7 +11,7 @@ if command -v docker >/dev/null 2>&1; then
     return 0
 fi
 
-sudo dnf config-manager addrepo --from-file=https://download.docker.com/linux/fedora/docker.repo
+sudo dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker.repo
 sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin fuse-overlayfs -y
 
 if ! command -v dockerd-rootless-setuptool.sh &> /dev/null; then
