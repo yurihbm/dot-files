@@ -7,8 +7,8 @@ source ./scripts/helpers/status.sh
 echo -e "\nAdding GPG key to GitHub..."
 
 if gpg --list-keys --with-colons "$GIT_EMAIL" >/dev/null 2>&1; then
-    echo -e "\nA GPG key for $GIT_EMAIL already exists. Skipping..."
-    return 0
+   echo -e "\nA GPG key for $GIT_EMAIL already exists. Skipping..."
+   return 0
 fi
 
 # Generate unique temporary file for key parameters
@@ -37,7 +37,7 @@ gpg --batch --generate-key "$TEMP_KEYPARAMS"
 
 # Export the GPG key
 KEY_ID=$(gpg --list-keys --with-colons "$GIT_EMAIL" | grep '^pub' | cut -d: -f5)
-gpg --armor --export "$KEY_ID" > gpgkey.asc
+gpg --armor --export "$KEY_ID" >gpgkey.asc
 
 # Add the GPG key to GitHub
 gh gpg-key add gpgkey.asc -t "$GPG_KEY_TITLE"
@@ -45,4 +45,3 @@ gh gpg-key add gpgkey.asc -t "$GPG_KEY_TITLE"
 echo -e "\nGPG key added to GitHub. You can now use it for signing commits."
 
 clear
-
