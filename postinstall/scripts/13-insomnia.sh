@@ -13,7 +13,6 @@ fi
 
 trap 'rm -rf *.rpm' EXIT
 
-echo "Installing Insomnia..."
 INSOMNIA_URL=$(curl -s https://api.github.com/repos/Kong/insomnia/releases/latest |
    grep "browser_download_url" |
    grep ".rpm" |

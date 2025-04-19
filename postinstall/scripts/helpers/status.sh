@@ -21,6 +21,7 @@ declare -A TITLES=(
    ["14-eza.sh"]="Eza"
    ["15-solaar.sh"]="Solaar"
    ["16-update.sh"]="Update"
+   ["17-config.sh"]="Configuration"
 )
 
 # Order of scripts to ensure consistent output.
@@ -41,6 +42,7 @@ ORDER=(
    "14-eza.sh"
    "15-solaar.sh"
    "16-update.sh"
+   "17-config.sh"
 )
 
 echo -e "🔧 Post-installation progress:\n"
@@ -58,13 +60,12 @@ else
       label="${TITLES[$script]}"
 
       if [ "$script" = "$CALLER_SCRIPT" ]; then
-          echo "⌛ $label"
-          FOUND_CURRENT=true
+         echo "⌛ $label"
+         FOUND_CURRENT=true
       elif [ "$FOUND_CURRENT" = false ]; then
-          echo "✅ $label"
+         echo "✅ $label"
       else
-          echo "⬜ $label"
+         echo "⬜ $label"
       fi
    done
 fi
-
