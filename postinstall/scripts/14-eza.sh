@@ -6,6 +6,11 @@ source ./scripts/helpers/status.sh
 
 echo -e "\nInstalling eza...\n"
 
+if command -v eza >/dev/null 2>&1; then
+    echo "eza is already installed. Skipping..."
+    exit 0
+fi
+
 trap 'rm -rf *.tar.gz' EXIT
 
 echo "Installing eza..."

@@ -4,7 +4,12 @@ set -e
 
 source ./scripts/helpers/status.sh
 
-echo -e "\nInstalling Insomnia...\n"
+echo -e "\nInstalling Insomnia..."
+
+if command -v insomnia >/dev/null 2>&1; then
+    echo "Insomnia is already installed. Skipping..."
+    exit 0
+fi
 
 trap 'rm -rf *.rpm' EXIT
 

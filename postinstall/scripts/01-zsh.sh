@@ -9,6 +9,12 @@ sudo dnf install zsh -y
 echo -e "\nzsh installed."
 
 echo -e "\nInstalling oh-my-zsh..."
+
+if [ -d "$ZSH" ]; then
+   echo "oh-my-zsh is already installed. Exiting."
+   exit 0
+fi
+
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 echo -e "\noh-my-zsh installed."
 

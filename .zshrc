@@ -4,6 +4,8 @@ export GO_LOCATION="$LOCAL_DIR/go"
 export GOPATH="$GO_LOCATION/workspace"
 export PYENV_ROOT="$LOCAL_DIR/pyenv"
 export DOCKER_HOST="unix:///run/user/1000/docker.sock"
+export ZSH="$LOCAL_DIR/oh-my-zsh"
+export ZSH_CUSTOM="$ZSH/custom"
 
 # Path configuration
 PYENV_BIN="$PYENV_ROOT/bin"

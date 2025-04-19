@@ -8,6 +8,11 @@ trap 'unset GH_TEMP_TOKEN' EXIT
 
 echo -e "\nInstalling github-cli..."
 
+if gh auth status >/dev/null 2>&1; then
+    echo -e "\nGitHub CLI is already authenticated. Skipping..."
+    exit 0
+fi
+
 if [[ -z "$GH_TEMP_TOKEN" ]]; then
 echo -e "\nError: GH_TEMP_TOKEN not defined. Please set it in your environment."
   exit 1
