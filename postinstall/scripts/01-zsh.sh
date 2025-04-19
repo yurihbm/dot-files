@@ -13,15 +13,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo -e "\noh-my-zsh installed."
 
 echo -e "\nBacking up .zshrc file..."
-cp ~/.zshrc ~/.zshrc.bak
+cp "$HOME/.zshrc" "$HOME/.zshrc.bak"
 echo -e "\nBack up complete."
 
 echo -e "\nSetting zsh as default shell..."
-sudo chsh -s $(which zsh) $USER
+sudo chsh -s $(which zsh) "$USER"
 echo -e "Done."
 
 echo -e "\nCopying new .zshrc file..."
-cp ../.zshrc ~/.zshrc
+cp "../.zshrc" "$HOME/.zshrc"
 echo -e "\nDone."
 
 echo -e "\nInstalling plugins (zsh-autosuggestions and zsh-syntax-highlight)..."
