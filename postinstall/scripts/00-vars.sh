@@ -1,3 +1,5 @@
+clear
+
 echo "Getting necessary variables..."
 
 # Local dir for installation of tools.
@@ -6,6 +8,8 @@ mkdir -p "$LOCAL_DIR"
 
 GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1 | sed 's/go//')
 NVM_VERSION=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+
+clear
 
 read -p $'Enter your GitHub personal access token (for gh-cli authentication): ' -r GH_TEMP_TOKEN
 clear
