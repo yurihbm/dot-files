@@ -2,7 +2,7 @@
 
 set -e
 
-echo "✅ Variables"
+source "$(dirname "$0")/scripts/helpers/status.sh"
 
 echo -e "\nInstalling zsh..."
 sudo dnf install zsh -y

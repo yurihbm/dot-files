@@ -2,11 +2,11 @@
 
 set -e
 
-# Log file setup
+# Log file setup.
 LOG_FILE="postinstall.log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
-# Function to handle errors
+# Function to handle errors.
 error_handler() {
    echo "❌ An error occurred during the post-installation setup."
    echo "Please check the log file at: $LOG_FILE for more details."
@@ -14,18 +14,18 @@ error_handler() {
 trap error_handler ERR
 
 
-# Ask for sudo upfront and cache it
+# Ask for sudo upfront and cache it.
 if ! sudo -v; then
    echo "This script requires sudo privileges to run. Exiting."
    exit 1
 fi
 
-# Keep sudo session alive while script runs
-# This runs in background and will keep the sudo session alive
+# Keep sudo session alive while script runs.
+# This runs in background and will keep the sudo session alive.
 ( while true; do sudo -v; sleep 60; done ) &
 SUDO_KEEPALIVE_PID=$!
 
-# Checking if the script is run from its own directory
+# Checking if the script is run from its own directory.
 PUSHED=false
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 if [ "$PWD" != "$SCRIPT_DIR" ]; then
@@ -34,8 +34,7 @@ if [ "$PWD" != "$SCRIPT_DIR" ]; then
    PUSHED=true
 fi
 
-# Function to clean up the background sudo process and return to the original
-# directory
+# Function to clean up sudo cache and pop directory.
 cleanup() {
    if [ -n "$SUDO_KEEPALIVE_PID" ]; then
       kill "$SUDO_KEEPALIVE_PID" 2>/dev/null
@@ -46,40 +45,30 @@ cleanup() {
    fi
 }
 
-# Ensure to return to the original directory
+# Call cleanup on exit.
 trap cleanup EXIT
 
-# Load variables
+# Load variables.
 source ./scripts/00-vars.sh
 
 echo -e "\nStarting post-installation setup...\n"
 
-# Execute each script in order
-./scripts/01-zsh.sh
-./scripts/02-neovim.sh
-./scripts/03-nvm_node.sh
-./scripts/04-pyenv.sh
-./scripts/05-go.sh
-./scripts/06-git.sh
-./scripts/07-gh_cli.sh
-./scripts/08-gpg.sh
-./scripts/09-docker.sh
-./scripts/10-gnome_extensions.sh
-./scripts/11-icons.sh
+# Execute each script in order.
+source ./scripts/01-zsh.sh
+source ./scripts/02-neovim.sh
+source ./scripts/03-nvm_node.sh
+source ./scripts/04-pyenv.sh
+source ./scripts/05-go.sh
+source ./scripts/06-git.sh
+source ./scripts/07-gh_cli.sh
+source ./scripts/08-gpg.sh
+source ./scripts/09-docker.sh
+source ./scripts/10-gnome_extensions.sh
+source ./scripts/11-icons.sh
 
-echo -e "\n✅ Post-installation steps completed:"
-printf " - %-25s %s\n" "Variables" "✅"
-printf " - %-25s %s\n" "ZSH" "✅"
-printf " - %-25s %s\n" "Neovim" "✅"
-printf " - %-25s %s\n" "NVM and Node" "✅"
-printf " - %-25s %s\n" "Pyenv" "✅"
-printf " - %-25s %s\n" "Go" "✅"
-printf " - %-25s %s\n" "Git" "✅"
-printf " - %-25s %s\n" "GitHub CLI" "✅"
-printf " - %-25s %s\n" "GPG (GitHub)" "✅"
-printf " - %-25s %s\n" "Docker" "✅"
-printf " - %-25s %s\n" "Gnome Extensions" "✅"
+# Print final status.
+source "./scripts/helpers/status.sh"
 
-# Delete log file if everything succeeded
+# Delete log file if everything succeeded.
 rm -f "$LOG_FILE"
 
