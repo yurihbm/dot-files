@@ -10,7 +10,7 @@ echo -e "\nInstalling github-cli..."
 
 if gh auth status >/dev/null 2>&1; then
     echo -e "\nGitHub CLI is already authenticated. Skipping..."
-    exit 0
+    return 0
 fi
 
 if [[ -z "$GH_TEMP_TOKEN" ]]; then

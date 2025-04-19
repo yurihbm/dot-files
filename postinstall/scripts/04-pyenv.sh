@@ -8,7 +8,7 @@ echo -e "\nInstalling pyenv..."
 
 if command -v pyenv >/dev/null 2>&1; then
     echo -e "\npyenv is already installed. Skipping..."
-    exit 0
+    return 0
 fi
 
 mkdir -p "$HOME/.local/bin"

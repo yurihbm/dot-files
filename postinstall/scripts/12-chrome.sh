@@ -8,7 +8,7 @@ echo -e "\nInstalling Google Chrome..."
 
 if command -v google-chrome >/dev/null 2>&1; then
     echo "Google Chrome is already installed. Skipping..."
-    exit 0
+    return 0
 fi
 
 trap 'rm -rf *.rpm' EXIT
