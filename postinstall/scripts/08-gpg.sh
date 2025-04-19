@@ -6,6 +6,11 @@ source ./scripts/helpers/status.sh
 
 echo -e "\nAdding GPG key to GitHub..."
 
+if gpg --list-keys --with-colons "$GIT_EMAIL" >/dev/null 2>&1; then
+    echo -e "\nA GPG key for $GIT_EMAIL already exists. Skipping..."
+    exit 0
+fi
+
 # Generate unique temporary file for key parameters
 TEMP_KEYPARAMS=$(mktemp)
 
