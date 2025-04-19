@@ -53,18 +53,32 @@ source ./scripts/00-vars.sh
 
 echo -e "\nStarting post-installation setup...\n"
 
-# Execute each script in order.
-source ./scripts/01-zsh.sh
-source ./scripts/02-neovim.sh
-source ./scripts/03-nvm_node.sh
-source ./scripts/04-pyenv.sh
-source ./scripts/05-go.sh
-source ./scripts/06-git.sh
-source ./scripts/07-gh_cli.sh
-source ./scripts/08-gpg.sh
-source ./scripts/09-docker.sh
-source ./scripts/10-gnome_extensions.sh
-source ./scripts/11-icons.sh
+scripts=(
+   "./scripts/01-zsh.sh"
+   "./scripts/02-neovim.sh"
+   "./scripts/03-nvm_node.sh"
+   "./scripts/04-pyenv.sh"
+   "./scripts/05-go.sh"
+   "./scripts/06-git.sh"
+   "./scripts/07-gh_cli.sh"
+   "./scripts/08-gpg.sh"
+   "./scripts/09-docker.sh"
+   "./scripts/10-gnome_extensions.sh"
+   "./scripts/11-icons.sh"
+   "./scripts/12-chrome.sh"
+   "./scripts/13-insomnia.sh"
+   "./scripts/14-eza.sh"
+   "./scripts/15-solaar.sh"
+   "./scripts/16-update.sh"
+)
+
+# Run each script in the array.
+for script in "${scripts[@]}"; do
+   echo "Running $script..."
+   if ! source "$script"; then
+      echo "⚠️  $script failed with exit code $?. Continuing..."
+   fi
+done
 
 # Print final status.
 source "./scripts/helpers/status.sh"
