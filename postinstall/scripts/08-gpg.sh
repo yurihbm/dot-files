@@ -2,14 +2,7 @@
 
 set -e
 
-echo "✅ Variables"
-echo "✅ ZSH"
-echo "✅ Neovim"
-echo "✅ NVM and Node"
-echo "✅ Pyenv"
-echo "✅ Go"
-echo "✅ Git"
-echo "✅ GitHub CLI"
+source "$(dirname "$0")/scripts/helpers/status.sh"
 
 echo -e "\nAdding GPG key to GitHub..."
 
