@@ -12,7 +12,7 @@ echo -e "\nInstalling oh-my-zsh..."
 
 if [ -d "$ZSH" ]; then
    echo "oh-my-zsh is already installed. Exiting."
-   returnf0
+   return 0
 fi
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
