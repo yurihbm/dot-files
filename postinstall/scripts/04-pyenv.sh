@@ -2,14 +2,15 @@
 
 set -e
 
-echo "\n✅ Variables"
-echo "\n✅ ZSH"
-echo "\n✅ Neovim"
-echo "\n✅ NVM and Node"
+echo "✅ Variables"
+echo "✅ ZSH"
+echo "✅ Neovim"
+echo "✅ NVM and Node"
 
-echo "\nInstalling pyenv..."
+echo -e "\nInstalling pyenv..."
 curl -fsSL https://pyenv.run | bash
-echo "pyenv installed."
+
+echo -e "\npyenv installed."
 
 clear
 

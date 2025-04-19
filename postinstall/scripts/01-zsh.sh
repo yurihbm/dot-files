@@ -2,39 +2,39 @@
 
 set -e
 
-echo "\n✅ Variables"
+echo -e "\n✅ Variables"
 
-echo "\nInstalling zsh..."
+echo -e "\nInstalling zsh..."
 sudo dnf install zsh -y
-echo "zsh installed."
+echo -e "\nzsh installed."
 
-echo "\nInstalling oh-my-zsh..."
+echo -e "\nInstalling oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-echo "oh-my-zsh installed."
+echo -e "\noh-my-zsh installed."
 
-echo "\nBacking up .zshrc file..."
+echo -e "\nBacking up .zshrc file..."
 cp ~/.zshrc ~/.zshrc.bak
-echo "Back up complete."
+echo -e "\nBack up complete."
 
-echo "\nSetting zsh as default shell..."
+echo -e "\nSetting zsh as default shell..."
 chsh -s $(which zsh)
-echo "Done."
+echo -e "Done."
 
-echo "\nCopying new .zshrc file..."
+echo -e "\nCopying new .zshrc file..."
 cp ../.zshrc ~/.zshrc
-echo "Done."
+echo -e "\nDone."
 
-echo "\nInstalling plugins (zsh-autosuggestions and zsh-syntax-highlight)..."
+echo -e "\nInstalling plugins (zsh-autosuggestions and zsh-syntax-highlight)..."
 ZSH_CUSTOM="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"
 [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ] && git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-echo "Plugins installed."
+echo -e "\nPlugins installed."
 
-echo "\nInstalling theme (spaceship)..."
+echo -e "\nInstalling theme (spaceship)..."
 [ ! -f "$ZSH_CUSTOM/themes/spaceship.zsh-theme" ] && \
   git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1 && \
   ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-echo "Theme installed."
+echo -e "\nTheme installed."
 
 clear
 
