@@ -6,6 +6,11 @@ source ./scripts/helpers/status.sh
 
 echo -e "\nInstalling solaar..."
 
+if command -v solaar >/dev/null 2>&1; then
+    echo "Solaar is already installed. Skipping..."
+    exit 0
+fi
+
 sudo dnf install solaar libX11-devel -y
 
 wget https://raw.githubusercontent.com/pwr-Solaar/Solaar/master/rules.d-uinput/42-logitech-unify-permissions.rules

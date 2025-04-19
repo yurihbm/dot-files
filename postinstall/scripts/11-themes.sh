@@ -23,14 +23,24 @@ else
     exit 1
 fi
 
-# Set theme to whitesur.
-gsettings set org.gnome.desktop.interface icon-theme "whitesur-mod"
+# Set theme to whitesur if not already set.
+CURRENT_ICON_THEME=$(gsettings get org.gnome.desktop.interface icon-theme)
+if [ "$CURRENT_ICON_THEME" != "'whitesur-mod'" ]; then
+    gsettings set org.gnome.desktop.interface icon-theme "whitesur-mod"
+else
+    echo "Icon theme is already set to whitesur-mod. Skipping..."
+fi
 
-# Legacy theme for gtk3 apps.
+# Install adw-gtk3-theme for legacy apps.
 sudo dnf install adw-gtk3-theme -y
 
-# Set theme for legacy apps.
-gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
+# Set theme for legacy apps if not already set.
+CURRENT_GTK_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme)
+if [ "$CURRENT_GTK_THEME" != "'adw-gtk3-dark'" ]; then
+    gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
+else
+    echo "GTK theme is already set to adw-gtk3-dark. Skipping..."
+fi
 
 clear
 

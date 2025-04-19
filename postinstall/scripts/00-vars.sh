@@ -68,6 +68,8 @@ clear
 
 # Local dir for installation of tools.
 export LOCAL_DIR="$HOME/.local"
+export ZSH="$LOCAL_DIR/oh-my-zsh"
+export ZSH_CUSTOM="$ZSH/custom"
 export NVM_DIR="$LOCAL_DIR/nvm"
 export PYENV_ROOT="$LOCAL_DIR/pyenv"
 export GO_VERSION
