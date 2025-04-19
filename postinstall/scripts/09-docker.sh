@@ -8,7 +8,7 @@ echo -e "\nInstalling Docker Engine and setting up rootless mode..."
 
 if command -v docker >/dev/null 2>&1; then
     echo -e "\nDocker is already installed. Skipping..."
-    exit 0
+    return 0
 fi
 
 sudo dnf config-manager addrepo --from-file=https://download.docker.com/linux/fedora/docker.repo
