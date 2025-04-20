@@ -14,9 +14,6 @@ fi
 # Generate unique temporary file for key parameters
 TEMP_KEYPARAMS=$(mktemp)
 
-# Trap to remove the temporary files on exit
-trap 'rm -f "$TEMP_KEYPARAMS" gpgkey.asc' EXIT
-
 # Creating a GPG key for GitHub.
 cat >"$TEMP_KEYPARAMS" <<EOF
 %echo -e Generating an ECC GPG key
@@ -43,5 +40,7 @@ gpg --armor --export "$KEY_ID" >gpgkey.asc
 gh gpg-key add gpgkey.asc -t "$GPG_KEY_TITLE"
 
 echo -e "\nGPG key added to GitHub. You can now use it for signing commits."
+
+rm -f "$TEMP_KEYPARAMS" gpgkey.asc
 
 clear
