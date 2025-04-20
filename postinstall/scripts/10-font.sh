@@ -16,7 +16,7 @@ mkdir -p "$FONT_DIR"
 
 # Download and extract the font
 curl -L "$FONT_URL" -o "$TEMP_DIR/JetBrainsMono.zip"
-unzip -o "$TEMP_DIR/JetBrainsMono.zip" -d "$FONT_DIR"
+unzip -o "$TEMP_DIR/JetBrainsMono.zip" "*.ttf" "*.otf" -d "$FONT_DIR/jetbrains-mono"
 
 # Refresh font cache
 fc-cache -fv "$FONT_DIR"
