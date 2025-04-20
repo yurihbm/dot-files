@@ -4,8 +4,6 @@ set -e
 
 source ./scripts/helpers/status.sh
 
-trap 'rm -rf *.tar.gz' EXIT
-
 echo -e "\nInstalling neovim..."
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 [ -d "$LOCAL_DIR/nvim-*" ] && sudo rm -rf "$LOCAL_DIR/nvim-*"
@@ -20,5 +18,7 @@ echo -e "\nCopying neovim config..."
 mkdir -p ~/.config
 cp "../.config/nvim" "$HOME/.config/nvim" -r
 echo -e "\nConfiguration copied."
+
+rm -rf nvim-linux-x86_64.tar.gz
 
 clear

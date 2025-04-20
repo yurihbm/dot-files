@@ -11,8 +11,6 @@ if command -v eza >/dev/null 2>&1; then
    return 0
 fi
 
-trap 'rm -rf *.tar.gz' EXIT
-
 EZA_URL=$(
    curl -s https://api.github.com/repos/eza-community/eza/releases/latest |
       grep "browser_download_url" |
@@ -23,5 +21,7 @@ EZA_TAR=$(basename "$EZA_URL")
 mkdir -p "$LOCAL_DIR/eza/bin"
 wget "$EZA_URL"
 tar -xzf "$EZA_TAR" -C "$LOCAL_DIR/eza/bin"
+
+rm -rf "$EZA_TAR"
 
 clear

@@ -4,8 +4,6 @@ set -e
 
 source ./scripts/helpers/status.sh
 
-trap 'unset GH_TEMP_TOKEN' EXIT
-
 echo -e "\nInstalling github-cli..."
 
 if gh auth status >/dev/null 2>&1; then
@@ -22,6 +20,8 @@ sudo dnf config-manager addrepo --from-repofile=https://cli.github.com/packages/
 sudo dnf install gh --repo gh-cli -y -q
 
 echo "$GH_TEMP_TOKEN" | gh auth login -p ssh --skip-ssh-key --with-token
+unset GH_TEMP_TOKEN
+
 gh ssh-key add ~/.ssh/id_github_ed25519.pub
 
 gh extension install github/gh-copilot

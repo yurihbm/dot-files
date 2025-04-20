@@ -11,8 +11,6 @@ if command -v insomnia >/dev/null 2>&1; then
    return 0
 fi
 
-trap 'rm -rf *.rpm' EXIT
-
 INSOMNIA_URL=$(curl -s https://api.github.com/repos/Kong/insomnia/releases/latest |
    grep "browser_download_url" |
    grep ".rpm" |
@@ -20,5 +18,7 @@ INSOMNIA_URL=$(curl -s https://api.github.com/repos/Kong/insomnia/releases/lates
 INSOMNIA_PACKAGE=$(basename "$INSOMNIA_URL")
 wget "$INSOMNIA_URL"
 sudo dnf install "$INSOMNIA_PACKAGE" -y -q
+
+rm -rf "$INSOMNIA_PACKAGE"
 
 clear

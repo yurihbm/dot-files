@@ -11,9 +11,10 @@ if command -v google-chrome >/dev/null 2>&1; then
    return 0
 fi
 
-trap 'rm -rf *.rpm' EXIT
-
+CHROME_FILE="google-chrome-stable_current_x86_64.rpm"
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-sudo dnf install ./google-chrome-stable_current_x86_64.rpm -y -q
+sudo dnf install "$CHROME_FILE" -y -q
+
+rm -rf "$CHROME_FILE"
 
 clear
