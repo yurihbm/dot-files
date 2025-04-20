@@ -10,7 +10,8 @@ mkdir -p "$HOME/.icons"
 if [ -d "$HOME/.icons/whitesur-icon-theme-mod" ]; then
    echo "Repository already cloned. Skipping..."
 else
-   git clone git@github.com:yurihbm/whitesur-icon-theme-mod.git "$HOME/.icons/whitesur-icon-theme-mod"
+   # Pipe "yes" to git clone to automatically answer "yes" to add the host key.
+   yes "yes" | git clone git@github.com:yurihbm/whitesur-icon-theme-mod.git "$HOME/.icons/whitesur-icon-theme-mod"
 fi
 
 # Run the install script.
