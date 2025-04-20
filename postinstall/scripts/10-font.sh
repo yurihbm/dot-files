@@ -8,7 +8,7 @@ echo -e "\nInstalling JetBrains Mono Nerd Font..."
 
 # Download the font from Nerd Fonts GitHub releases
 FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"
-FONT_DIR="$HOME/.local/share/fonts"
+FONT_DIR="$LOCAL_DIR/share/fonts"
 TEMP_DIR=$(mktemp -d)
 
 # Create font directory if it doesn't exist
@@ -19,7 +19,7 @@ curl -L "$FONT_URL" -o "$TEMP_DIR/JetBrainsMono.zip"
 unzip -o "$TEMP_DIR/JetBrainsMono.zip" -d "$FONT_DIR"
 
 # Refresh font cache
-fc-cache -fv
+fc-cache -fv "$FONT_DIR"
 
 # Set the font in GNOME Terminal
 gsettings set org.gnome.Ptyxis use-system-font false
