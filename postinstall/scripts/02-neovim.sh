@@ -6,8 +6,8 @@ source ./scripts/helpers/status.sh
 
 echo -e "\nInstalling neovim..."
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-[ -d "$LOCAL_DIR/nvim-*" ] && sudo rm -rf "$LOCAL_DIR/nvim-*"
-sudo tar -C "$LOCAL_DIR" -xzf nvim-linux-x86_64.tar.gz
+[ -d "$LOCAL_DIR/nvim-*" ] && rm -rf "$LOCAL_DIR/nvim-*"
+tar -C "$LOCAL_DIR" -xzf nvim-linux-x86_64.tar.gz
 echo -e "\nneovim installed."
 
 echo -e "\nInstalling neovim packages dependencies..."
