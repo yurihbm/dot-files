@@ -11,8 +11,6 @@ if command -v pyenv >/dev/null 2>&1; then
    return 0
 fi
 
-mkdir -p "$LOCAL_DIR/pyenv"
-
 curl -fsSL https://pyenv.run | bash
 
 echo -e "\npyenv installed."
