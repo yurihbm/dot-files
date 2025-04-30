@@ -4,14 +4,8 @@ return {
 		opts = {
 			ui = {
 				icons = {
-					---@since 1.0.0
-					-- The list icon to use for installed packages.
 					package_installed = "",
-					---@since 1.0.0
-					-- The list icon to use for packages that are installing, or queued for installation.
 					package_pending = "󰦗",
-					---@since 1.0.0
-					-- The list icon to use for packages that are not installed.
 					package_uninstalled = "",
 				},
 			},
@@ -37,7 +31,8 @@ return {
 
 			require("mason-lspconfig").setup_handlers({
 				function(server_name)
-					-- ts_ls (typescript-language-server) setup is handled by the typescript-tools plugin
+					-- ts_ls (typescript-language-server) setup is handled by the
+					-- typescript-tools plugin.
 					if server_name == "ts_ls" then
 						return
 					end
@@ -46,11 +41,20 @@ return {
 				["eslint"] = function()
 					lspconfig.eslint.setup({
 						on_attach = function(_, bufnr)
+							-- Fix eslint problems on write.
 							vim.api.nvim_create_autocmd("BufWritePre", {
 								buffer = bufnr,
 								command = "EslintFixAll",
 							})
 						end,
+						settings = (function()
+							local yarn_sdks_path = vim.fn.getcwd() .. "/.yarn/sdks"
+							if vim.fn.isdirectory(yarn_sdks_path) == 1 then
+								return { nodePath = yarn_sdks_path }
+							else
+								return {}
+							end
+						end)(),
 					})
 				end,
 				["lua_ls"] = function()
@@ -58,7 +62,6 @@ return {
 						settings = {
 							Lua = {
 								diagnostics = {
-									-- Get the language server to recognize the `vim` global
 									globals = { "vim" },
 								},
 							},
@@ -80,14 +83,5 @@ return {
 				},
 			},
 		},
-	},
-	{
-		"antosha417/nvim-lsp-file-operations",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		config = function()
-			require("lsp-file-operations").setup()
-		end,
 	},
 }

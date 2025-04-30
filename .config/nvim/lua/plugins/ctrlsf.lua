@@ -1,3 +1,0 @@
-return {
-	"dyng/ctrlsf.vim",
-}

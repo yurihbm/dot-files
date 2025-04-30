@@ -1,51 +1,53 @@
--- Highlight current line
+-- Highlight current line.
 vim.opt.cursorline = true
 
--- Add line numbers
+-- Add line numbers.
 vim.wo.number = true
 vim.wo.relativenumber = true
 
--- Disable netrw
+-- Disable netrw.
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Folding configuration
-vim.wo.foldmethod = "indent"
-vim.wo.foldenable = false
+-- Set default split directions.
+vim.opt.splitright = true -- Vertical splits open on the left.
+vim.opt.splitbelow = true -- Horizontal splits open at the bottom.
 
--- Set default split directions
-vim.opt.splitright = true -- Vertical splits open on the left
-vim.opt.splitbelow = true -- Horizontal splits open at the bottom
-
--- Remove line numbers on TermOpen and add again on TermClose
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-augroup("__term__", { clear = true })
-autocmd("TermOpen", {
-	group = "__term__",
-	command = "setlocal nonumber norelativenumber",
+-- Change directory to the first argument if passed.
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		local args = vim.fn.argv()
+		if type(args) == "string" then
+			args = { args }
+		end
+		for _, arg in ipairs(args) do
+			if vim.fn.isdirectory(arg) == 1 then
+				vim.cmd.cd(arg)
+				break
+			end
+		end
+	end,
 })
-autocmd("TermClose", {
-	group = "__term__",
-	command = "setlocal number relativenumber",
-})
 
--- Change tab size
+-- Set border for floating windows.
+vim.o.winborder = "rounded"
+
+-- Change tab size.
 vim.opt.tabstop = 3
 vim.opt.softtabstop = 3
 vim.opt.shiftwidth = 3
 vim.opt.expandtab = true
 
--- Change line offset
+-- Change line offset.
 vim.opt.scrolloff = 4
 
--- Set autoread on
+-- Set autoread on.
 vim.opt.autoread = true
 
--- Remove mouse warning in popup menu
+-- Remove mouse warning in popup menu.
 vim.api.nvim_command([[aunmenu PopUp.How-to\ disable\ mouse]])
 vim.api.nvim_command([[aunmenu PopUp.-1-]])
 
--- Set leader key
+-- Set leader key.
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

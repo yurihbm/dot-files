@@ -1,7 +1,6 @@
 return {
 	"mhartington/formatter.nvim",
 	config = function()
-		-- Config formatters per filetype using built in configs from formatter plugin
 		require("formatter").setup({
 			logging = true,
 			log_level = vim.log.levels.WARN,
@@ -30,7 +29,6 @@ return {
 			},
 		})
 
-		-- Format code on write (:w)
 		local augroup = vim.api.nvim_create_augroup
 		local autocmd = vim.api.nvim_create_autocmd
 		augroup("__formatter__", { clear = true })
