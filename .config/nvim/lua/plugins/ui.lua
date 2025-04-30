@@ -1,27 +1,132 @@
+---@module 'snacks'
+
 return {
 	{
-		"stevearc/dressing.nvim",
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		---@type snacks.Config
 		opts = {
-			input = {
-				enabled = false,
+			bigfile = { enabled = true },
+			dashboard = { enabled = true },
+			indent = {
+				enabled = true,
+				indent = { char = "▏" },
+				scope = { char = "▏" },
+				chunk = { char = "▏" },
 			},
+			input = { enabled = true },
+			notifier = { enable = true },
+			picker = {
+				enabled = true,
+				sources = {
+					explorer = {
+						auto_close = true,
+						layout = {
+							cycle = true,
+							layout = {
+								box = "vertical",
+								border = "rounded",
+								backdrop = 100,
+								width = 0.50,
+								height = 0.60,
+								min_width = 0.40,
+								title = "{title} {live} {flags}",
+								{
+									win = "input",
+									height = 1,
+									border = "bottom",
+								},
+								{ win = "list" },
+							},
+						},
+					},
+				},
+				layout = {
+					layout = {
+						backdrop = 100,
+					},
+				},
+			},
+			quickfile = { enabled = true },
+			statuscolumn = { enabled = true },
+			words = { enabled = true },
+		},
+		keys = {
+			-- File navigation and search.
+			{
+				"<leader>fb",
+				function()
+					Snacks.picker.buffers()
+				end,
+				desc = "Buffers",
+			},
+			{
+				"<leader>fg",
+				function()
+					Snacks.picker.grep()
+				end,
+				desc = "Grep",
+			},
+			{
+				"<leader>fh",
+				function()
+					Snacks.picker.command_history()
+				end,
+				desc = "Command History",
+			},
+			{
+				"<leader>fn",
+				function()
+					Snacks.picker.notifications()
+				end,
+				desc = "Notification History",
+			},
+			{
+				"<leader>fe",
+				function()
+					Snacks.explorer()
+				end,
+				desc = "File Explorer",
+			},
+			{
+				"<leader>fc",
+				function()
+					Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+				end,
+				desc = "Find Config File",
+			},
+			{
+				"<leader>ff",
+				function()
+					Snacks.picker.files()
+				end,
+				desc = "Find Files",
+			},
+			{
+				"<leader>fr",
+				function()
+					Snacks.picker.resume()
+				end,
+				desc = "Resume",
+			},
+		},
+		dependencies = {
+			"echasnovski/mini.icons",
+			opts = {},
 		},
 	},
 	{
-
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {
 			cmdline = {
-				enabled = true, -- enables the Noice cmdline UI
-				view = "cmdline", -- the view to use for the cmdline UI
+				enabled = true,
+				view = "cmdline",
 			},
 			messages = {
-				enabled = true, -- enables the Noice messages UI
-				view = "mini", -- the view to use for the messages UI
-			},
-			presets = {
-				bottom_search = true, -- use a classic bottom cmdline for search
+				enabled = true,
+				view = "mini",
 			},
 			views = {
 				mini = {
@@ -32,17 +137,8 @@ return {
 					},
 				},
 			},
-		},
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			{
-				"rcarriga/nvim-notify",
-				opts = {
-					render = "wrapped-compact",
-					stages = "static",
-					timeout = 2000,
-					max_width = 50,
-				},
+			presets = {
+				bottom_search = true,
 			},
 		},
 	},
