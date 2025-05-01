@@ -1,3 +1,8 @@
+-- Disable default cmdline completion.
+vim.keymap.set("c", "<Tab>", "<Tab>", { noremap = true })
+vim.opt.wildmenu = false
+vim.opt.wildoptions = {}
+
 return {
 	{
 		"folke/lazydev.nvim",
@@ -11,30 +16,29 @@ return {
 		version = "1.*",
 		opts = {
 			completion = {
-				list = {
-					selection = {
-						preselect = false,
-					},
-				},
-				menu = { border = "rounded" },
+				list = { selection = { preselect = false } },
+				menu = { auto_show = true, border = "rounded" },
 				documentation = {
 					window = { border = "rounded" },
 					auto_show = true,
 					auto_show_delay_ms = 250,
 				},
 			},
-			signature = { window = { border = "single" } },
+			signature = { enabled = false, window = { border = "rounded" } },
 			keymap = {
 				preset = "none",
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<CR>"] = { "accept", "fallback" },
-				["<C-c>"] = { "hide" },
+				["<C-c>"] = { "cancel" },
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-k>"] = { "select_prev", "fallback" },
 			},
 			cmdline = {
 				enabled = true,
-				keymap = { preset = "inherit" },
+				keymap = {
+					preset = "inherit",
+					["<Tab>"] = { "show_and_insert", "select_next" },
+				},
 				completion = { ghost_text = { enabled = false } },
 			},
 			sources = {
@@ -77,7 +81,12 @@ return {
 							},
 						},
 						keys = {
-							{ "<leader>cc", ":CopilotChatToggle<CR>", desc = "Toggle Copilot Chat" },
+							{
+								"<leader>cc",
+								":CopilotChatToggle<CR>",
+								desc = "Toggle Copilot Chat",
+								silent = true,
+							},
 						},
 					},
 				},
