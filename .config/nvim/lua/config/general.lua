@@ -32,6 +32,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
 -- Set border for floating windows.
 vim.o.winborder = "rounded"
 
+vim.lsp.config("*", {
+	-- Use the same border for LSP hover and signature help.
+	border = "rounded",
+})
+
 -- Change tab size.
 vim.opt.tabstop = 3
 vim.opt.softtabstop = 3

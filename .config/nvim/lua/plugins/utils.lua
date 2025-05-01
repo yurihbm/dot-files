@@ -1,3 +1,10 @@
+-- Use one statusline globally.
+vim.opt.laststatus = 3
+-- Hide mode information from cmdline.
+vim.opt.showmode = false
+-- Hide cmdline.
+vim.opt.cmdheight = 0
+
 return {
 	{
 		"windwp/nvim-autopairs",
@@ -29,29 +36,6 @@ return {
 					disabled_filetypes = { "snacks_*" },
 				},
 			})
-
-			-- Use one statusline globally.
-			vim.opt.laststatus = 3
-			-- Hide mode information from cmdline.
-			vim.opt.showmode = false
-			-- Hide cmdline.
-			vim.opt.cmdheight = 0
 		end,
-	},
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		opts = {
-			preset = "helix",
-		},
-		keys = {
-			{
-				"<leader>?",
-				function()
-					require("which-key").show({ global = false })
-				end,
-				desc = "Buffer Local Keymaps (which-key)",
-			},
-		},
 	},
 }
