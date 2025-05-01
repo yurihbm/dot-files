@@ -54,6 +54,9 @@ vim.keymap.set(
 	vim.tbl_extend("force", default_opts, { desc = "Code actions (insert mode)" })
 )
 
+-- Disable default hover keymap.
+vim.keymap.set("n", "K", "<Nop>", { noremap = true, silent = true })
+
 -- Insert mode movement keymaps.
 vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move left" })
 vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move down" })
@@ -67,21 +70,28 @@ vim.keymap.set("c", "<C-k>", "<Up>", { desc = "Move up (command mode)" })
 vim.keymap.set("c", "<C-l>", "<Right>", { desc = "Move right (command mode)" })
 
 -- Split resizing keymaps.
-vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", vim.tbl_extend("force", default_opts, { desc = "Resize split up" }))
-vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", vim.tbl_extend("force", default_opts, { desc = "Resize split down" }))
-vim.keymap.set(
-	"n",
-	"<C-Left>",
-	":vertical resize -2<CR>",
-	vim.tbl_extend("force", default_opts, { desc = "Resize split left" })
-)
-vim.keymap.set(
-	"n",
-	"<C-Right>",
-	":vertical resize +2<CR>",
-	vim.tbl_extend("force", default_opts, { desc = "Resize split right" })
-)
+vim.keymap.set("n", "<C-Up>", function()
+	vim.cmd("resize " .. (vim.fn.winheight(0) - 2))
+end, vim.tbl_extend("force", default_opts, { desc = "Resize split up" }))
+
+vim.keymap.set("n", "<C-Down>", function()
+	vim.cmd("resize " .. (vim.fn.winheight(0) + 2))
+end, vim.tbl_extend("force", default_opts, { desc = "Resize split down" }))
+
+vim.keymap.set("n", "<C-Left>", function()
+	vim.cmd("vertical resize " .. (vim.fn.winwidth(0) - 2))
+end, vim.tbl_extend("force", default_opts, { desc = "Resize split left" }))
+
+vim.keymap.set("n", "<C-Right>", function()
+	vim.cmd("vertical resize " .. (vim.fn.winwidth(0) + 2))
+end, vim.tbl_extend("force", default_opts, { desc = "Resize split right" }))
 
 -- Copy and paste using system clipboard.
 vim.keymap.set("v", "<leader>y", '"+y', vim.tbl_extend("force", default_opts, { desc = "Copy to clipboard" }))
 vim.keymap.set("n", "<leader>p", '"+p', vim.tbl_extend("force", default_opts, { desc = "Paste from clipboard" }))
+
+-- Toggle word wrap.
+vim.keymap.set("n", "<leader>w", function()
+	vim.wo.wrap = not vim.wo.wrap
+	print("Wrap: " .. tostring(vim.wo.wrap))
+end, { desc = "Toggle word wrap" })
