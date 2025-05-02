@@ -19,7 +19,7 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
 	},
-	install = { colorscheme = { "dracula" } },
+	install = { colorscheme = { "oxocarbon" } },
 	checker = { enabled = false },
 	ui = {
 		border = "rounded",
