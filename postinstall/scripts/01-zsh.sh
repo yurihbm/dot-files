@@ -27,7 +27,7 @@ sudo chsh -s $(which zsh) "$USER"
 echo -e "Done."
 
 echo -e "\nCopying new .zshrc file..."
-cp "../.zshrc" "$HOME/.zshrc"
+cp "../zsh/.zsh*" "$HOME"
 echo -e "\nDone."
 
 echo -e "\nInstalling plugins (zsh-autosuggestions and zsh-syntax-highlight)..."
