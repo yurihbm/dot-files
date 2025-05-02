@@ -1,10 +1,3 @@
--- Use one statusline globally.
-vim.opt.laststatus = 3
--- Hide mode information from cmdline.
-vim.opt.showmode = false
--- Hide cmdline.
-vim.opt.cmdheight = 0
-
 return {
 	{
 		"windwp/nvim-autopairs",
@@ -27,6 +20,13 @@ return {
 			"echasnovski/mini.icons",
 		},
 		config = function()
+			-- Use one statusline globally.
+			vim.opt.laststatus = 3
+			-- Hide mode information from cmdline.
+			vim.opt.showmode = false
+			-- Hide cmdline.
+			vim.opt.cmdheight = 0
+
 			-- Mock nvim-web-devicons to use mini.icons instead.
 			require("mini.icons").mock_nvim_web_devicons()
 
@@ -37,5 +37,23 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+			preset = "helix",
+			-- TODO: Workaround till https://github.com/folke/which-key.nvim/issues/967
+			show_help = false,
+		},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
 	},
 }
