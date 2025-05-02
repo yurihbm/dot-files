@@ -70,7 +70,7 @@ export LOCAL_DIR="$HOME/.local"
 export ZSH="$LOCAL_DIR/oh-my-zsh"
 export ZSH_CUSTOM="$ZSH/custom"
 export NVM_DIR="$LOCAL_DIR/nvm"
-export PYENV_ROOT="$LOCAL_DIR/pyenv"
+export UV_DIR="$LOCAL_DIR/uv"
 export GO_VERSION
 export NVM_VERSION
 export GH_TEMP_TOKEN

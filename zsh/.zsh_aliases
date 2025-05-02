@@ -1,0 +1,18 @@
+# vim: filetype=sh
+
+# Aliases
+alias code="nvim"
+alias zsh-config="code ~/.zshrc"
+alias zsh-reload='source ~/.zshrc && clear'
+alias gac="ga -A && gc"
+alias gacm="ga -A && gc -m"
+alias gaca="ga -A && gc --amend"
+alias gll="git pull --all"
+alias ls="eza --icons -T -L=1"
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+alias docker-start="systemctl --user start docker"
+alias docker-stop="systemctl --user stop docker"
+alias docker-restart="systemctl --user restart docker"
+alias docker-status="systemctl --user status docker"
+alias ce="gh copilot explain"
+alias cs="gh copilot suggest"
