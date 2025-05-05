@@ -79,6 +79,13 @@ return {
 				"javascriptreact",
 				"typescriptreact",
 			},
+			user_default_options = {
+            names = false,
+				tailwind = "lsp",
+				tailwind_opts = {
+					update_names = true,
+				},
+			},
 		},
 	},
 }
