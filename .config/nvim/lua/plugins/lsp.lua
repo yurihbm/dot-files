@@ -4,7 +4,7 @@ return {
 		opts = {
 			ui = {
 				backdrop = 100,
-				border = "rounded",
+				border = "single",
 				icons = {
 					package_installed = "",
 					package_pending = "󰦗",

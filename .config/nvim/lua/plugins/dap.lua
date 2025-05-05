@@ -2,7 +2,7 @@ return {
 	"rcarriga/nvim-dap-ui",
 	keys = {
 		{
-			"<leader>dt",
+			"<leader>du",
 			function()
 				require("dapui").toggle()
 			end,

@@ -26,7 +26,7 @@ return {
 							cycle = true,
 							layout = {
 								box = "vertical",
-								border = "rounded",
+								border = "single",
 								backdrop = 100,
 								width = 0.50,
 								height = 0.60,
@@ -41,10 +41,40 @@ return {
 							},
 						},
 					},
+					command_history = {
+						layout = {
+							layout = {
+								backdrop = false,
+								width = 0.5,
+								min_width = 80,
+								height = 0.4,
+								min_height = 3,
+								box = "vertical",
+								border = "single",
+								title = "{title}",
+								title_pos = "center",
+								{ win = "input", height = 1, border = "bottom" },
+								{ win = "list", border = "none" },
+							},
+						},
+					},
 				},
-				layout = {
-					layout = {
-						backdrop = 100,
+				layouts = {
+					default = {
+						layout = {
+							backdrop = 100,
+							box = "horizontal",
+							width = 0.75,
+							height = 0.90,
+							{
+								box = "vertical",
+								border = "single",
+								title = "{title} {live} {flags}",
+								{ win = "input", height = 1, border = "bottom" },
+								{ win = "list", border = "none" },
+							},
+							{ win = "preview", title = "{preview}", border = "single", width = 0.50 },
+						},
 					},
 				},
 			},
