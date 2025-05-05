@@ -33,7 +33,14 @@ return {
 			require("lualine").setup({
 				options = {
 					global_status = true,
-					disabled_filetypes = { "snacks_*" },
+					disabled_filetypes = {
+						"snacks_*",
+						winbar = {
+							"dap-view",
+							"dap-repl",
+							"dap-view-term",
+						},
+					},
 				},
 			})
 		end,
@@ -45,6 +52,9 @@ return {
 			preset = "helix",
 			-- TODO: Workaround till https://github.com/folke/which-key.nvim/issues/967
 			show_help = false,
+			win = {
+				border = "single",
+			},
 		},
 		keys = {
 			{
@@ -53,6 +63,21 @@ return {
 					require("which-key").show({ global = false })
 				end,
 				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
+	},
+	{
+		"catgoose/nvim-colorizer.lua",
+		event = "BufReadPre",
+		opts = {
+			filetypes = {
+				"lua",
+				"css",
+				"html",
+				"javascript",
+				"typescript",
+				"javascriptreact",
+				"typescriptreact",
 			},
 		},
 	},
