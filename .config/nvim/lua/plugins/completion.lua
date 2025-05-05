@@ -17,14 +17,14 @@ return {
 		opts = {
 			completion = {
 				list = { selection = { preselect = false } },
-				menu = { auto_show = true, border = "rounded" },
+				menu = { auto_show = true, border = "single" },
 				documentation = {
-					window = { border = "rounded" },
+					window = { border = "single" },
 					auto_show = true,
 					auto_show_delay_ms = 250,
 				},
 			},
-			signature = { enabled = false, window = { border = "rounded" } },
+			signature = { enabled = false, window = { border = "single" } },
 			keymap = {
 				preset = "none",
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -72,7 +72,7 @@ return {
 						opts = {
 							window = {
 								layout = "float",
-								border = "rounded",
+								border = "single",
 								relative = "win",
 								width = 0.60,
 								height = 0.75,
