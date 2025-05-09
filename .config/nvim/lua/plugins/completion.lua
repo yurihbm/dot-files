@@ -14,6 +14,7 @@ return {
 	{
 		"saghen/blink.cmp",
 		version = "1.*",
+		event = "InsertEnter",
 		opts = {
 			completion = {
 				list = { selection = { preselect = false } },
@@ -23,12 +24,18 @@ return {
 					auto_show = true,
 					auto_show_delay_ms = 250,
 				},
+				accept = {
+					auto_brackets = {
+						enabled = false,
+					},
+				},
 			},
 			signature = { enabled = false, window = { border = "single" } },
 			keymap = {
 				preset = "none",
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<CR>"] = { "accept", "fallback" },
+				["<Esc>"] = { "cancel", "fallback" },
 				["<C-c>"] = { "cancel" },
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-k>"] = { "select_prev", "fallback" },
@@ -38,6 +45,7 @@ return {
 				keymap = {
 					preset = "inherit",
 					["<Tab>"] = { "show_and_insert", "select_next" },
+					["<S-Tab>"] = { "show_and_insert", "select_prev" },
 				},
 				completion = { ghost_text = { enabled = false } },
 			},
