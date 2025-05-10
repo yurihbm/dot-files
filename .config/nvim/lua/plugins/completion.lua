@@ -1,8 +1,3 @@
--- Disable default cmdline completion.
-vim.keymap.set("c", "<Tab>", "<Tab>", { noremap = true })
-vim.opt.wildmenu = false
-vim.opt.wildoptions = {}
-
 return {
 	{
 		"folke/lazydev.nvim",
@@ -14,7 +9,13 @@ return {
 	{
 		"saghen/blink.cmp",
 		version = "1.*",
-		event = "InsertEnter",
+		event = { "InsertEnter", "CmdlineEnter" },
+		init = function()
+			-- Disable default cmdline completion.
+			vim.keymap.set("c", "<Tab>", "<Tab>", { noremap = true })
+			vim.opt.wildmenu = false
+			vim.opt.wildoptions = {}
+		end,
 		opts = {
 			completion = {
 				list = { selection = { preselect = false } },
@@ -64,9 +65,11 @@ return {
 		dependencies = {
 			{
 				"fang2hou/blink-copilot",
+				event = "InsertEnter",
 				dependencies = {
 					{
 						"CopilotC-Nvim/CopilotChat.nvim",
+						event = "InsertEnter",
 						branch = "main",
 						dependencies = {
 							{

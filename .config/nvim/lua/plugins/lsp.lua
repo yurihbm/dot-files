@@ -1,6 +1,19 @@
+-- Define these filetypes based on mason-lspconfig's ensure_installed options.
+local lsp_filetypes = {
+	"lua",
+	"typescript",
+	"typescriptreact",
+	"javascript",
+	"javascriptreact",
+	"python",
+	"go",
+	"c",
+}
+
 return {
 	{
 		"williamboman/mason.nvim",
+		cmd = "Mason",
 		opts = {
 			ui = {
 				backdrop = 100,
@@ -15,6 +28,7 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		ft = lsp_filetypes,
 		opts = {
 			ensure_installed = {
 				"ts_ls",
@@ -35,54 +49,15 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		ft = lsp_filetypes,
 		config = function()
-			vim.lsp.config("eslint", {
-				settings = (function()
-					local yarn_sdks_path = vim.fn.getcwd() .. "/.yarn/sdks"
-					if vim.fn.isdirectory(yarn_sdks_path) == 1 then
-						return {
-							nodePath = yarn_sdks_path,
-							codeActionOnSave = {
-								enable = true,
-								mode = "all",
-							},
-						}
-					else
-						return {
-							codeActionOnSave = {
-								enable = true,
-								mode = "all",
-							},
-						}
-					end
-				end)(),
-				on_attach = function(_, bufnr)
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = vim.api.nvim_create_augroup("eslint_format", { clear = true }),
-						buffer = bufnr,
-						callback = function()
-							vim.lsp.buf.format({
-								bufnr = bufnr,
-								filter = function(client)
-									return client.name == "eslint"
-								end,
-							})
-						end,
-					})
-				end,
-			})
+			vim.lsp.config("eslint", require("config.lsp.eslint"))
 		end,
 	},
 	{
 		"pmizio/typescript-tools.nvim",
+		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+		opts = require("config.lsp.tsserver"),
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {
-			settings = {
-				publish_diagnostic_on = "change",
-				tsserver_plugins = {
-					"@styled/typescript-styled-plugin",
-				},
-			},
-		},
 	},
 }

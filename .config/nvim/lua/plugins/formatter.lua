@@ -1,5 +1,6 @@
 return {
 	"mhartington/formatter.nvim",
+	ft = { "css", "lua", "go", "c", "cpp", "python", "sh" },
 	config = function()
 		require("formatter").setup({
 			logging = true,
@@ -28,12 +29,11 @@ return {
 				},
 			},
 		})
-
-		local augroup = vim.api.nvim_create_augroup
-		local autocmd = vim.api.nvim_create_autocmd
-		augroup("__formatter__", { clear = true })
-		autocmd("BufWritePost", {
-			group = "__formatter__",
+	end,
+	init = function()
+		local group = vim.api.nvim_create_augroup("formatter", { clear = true })
+		vim.api.nvim_create_autocmd("BufWritePost", {
+			group = group,
 			command = ":FormatWrite",
 		})
 	end,

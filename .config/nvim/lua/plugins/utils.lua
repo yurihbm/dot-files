@@ -5,6 +5,11 @@ return {
 		config = true,
 	},
 	{
+		ft = {
+			"html",
+			"javascriptreact",
+			"typescriptreact",
+		},
 		"windwp/nvim-ts-autotag",
 		opts = {
 			opts = {
@@ -56,17 +61,17 @@ return {
 				border = "single",
 			},
 		},
-		keys = {
-			{
-				"<leader>?",
-				function()
-					require("which-key").show({ global = false })
-				end,
-				desc = "Buffer Local Keymaps (which-key)",
-			},
-		},
 	},
 	{
+		ft = {
+			"lua",
+			"css",
+			"html",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+		},
 		"catgoose/nvim-colorizer.lua",
 		event = "BufReadPre",
 		opts = {
@@ -80,7 +85,7 @@ return {
 				"typescriptreact",
 			},
 			user_default_options = {
-            names = false,
+				names = false,
 				tailwind = "lsp",
 				tailwind_opts = {
 					update_names = true,
