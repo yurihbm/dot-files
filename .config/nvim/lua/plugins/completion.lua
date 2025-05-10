@@ -1,3 +1,9 @@
+-- =========================
+-- Completion Plugins
+-- =========================
+
+-- This file provides a collection of plugins for code completion/generation.
+
 return {
 	{
 		"folke/lazydev.nvim",
@@ -36,8 +42,8 @@ return {
 				preset = "none",
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 				["<CR>"] = { "accept", "fallback" },
-				["<Esc>"] = { "cancel", "fallback" },
 				["<C-c>"] = { "cancel" },
+				["<Esc>"] = { "cancel", "fallback" },
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-k>"] = { "select_prev", "fallback" },
 			},
@@ -47,6 +53,8 @@ return {
 					preset = "inherit",
 					["<Tab>"] = { "show_and_insert", "select_next" },
 					["<S-Tab>"] = { "show_and_insert", "select_prev" },
+					["<CR>"] = { "accept_and_enter", "fallback" },
+					["<Esc>"] = { "fallback" },
 				},
 				completion = { ghost_text = { enabled = false } },
 			},

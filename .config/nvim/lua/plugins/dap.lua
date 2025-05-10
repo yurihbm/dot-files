@@ -1,3 +1,9 @@
+-- =========================
+-- DAP (Debug Adapter Protocol) Plugins
+-- =========================
+
+-- This file provides a collection of plugins for code debugging.
+
 return {
 	"rcarriga/nvim-dap-ui",
 	keys = {

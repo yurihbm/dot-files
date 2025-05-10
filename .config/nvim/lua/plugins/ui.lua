@@ -1,3 +1,9 @@
+-- =========================
+-- UI Plugins
+-- =========================
+
+-- This file provides a collection of plugins for user interface enhancements.
+
 ---@module 'snacks'
 
 return {

@@ -1,3 +1,10 @@
+-- =========================
+-- LSP (Language Server Protocol) Plugins
+-- =========================
+
+-- This file provides a collection of plugins for Language Server Protocol
+-- Protocol support.
+
 -- Define these filetypes based on mason-lspconfig's ensure_installed options.
 local lsp_filetypes = {
 	"lua",

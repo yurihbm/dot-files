@@ -1,3 +1,9 @@
+-- =========================
+-- Formatter Plugin
+-- =========================
+
+-- This file provides a plugin for code formatting.
+
 return {
 	"mhartington/formatter.nvim",
 	ft = { "css", "lua", "go", "c", "cpp", "python", "sh" },
