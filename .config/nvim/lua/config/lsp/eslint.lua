@@ -1,8 +1,8 @@
 -- =========================
--- Eslint Configuration
+-- Eslint LSP Configuration
 -- =========================
 
--- This file provides a configuration for ESLint LSP.
+-- This file provides a configuration for ESLint Language Server.
 
 return {
 	settings = (function()
@@ -25,9 +25,8 @@ return {
 		end
 	end)(),
 	on_attach = function(_, bufnr)
-		local group = vim.api.nvim_create_augroup("eslint_format", { clear = true })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = group,
+		local autocmd = vim.api.nvim_create_autocmd
+		autocmd("BufWritePre", {
 			buffer = bufnr,
 			callback = function()
 				vim.lsp.buf.format({

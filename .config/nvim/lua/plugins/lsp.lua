@@ -59,6 +59,7 @@ return {
 		ft = lsp_filetypes,
 		config = function()
 			vim.lsp.config("eslint", require("config.lsp.eslint"))
+			vim.lsp.config("tailwindcss", require("config.lsp.tailwind"))
 		end,
 	},
 	{
