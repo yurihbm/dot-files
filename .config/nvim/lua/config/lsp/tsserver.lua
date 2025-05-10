@@ -1,3 +1,9 @@
+-- =========================
+-- TS Server Configuration
+-- =========================
+
+-- This file provides a configuration for the TypeScript Language Server.
+
 return {
 	on_attach = function(_, bufnr)
 		local group = vim.api.nvim_create_augroup("tstools_unused_imports", { clear = true })

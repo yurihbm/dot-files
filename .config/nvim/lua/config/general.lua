@@ -1,3 +1,9 @@
+-- =========================
+-- General Configuration
+-- =========================
+
+-- This file provides a collection of general settings.
+
 -- Highlight current line.
 vim.opt.cursorline = true
 
@@ -12,22 +18,6 @@ vim.g.loaded_netrwPlugin = 1
 -- Set default split directions.
 vim.opt.splitright = true -- Vertical splits open on the left.
 vim.opt.splitbelow = true -- Horizontal splits open at the bottom.
-
--- Change directory to the first argument if passed.
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		local args = vim.fn.argv()
-		if type(args) == "string" then
-			args = { args }
-		end
-		for _, arg in ipairs(args) do
-			if vim.fn.isdirectory(arg) == 1 then
-				vim.cmd.cd(arg)
-				break
-			end
-		end
-	end,
-})
 
 -- Set border for floating windows.
 vim.o.winborder = "single"

@@ -1,3 +1,9 @@
+-- =========================
+-- Eslint Configuration
+-- =========================
+
+-- This file provides a configuration for ESLint LSP.
+
 return {
 	settings = (function()
 		local yarn_sdks_path = vim.fn.getcwd() .. "/.yarn/sdks"

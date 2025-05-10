@@ -1,3 +1,9 @@
+-- =========================
+-- Themes Plugins
+-- =========================
+
+-- This file provides a collection of themes.
+
 return {
 	{
 		"Mofiqul/dracula.nvim",

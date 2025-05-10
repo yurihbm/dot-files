@@ -1,3 +1,10 @@
+-- =========================
+-- Utility plugins
+-- =========================
+
+-- This file provides a collection of plugins for utility functions and
+-- enhancements.
+
 return {
 	{
 		"windwp/nvim-autopairs",

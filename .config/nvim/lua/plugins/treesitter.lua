@@ -1,3 +1,9 @@
+-- =========================
+-- Treesitter Plugin
+-- =========================
+
+-- This file provides a plugin for syntax highlighting and code parsing.
+
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = true,
