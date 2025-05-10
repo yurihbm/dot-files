@@ -15,8 +15,8 @@ return {
 				end,
 			})
 
-			-- vim.opt.background = "dark"
-			-- vim.cmd("colorscheme dracula")
+			vim.opt.background = "dark"
+			vim.cmd.colorscheme("dracula")
 		end,
 	},
 	{
@@ -35,8 +35,9 @@ return {
 				end,
 			})
 
-			vim.opt.background = "dark"
-			vim.cmd("colorscheme oxocarbon")
+			-- vim.opt.background = "dark"
+			-- vim.cmd.colorscheme("dracula")
 		end,
+		lazy = true,
 	},
 }
