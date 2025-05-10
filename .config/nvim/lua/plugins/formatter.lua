@@ -6,26 +6,46 @@
 
 return {
 	"mhartington/formatter.nvim",
-	ft = { "css", "lua", "go", "c", "cpp", "python", "sh" },
+	ft = { "c", "cpp", "css", "go", "json", "jsonc", "lua", "python", "sh" },
 	config = function()
+		-- Prettier configuration handling Yarn's PnP installs.
+		local function prettier()
+			local config = require("formatter.defaults.prettier")()
+			local yarn_sdks_path = vim.fn.getcwd() .. "/.yarn/sdks"
+			if vim.fn.isdirectory(yarn_sdks_path) == 1 then
+				config.exe = "yarn"
+				table.insert(config.args, 1, "exec")
+				table.insert(config.args, 2, "prettier")
+				config.try_node_modules = false
+			end
+
+			return config
+		end
+
 		require("formatter").setup({
 			logging = true,
 			log_level = vim.log.levels.WARN,
 			filetype = {
-				css = {
-					require("formatter.filetypes.css").prettier,
-				},
-				lua = {
-					require("formatter.filetypes.lua").stylua,
-				},
-				go = {
-					require("formatter.filetypes.go").gofmt,
-				},
 				c = {
 					require("formatter.filetypes.c").clangformat,
 				},
 				cpp = {
 					require("formatter.filetypes.cpp").clangformat,
+				},
+				css = {
+					prettier,
+				},
+				go = {
+					require("formatter.filetypes.go").gofmt,
+				},
+				json = {
+					prettier,
+				},
+				jsonc = {
+					prettier,
+				},
+				lua = {
+					require("formatter.filetypes.lua").stylua,
 				},
 				python = {
 					require("formatter.filetypes.python").ruff,
@@ -36,10 +56,15 @@ return {
 			},
 		})
 
-		local group = vim.api.nvim_create_augroup("formatter", { clear = true })
-		vim.api.nvim_create_autocmd("BufWritePost", {
+		local augroup = vim.api.nvim_create_augroup
+		local group = augroup("formatter", { clear = true })
+		local autocmd = vim.api.nvim_create_autocmd
+		autocmd("BufWritePost", {
 			group = group,
 			command = ":FormatWrite",
 		})
 	end,
+	dependencies = {
+		"williamboman/mason.nvim",
+	},
 }
