@@ -103,6 +103,14 @@ return {
 							{
 								"<leader>cc",
 								":CopilotChatToggle<CR>",
+								mode = "n",
+								desc = "Toggle Copilot Chat",
+								silent = true,
+							},
+							{
+								"<leader>cc",
+								":<C-U>CopilotChatToggle<CR>",
+								mode = "v",
 								desc = "Toggle Copilot Chat",
 								silent = true,
 							},
