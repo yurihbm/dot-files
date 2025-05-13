@@ -6,6 +6,8 @@
 
 return {
 	"mhartington/formatter.nvim",
+	-- NOTE: If you change the filetypes in 'ft', also update the autocmd pattern
+	-- in the formatter setup below.
 	ft = { "c", "cpp", "css", "go", "json", "jsonc", "lua", "python", "sh" },
 	config = function()
 		-- Prettier configuration handling Yarn's PnP installs.
@@ -61,6 +63,7 @@ return {
 		local autocmd = vim.api.nvim_create_autocmd
 		autocmd("BufWritePost", {
 			group = group,
+			pattern = { "*.c", "*.cpp", "*.css", "*.go", "*.json", "*.lua", "*.py", "*.sh" },
 			command = ":FormatWrite",
 		})
 	end,
