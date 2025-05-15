@@ -1,3 +1,9 @@
+-- =========================
+-- Go DAP Configuration
+-- =========================
+
+-- This file provides the DAP configuration for Go programming language.
+
 local dap = require("dap")
 
 dap.adapters.delve = function(callback, config)

@@ -12,12 +12,12 @@ return {
 		config = true,
 	},
 	{
+		"windwp/nvim-ts-autotag",
 		ft = {
 			"html",
 			"javascriptreact",
 			"typescriptreact",
 		},
-		"windwp/nvim-ts-autotag",
 		opts = {
 			opts = {
 				enable_close = true,
@@ -65,7 +65,7 @@ return {
 			-- TODO: Workaround till https://github.com/folke/which-key.nvim/issues/967
 			show_help = false,
 			win = {
-				border = "single",
+				border = vim.o.winborder,
 			},
 		},
 	},

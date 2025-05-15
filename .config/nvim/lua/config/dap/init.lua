@@ -1,3 +1,10 @@
+-- =========================
+-- DAP Configuration
+-- =========================
+
+-- This file provides the configuration for the Debug Adapter Protocol (DAP)
+-- Plugin for Neovim (nvim-dap).
+
 local dap, dapui = require("dap"), require("dapui")
 
 dapui.setup()

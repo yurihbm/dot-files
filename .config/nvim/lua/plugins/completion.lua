@@ -25,9 +25,9 @@ return {
 		opts = {
 			completion = {
 				list = { selection = { preselect = false } },
-				menu = { auto_show = true, border = "single" },
+				menu = { auto_show = true, border = vim.o.winborder },
 				documentation = {
-					window = { border = "single" },
+					window = { border = vim.o.winborder },
 					auto_show = true,
 					auto_show_delay_ms = 250,
 				},
@@ -37,7 +37,7 @@ return {
 					},
 				},
 			},
-			signature = { enabled = false, window = { border = "single" } },
+			signature = { enabled = false, window = { border = vim.o.winborder } },
 			keymap = {
 				preset = "none",
 				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -89,7 +89,7 @@ return {
 						opts = {
 							window = {
 								layout = "float",
-								border = "single",
+								border = vim.o.winborder,
 								relative = "win",
 								width = 0.60,
 								height = 0.75,

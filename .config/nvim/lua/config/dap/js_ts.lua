@@ -1,3 +1,9 @@
+-- =========================
+-- JavaScript/TypeScript DAP Configuration
+-- =========================
+
+-- This file provides the DAP configuration for JavaScript and TypeScript.
+
 local dap = require("dap")
 
 dap.adapters.firefox = {

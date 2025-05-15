@@ -1,3 +1,9 @@
+-- =========================
+-- Python DAP Configuration
+-- =========================
+
+-- This file provides the DAP configuration for Python.
+
 local mason_path = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
 local python_bin = os.getenv("VIRTUAL_ENV") and (os.getenv("VIRTUAL_ENV") .. "/bin/python") or mason_path
 

@@ -4,12 +4,14 @@
 
 -- This file provides a collection of autocommands for various events.
 
+local autocmd = vim.api.nvim_create_autocmd
+
 -- =========================
 -- General Autocommands
 -- =========================
 
 -- Change directory to the first argument if passed.
-vim.api.nvim_create_autocmd("VimEnter", {
+autocmd("VimEnter", {
 	callback = function()
 		local args = vim.fn.argv()
 		if type(args) == "string" then
@@ -29,7 +31,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 -- =========================
 
 -- Automatically enter insert mode when terminal opens.
-vim.api.nvim_create_autocmd("TermOpen", {
+autocmd("TermOpen", {
 	pattern = "*",
 	callback = function()
 		vim.cmd("startinsert!")
@@ -37,7 +39,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 -- Disable line numbers when opening a terminal buffer
-vim.api.nvim_create_autocmd("TermOpen", {
+autocmd("TermOpen", {
 	pattern = "*",
 	callback = function()
 		vim.opt_local.number = false -- Disable absolute line numbers
