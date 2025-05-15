@@ -3,18 +3,22 @@
 -- =========================
 
 -- This file provides a collection of plugins for Language Server Protocol
--- Protocol support.
+-- support.
 
 -- Define these filetypes based on mason-lspconfig's ensure_installed options.
 local lsp_filetypes = {
-	"lua",
-	"typescript",
-	"typescriptreact",
+	"dockerfile",
+	"go",
 	"javascript",
 	"javascriptreact",
+	"json",
+	"jsonc",
+	"lua",
+	"prisma",
 	"python",
-	"go",
-	"c",
+	"typescript",
+	"typescriptreact",
+	"yaml",
 }
 
 return {
@@ -24,7 +28,7 @@ return {
 		opts = {
 			ui = {
 				backdrop = 100,
-				border = "single",
+				border = vim.g.border_style,
 				icons = {
 					package_installed = "",
 					package_pending = "󰦗",
@@ -38,13 +42,17 @@ return {
 		ft = lsp_filetypes,
 		opts = {
 			ensure_installed = {
-				"ts_ls",
+				"dockerls",
 				"eslint",
-				"tailwindcss",
-				"lua_ls",
+				"golangci_lint_ls",
 				"gopls",
-				"clangd",
+				"jsonls",
+				"lua_ls",
+				"prismals",
 				"pyright",
+				"tailwindcss",
+				"ts_ls",
+				"yamlls",
 			},
 			automatic_enable = {
 				exclude = {
@@ -59,8 +67,13 @@ return {
 		ft = lsp_filetypes,
 		config = function()
 			vim.lsp.config("eslint", require("config.lsp.eslint"))
+			vim.lsp.config("jsonls", require("config.lsp.json"))
 			vim.lsp.config("tailwindcss", require("config.lsp.tailwind"))
+			vim.lsp.config("yamlls", require("config.lsp.yaml"))
 		end,
+		dependencies = {
+			"b0o/schemastore.nvim",
+		},
 	},
 	{
 		"pmizio/typescript-tools.nvim",

@@ -21,9 +21,10 @@ return {
 				end,
 			})
 
-			vim.opt.background = "dark"
-			vim.cmd.colorscheme("dracula")
+			--	vim.opt.background = "dark"
+			--	vim.cmd.colorscheme("dracula")
 		end,
+		lazy = true,
 	},
 	{
 		"nyoom-engineering/oxocarbon.nvim",
@@ -41,9 +42,8 @@ return {
 				end,
 			})
 
-			-- vim.opt.background = "dark"
-			-- vim.cmd.colorscheme("dracula")
+			vim.opt.background = "dark"
+			vim.cmd.colorscheme("oxocarbon")
 		end,
-		lazy = true,
 	},
 }
