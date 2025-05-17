@@ -10,36 +10,36 @@ clear
 read -p $'Enter your GitHub personal access token (for gh-cli authentication): ' -r GH_TEMP_TOKEN
 clear
 if [[ -z "$GH_TEMP_TOKEN" ]]; then
-   echo -e "\nError: GitHub token not provided. Exiting..."
-   exit 1
+  echo -e "\nError: GitHub token not provided. Exiting..."
+  exit 1
 fi
 
 read -p $'Enter your Git name: ' -r GIT_NAME
 clear
 if [[ -z "$GIT_NAME" ]]; then
-   echo -e "\nError: Git name not provided. Exiting..."
-   exit 1
+  echo -e "\nError: Git name not provided. Exiting..."
+  exit 1
 fi
 
 read -p $'Enter your Git email: ' -r GIT_EMAIL
 clear
 if [[ -z "$GIT_EMAIL" ]]; then
-   echo -e "\nError: Git name or email not provided. Exiting..."
-   exit 1
+  echo -e "\nError: Git name or email not provided. Exiting..."
+  exit 1
 fi
 
 read -p $'Enter your GPG (GitHub) passphrase: ' -r GPG_PASSPHRASE
 clear
 if [[ -z "$GPG_PASSPHRASE" ]]; then
-   echo -e "\nError: GPG passphrase not provided. Exiting..."
-   exit 1
+  echo -e "\nError: GPG passphrase not provided. Exiting..."
+  exit 1
 fi
 
 read -p $'Enter your GPG (GitHub) key title: ' -r GPG_KEY_TITLE
 clear
 if [[ -z "$GPG_KEY_TITLE" ]]; then
-   echo -e "\nError: GPG key title not provided. Exiting..."
-   exit 1
+  echo -e "\nError: GPG key title not provided. Exiting..."
+  exit 1
 fi
 
 printf "\nGo version: %s\n" "$GO_VERSION"
@@ -60,8 +60,8 @@ printf "\nGPG key title: %s\n" "$GPG_KEY_TITLE"
 
 read -p $'\nContinue? (y/n): ' -r
 if [[ $REPLY != "y" ]]; then
-   echo -e "\nExiting..."
-   exit 1
+  echo -e "\nExiting..."
+  exit 1
 fi
 clear
 

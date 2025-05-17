@@ -11,8 +11,8 @@ echo -e "\nzsh installed."
 echo -e "\nInstalling oh-my-zsh..."
 
 if [ -d "$ZSH" ]; then
-   echo "oh-my-zsh is already installed. Exiting."
-   return 0
+  echo "oh-my-zsh is already installed. Exiting."
+  return 0
 fi
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -38,8 +38,8 @@ echo -e "\nPlugins installed."
 
 echo -e "\nInstalling theme (spaceship)..."
 [ ! -f "$ZSH_CUSTOM/themes/spaceship.zsh-theme" ] &&
-   git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1 &&
-   ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1 &&
+  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 echo -e "\nTheme installed."
 
 clear
