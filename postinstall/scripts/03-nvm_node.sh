@@ -7,8 +7,8 @@ source ./scripts/helpers/status.sh
 echo -e "\nInstalling NVM and latest LTS Node..."
 
 if command -v nvm >/dev/null 2>&1; then
-   echo -e "\nNVM is already installed. Skipping..."
-   return 0
+  echo -e "\nNVM is already installed. Skipping..."
+  return 0
 fi
 
 mkdir -p $NVM_DIR
