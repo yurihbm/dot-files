@@ -17,11 +17,11 @@ export LC_MESSAGES="en_US.UTF-8"
 SECRETS_DIR="$HOME/.local/secrets"
 
 if [ -d "$SECRETS_DIR" ]; then
-   for env_file in "$SECRETS_DIR"/*.env; do
-      if [ -f "$env_file" ]; then
-         source "$env_file"
-      fi
-   done
+  for env_file in "$SECRETS_DIR"/*.env; do
+    if [ -f "$env_file" ]; then
+      source "$env_file"
+    fi
+  done
 fi
 
 # Path configuration
@@ -45,27 +45,27 @@ export SPACESHIP_USER_SHOW=always
 export SPACESHIP_HOST_SHOW=always
 export SPACESHIP_PROMPT_ADD_NEWLINE=false
 export SPACESHIP_PROMPT_ORDER=(
-   user
-   dir
-   host
-   venv
-   node
-   python
-   golang
-   git
-   exit_code
-   exec_time
-   line_sep
-   char
+  user
+  dir
+  host
+  venv
+  node
+  python
+  golang
+  git
+  exit_code
+  exec_time
+  line_sep
+  char
 )
 
 # ZSH plugins
 plugins=(
-   git
-   docker
-   tmux
-   zsh-syntax-highlighting
-   zsh-autosuggestions
+  git
+  docker
+  tmux
+  zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 
 # Load oh-my-zsh
@@ -85,22 +85,22 @@ export NVM_DIR="$LOCAL_DIR/nvm"
 autoload -U add-zsh-hook
 
 load-nvmrc() {
-   local nvmrc_path
-   nvmrc_path="$(nvm_find_nvmrc)"
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
 
-   if [ -n "$nvmrc_path" ]; then
-      local nvmrc_node_version
-      nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
-      if [ "$nvmrc_node_version" = "N/A" ]; then
-         nvm install
-      elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-         nvm use
-      fi
-   elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-      echo "Reverting to nvm default version"
-      nvm use default
-   fi
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
 }
 
 add-zsh-hook chpwd load-nvmrc
@@ -108,10 +108,10 @@ load-nvmrc
 
 # Load SSH keys
 if [ -z "$SSH_AUTH_SOCK" ]; then
-   eval $(ssh-agent -s) >/dev/null 2>&1
+  eval $(ssh-agent -s) >/dev/null 2>&1
 
-   # Add ssh keys here:
-   ssh-add ~/.ssh/id_github_ed25519 >/dev/null 2>&1
+  # Add ssh keys here:
+  ssh-add ~/.ssh/id_github_ed25519 >/dev/null 2>&1
 fi
 
 # Load GPG keys
