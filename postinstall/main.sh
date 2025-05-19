@@ -71,8 +71,9 @@ scripts=(
   "./scripts/13-insomnia.sh"
   "./scripts/14-eza.sh"
   "./scripts/15-solaar.sh"
-  "./scripts/16-update.sh"
+  "./scripts/16-codium.sh"
   "./scripts/17-config.sh"
+  "./scripts/18-update.sh"
 )
 
 # Run each script in the array.
