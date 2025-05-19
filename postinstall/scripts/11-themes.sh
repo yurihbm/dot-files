@@ -5,19 +5,22 @@ set -e
 source ./scripts/helpers/status.sh
 
 echo -e "\nInstalling whitesur-icon-theme-mod...\n"
-mkdir -p "$HOME/.icons"
+mkdir -p "$LOCAL_DIR/icons"
+
+ICONS_FOLDER = "$LOCAL_DIR/icons/whitesur-icon-theme-mod"
+
 # Clone the repository if not already cloned.
-if [ -d "$HOME/.icons/whitesur-icon-theme-mod" ]; then
+if [ -d "$ICONS_FOLDER" ]; then
   echo "Repository already cloned. Skipping..."
 else
   # Bypass SSH host key checking for the clone, avoiding the prompt.
   GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" \
-    git clone git@github.com:yurihbm/whitesur-icon-theme-mod.git "$HOME/.icons/whitesur-icon-theme-mod"
+    git clone git@github.com:yurihbm/whitesur-icon-theme-mod.git "$ICONS_FOLDER"
 fi
 
 # Run the install script.
-if [ -f "$HOME/.icons/whitesur-icon-theme-mod/install.sh" ]; then
-  pushd "$HOME/.icons/whitesur-icon-theme-mod" >/dev/null
+if [ -f "$ICONS_FOLDER/install.sh" ]; then
+  pushd "$ICONS_FOLDER" >/dev/null
   ./install.sh || {
     echo -e "\nError: Failed to run install.sh. Exiting..."
     exit 1
