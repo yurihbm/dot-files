@@ -59,7 +59,7 @@ scripts=(
   "./scripts/01-zsh.sh"
   "./scripts/02-neovim.sh"
   "./scripts/03-nvm_node.sh"
-  "./scripts/04-pyenv.sh"
+  "./scripts/04-uv.sh"
   "./scripts/05-go.sh"
   "./scripts/06-git.sh"
   "./scripts/07-gh_cli.sh"
@@ -99,7 +99,7 @@ echo " - Lock Keys"
 echo " - Solaar extension"
 echo " - System Monitor"
 
+echo "Restart the system to apply all changes."
+
 # Delete log file if everything succeeded.
 rm -f "$LOG_FILE"
-
-exec zsh
