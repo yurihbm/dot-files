@@ -1,9 +1,5 @@
 # vim: filetype=sh
 
-# Load user defined aliases and functions.
-[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
-[ -f ~/.zsh_functions ] && source ~/.zsh_functions
-
 # Environment variables
 export LOCAL_DIR="$HOME/.local"
 export GO_LOCATION="$LOCAL_DIR/go"
@@ -74,6 +70,10 @@ source $ZSH/oh-my-zsh.sh
 # Make Home and End keys work with tmux and nvim.
 bindkey "\E[1~" beginning-of-line
 bindkey "\E[4~" end-of-line
+
+# Load user defined aliases and functions.
+[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
+[ -f ~/.zsh_functions ] && source ~/.zsh_functions
 
 # NVM
 export NVM_DIR="$LOCAL_DIR/nvm"
