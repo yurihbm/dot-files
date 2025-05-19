@@ -21,10 +21,6 @@ unzip -o "$TEMP_DIR/JetBrainsMono.zip" "*.ttf" "*.otf" -d "$FONT_DIR/jetbrains-m
 # Refresh font cache
 fc-cache -fv "$FONT_DIR"
 
-# Set the font in GNOME Terminal
-gsettings set org.gnome.Ptyxis use-system-font false
-gsettings set org.gnome.Ptyxis font-name 'JetBrainsMono Nerd Font 12'
-
 # Clean up
 rm -rf "$TEMP_DIR"
 
