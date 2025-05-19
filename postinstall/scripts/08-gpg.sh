@@ -41,6 +41,11 @@ gh gpg-key add gpgkey.asc -t "$GPG_KEY_TITLE"
 
 echo -e "\nGPG key added to GitHub. You can now use it for signing commits."
 
+# Tell git about the GPG key
+git config --global user.signingkey $KEY_ID
+git config --global commit.gpgsign true
+git config --global tag.gpgSign true
+
 rm -f "$TEMP_KEYPARAMS" gpgkey.asc
 
 clear
