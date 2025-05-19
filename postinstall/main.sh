@@ -87,8 +87,17 @@ done
 source "./scripts/helpers/status.sh"
 
 echo "Remember to deviate the following buttons/keys on solaar configuration:"
-echo "Mouse: Mouse Gestures and Smart Shift buttons"
-echo "Keyboard: Open Emoji Panel, Mute Microphone and Voice Dictation keys"
+echo " - Mouse: Mouse Gestures and Smart Shift buttons"
+echo " - Keyboard: Open Emoji Panel, Mute Microphone and Voice Dictation keys"
+
+echo "Gnome Extensions to install:"
+echo " - Blur my Shell"
+echo " - Caffeine"
+echo " - Grand Theft Focus"
+echo " - Hot Edge"
+echo " - Lock Keys"
+echo " - Solaar extension"
+echo " - System Monitor"
 
 # Delete log file if everything succeeded.
 rm -f "$LOG_FILE"
