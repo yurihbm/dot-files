@@ -7,7 +7,7 @@ source ./scripts/helpers/status.sh
 echo -e "\nInstalling whitesur-icon-theme-mod...\n"
 mkdir -p "$LOCAL_DIR/icons"
 
-ICONS_FOLDER = "$LOCAL_DIR/icons/whitesur-icon-theme-mod"
+ICONS_FOLDER="$LOCAL_DIR/icons/whitesur-icon-theme-mod"
 
 # Clone the repository if not already cloned.
 if [ -d "$ICONS_FOLDER" ]; then
