@@ -36,6 +36,7 @@ return {
 						enabled = false,
 					},
 				},
+				trigger = { prefetch_on_insert = false },
 			},
 			signature = { enabled = false, window = { border = vim.o.winborder } },
 			keymap = {
@@ -57,7 +58,7 @@ return {
 				completion = { ghost_text = { enabled = false } },
 			},
 			sources = {
-				default = { "copilot", "lsp", "path", "buffer" },
+				default = { "copilot", "lsp", "buffer" },
 				providers = {
 					copilot = {
 						name = "copilot",
@@ -73,47 +74,7 @@ return {
 				"fang2hou/blink-copilot",
 				event = "InsertEnter",
 				dependencies = {
-					{
-						"CopilotC-Nvim/CopilotChat.nvim",
-						event = "InsertEnter",
-						branch = "main",
-						dependencies = {
-							{
-								"zbirenbaum/copilot.lua",
-								cmd = "Copilot",
-								event = "InsertEnter",
-								opts = {},
-							},
-							"nvim-lua/plenary.nvim",
-						},
-						opts = {
-							window = {
-								layout = "float",
-								border = vim.o.winborder,
-								relative = "win",
-								width = 0.60,
-								height = 0.75,
-								backdrop = 100,
-								title = " Copilot Chat ",
-							},
-						},
-						keys = {
-							{
-								"<leader>cc",
-								":CopilotChatToggle<CR>",
-								mode = "n",
-								desc = "Toggle Copilot Chat",
-								silent = true,
-							},
-							{
-								"<leader>cc",
-								":<C-U>CopilotChatToggle<CR>",
-								mode = "v",
-								desc = "Toggle Copilot Chat",
-								silent = true,
-							},
-						},
-					},
+					"zbirenbaum/copilot.lua",
 				},
 			},
 		},

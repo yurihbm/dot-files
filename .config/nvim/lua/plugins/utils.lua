@@ -7,6 +7,14 @@
 
 return {
 	{
+		"karb94/neoscroll.nvim",
+		opts = {},
+	},
+	{
+		"numToStr/Comment.nvim",
+		opts = {},
+	},
+	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
@@ -32,13 +40,6 @@ return {
 			"echasnovski/mini.icons",
 		},
 		config = function()
-			-- Use one statusline globally.
-			vim.opt.laststatus = 3
-			-- Hide mode information from cmdline.
-			vim.opt.showmode = false
-			-- Hide cmdline.
-			vim.opt.cmdheight = 0
-
 			-- Mock nvim-web-devicons to use mini.icons instead.
 			require("mini.icons").mock_nvim_web_devicons()
 
@@ -54,20 +55,13 @@ return {
 						},
 					},
 				},
+				sections = {
+					lualine_c = {
+						"filename",
+					},
+				},
 			})
 		end,
-	},
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		opts = {
-			preset = "helix",
-			-- TODO: Workaround till https://github.com/folke/which-key.nvim/issues/967
-			show_help = false,
-			win = {
-				border = vim.o.winborder,
-			},
-		},
 	},
 	{
 		ft = {
@@ -93,10 +87,24 @@ return {
 			},
 			user_default_options = {
 				names = false,
-				tailwind = "lsp",
+				tailwind = "both",
 				tailwind_opts = {
 					update_names = true,
 				},
+			},
+		},
+		{
+			"OXY2DEV/markview.nvim",
+			ft = { "markdown" },
+			priority = 49,
+			opts = {
+				preview = {
+					filetypes = { "markdown" },
+					ignore_buftypes = {},
+				},
+			},
+			dependencies = {
+				"nvim-treesitter/nvim-treesitter",
 			},
 		},
 	},

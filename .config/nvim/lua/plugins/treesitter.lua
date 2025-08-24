@@ -29,6 +29,7 @@ return {
 				"toml",
 				"prisma",
 				"markdown",
+				"markdown_inline",
 				"dockerfile",
 			},
 			sync_install = false,
@@ -36,4 +37,5 @@ return {
 			indent = { enable = true },
 		})
 	end,
+	dependencies = { "OXY2DEV/markview.nvim" },
 }

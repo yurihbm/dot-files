@@ -66,7 +66,6 @@ return {
 		"neovim/nvim-lspconfig",
 		ft = lsp_filetypes,
 		config = function()
-			vim.lsp.config("eslint", require("config.lsp.eslint"))
 			vim.lsp.config("jsonls", require("config.lsp.json"))
 			vim.lsp.config("tailwindcss", require("config.lsp.tailwind"))
 			vim.lsp.config("yamlls", require("config.lsp.yaml"))
