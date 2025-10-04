@@ -14,11 +14,11 @@ return {
 	ft = linting_filetypes,
 	keys = {
 		{
-			"<leader>ll",
+			"<leader>lb",
 			function()
 				require("lint").try_lint()
 			end,
-			desc = "Lint current buffer",
+			desc = "[L]int [B]uffer",
 			silent = true,
 		},
 	},
@@ -26,6 +26,10 @@ return {
 		local lint = require("lint")
 		lint.linters_by_ft = {
 			markdown = { "markdownlint" },
+			typescript = { "eslint_d" },
+			typescriptreact = { "eslint_d" },
+			javascript = { "eslint_d" },
+			javascriptreact = { "eslint_d" },
 		}
 
 		local augroup = vim.api.nvim_create_augroup

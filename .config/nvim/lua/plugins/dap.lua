@@ -13,6 +13,7 @@ return {
 				require("dapui").toggle()
 			end,
 			silent = true,
+			desc = "[D]AP [U]I Toggle",
 		},
 	},
 	dependencies = {
@@ -44,15 +45,15 @@ return {
 					silent = true,
 				},
 				{
-					"<leader>b",
+					"<leader>bp",
 					":lua require'dap'.toggle_breakpoint()<CR>",
-					desc = "Toggle Breakpoint",
+					desc = "Toggle [B]reak[p]oint",
 					silent = true,
 				},
 				{
 					"<leader>lp",
 					":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
-					desc = "Set Log Point",
+					desc = "Set [L]og [P]oint",
 					silent = true,
 				},
 			},

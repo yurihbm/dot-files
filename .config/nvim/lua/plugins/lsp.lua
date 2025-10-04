@@ -43,7 +43,6 @@ return {
 		opts = {
 			ensure_installed = {
 				"dockerls",
-				"eslint",
 				"golangci_lint_ls",
 				"gopls",
 				"jsonls",
@@ -51,14 +50,8 @@ return {
 				"prismals",
 				"pyright",
 				"tailwindcss",
-				"ts_ls",
+				"vtsls",
 				"yamlls",
-			},
-			automatic_enable = {
-				exclude = {
-					-- ts_ls config is handled in typescript-tools.nvim
-					"ts_ls",
-				},
 			},
 		},
 	},
@@ -66,7 +59,6 @@ return {
 		"neovim/nvim-lspconfig",
 		ft = lsp_filetypes,
 		config = function()
-			vim.lsp.config("eslint", require("config.lsp.eslint"))
 			vim.lsp.config("jsonls", require("config.lsp.json"))
 			vim.lsp.config("tailwindcss", require("config.lsp.tailwind"))
 			vim.lsp.config("yamlls", require("config.lsp.yaml"))
@@ -74,11 +66,5 @@ return {
 		dependencies = {
 			"b0o/schemastore.nvim",
 		},
-	},
-	{
-		"pmizio/typescript-tools.nvim",
-		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-		opts = require("config.lsp.tsserver"),
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	},
 }
