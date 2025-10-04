@@ -8,10 +8,12 @@
 return {
 	{
 		"karb94/neoscroll.nvim",
+		event = "BufReadPre",
 		opts = {},
 	},
 	{
 		"numToStr/Comment.nvim",
+		event = "BufReadPre",
 		opts = {},
 	},
 	{
@@ -36,9 +38,7 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = {
-			"echasnovski/mini.icons",
-		},
+		event = "VeryLazy",
 		config = function()
 			-- Mock nvim-web-devicons to use mini.icons instead.
 			require("mini.icons").mock_nvim_web_devicons()
@@ -62,8 +62,12 @@ return {
 				},
 			})
 		end,
+		dependencies = {
+			"echasnovski/mini.icons",
+		},
 	},
 	{
+		"catgoose/nvim-colorizer.lua",
 		ft = {
 			"lua",
 			"css",
@@ -73,8 +77,6 @@ return {
 			"javascriptreact",
 			"typescriptreact",
 		},
-		"catgoose/nvim-colorizer.lua",
-		event = "BufReadPre",
 		opts = {
 			filetypes = {
 				"lua",

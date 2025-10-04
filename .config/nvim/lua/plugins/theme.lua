@@ -7,6 +7,7 @@
 return {
 	{
 		"Mofiqul/dracula.nvim",
+		lazy = true,
 		config = function()
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				pattern = "dracula",
@@ -24,10 +25,10 @@ return {
 			--	vim.opt.background = "dark"
 			--	vim.cmd.colorscheme("dracula")
 		end,
-		lazy = true,
 	},
 	{
 		"nyoom-engineering/oxocarbon.nvim",
+		lazy = false,
 		config = function()
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				pattern = "oxocarbon",

@@ -7,6 +7,10 @@
 
 local linting_filetypes = {
 	"markdown",
+	"javascript",
+	"javascriptreact",
+	"typescript",
+	"typescriptreact",
 }
 
 return {
@@ -37,7 +41,7 @@ return {
 		-- Run linting after formatting (with formatter.nvim).
 		autocmd("User", {
 			group = augroup("Linting", { clear = true }),
-			pattern = "FormatterPost",
+			pattern = "BufWritePost",
 			callback = function()
 				local ft = vim.bo.filetype
 				if vim.tbl_contains(linting_filetypes, ft) then
