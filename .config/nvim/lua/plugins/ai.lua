@@ -6,41 +6,61 @@ return {
 		opts = {},
 	},
 	{
-		"CopilotC-Nvim/CopilotChat.nvim",
-		build = "make tiktoken",
+		"folke/sidekick.nvim",
 		opts = {
-			model = "gemini-2.5-pro",
-			headers = {
-				user = "## 👤 You ",
-				assistant = "## 🤖 Copilot ",
-				tool = "## 🔧 Tool ",
+			nes = {
+				enabled = false,
 			},
-			window = {
-				layout = "float",
-				border = vim.o.winborder,
-				relative = "editor",
-				width = 0.60,
-				height = 0.75,
-				backdrop = 100,
-				title = " Copilot Chat ",
+			cli = {
+				watch = true, -- notify Neovim of file changes done by AI CLI tools
+				---@class sidekick.win.Opts
+				win = {
+					layout = "float",
+					float = {
+						width = 0.6,
+						height = 0.8,
+					},
+				},
 			},
 		},
 		keys = {
 			{
-				"<leader>cc",
-				":CopilotChatToggle<CR>",
-				mode = "n",
-				desc = "Toggle Copilot Chat",
-				silent = true,
+				"<leader>sc",
+				function()
+					require("sidekick.cli").toggle({ name = "copilot" })
+				end,
+				desc = "[S]idekick Toggle [C]opilot CLI",
 			},
 			{
-				"<leader>cc",
-				":<C-U>CopilotChatToggle<CR>",
-				mode = "v",
-				desc = "Toggle Copilot Chat",
-				silent = true,
+				"<leader>sg",
+				function()
+					require("sidekick.cli").toggle({ name = "gemini" })
+				end,
+				desc = "[S]idekick Toggle [G]emini CLI",
+			},
+			{
+				"<leader>ss",
+				function()
+					require("sidekick.cli").select({ filter = { installed = true } })
+				end,
+				desc = "[S]idekick [S]elect CLI",
+			},
+			{
+				"<leader>sv",
+				function()
+					require("sidekick.cli").send({ msg = "{selection}" })
+				end,
+				mode = { "x" },
+				desc = "[S]idekick Send [V]isual Selection",
+			},
+			{
+				"<leader>sp",
+				function()
+					require("sidekick.cli").prompt()
+				end,
+				mode = { "n", "x" },
+				desc = "[S]idekick Select [P]rompt",
 			},
 		},
-		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 }

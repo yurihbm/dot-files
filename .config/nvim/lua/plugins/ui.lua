@@ -100,56 +100,56 @@ return {
 				function()
 					Snacks.picker.buffers()
 				end,
-				desc = "Buffers",
+				desc = "[F]ind [B]uffers",
 			},
 			{
 				"<leader>fg",
 				function()
 					Snacks.picker.grep()
 				end,
-				desc = "Grep",
+				desc = "[F]ind [G]rep",
 			},
 			{
-				"<leader>fh",
+				"<leader>fc",
 				function()
 					Snacks.picker.command_history()
 				end,
-				desc = "Command History",
+				desc = "[F]ind [C]ommand",
 			},
 			{
 				"<leader>fn",
 				function()
 					Snacks.picker.notifications()
 				end,
-				desc = "Notification History",
+				desc = "[F]ind [N]otification",
 			},
 			{
 				"<leader>fe",
 				function()
 					Snacks.explorer()
 				end,
-				desc = "File Explorer",
+				desc = "[F]ile [E]xplorer",
 			},
 			{
-				"<leader>fc",
+				"<leader>nc",
 				function()
 					Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
 				end,
-				desc = "Find Config File",
+				desc = "Find [N]eovim [C]onfig",
 			},
 			{
 				"<leader>ff",
 				function()
 					Snacks.picker.files()
 				end,
-				desc = "Find Files",
+				desc = "[F]ind [F]iles",
 			},
 			{
 				"<leader>fr",
 				function()
 					Snacks.picker.resume()
 				end,
-				desc = "Resume",
+				desc = "[F]ind [R]esume",
 			},
 		},
 		dependencies = {
