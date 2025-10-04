@@ -51,14 +51,8 @@ return {
 				"prismals",
 				"pyright",
 				"tailwindcss",
-				"ts_ls",
+				"vtsls",
 				"yamlls",
-			},
-			automatic_enable = {
-				exclude = {
-					-- ts_ls config is handled in typescript-tools.nvim
-					"ts_ls",
-				},
 			},
 		},
 	},
@@ -73,11 +67,5 @@ return {
 		dependencies = {
 			"b0o/schemastore.nvim",
 		},
-	},
-	{
-		"pmizio/typescript-tools.nvim",
-		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-		opts = require("config.lsp.tsserver"),
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	},
 }

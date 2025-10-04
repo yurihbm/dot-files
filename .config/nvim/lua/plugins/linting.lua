@@ -14,11 +14,11 @@ return {
 	ft = linting_filetypes,
 	keys = {
 		{
-			"<leader>ll",
+			"<leader>lb",
 			function()
 				require("lint").try_lint()
 			end,
-			desc = "Lint current buffer",
+			desc = "[L]int [B]uffer",
 			silent = true,
 		},
 	},
