@@ -67,9 +67,6 @@ return {
 						async = true,
 					},
 				},
-				per_filetype = {
-					codecompanion = { "codecompanion" },
-				},
 			},
 		},
 		dependencies = {

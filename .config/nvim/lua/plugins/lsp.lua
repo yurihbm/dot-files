@@ -43,7 +43,6 @@ return {
 		opts = {
 			ensure_installed = {
 				"dockerls",
-				"eslint",
 				"golangci_lint_ls",
 				"gopls",
 				"jsonls",
