@@ -40,7 +40,7 @@ keymap("n", "K", "<Nop>", { noremap = true, silent = true })
 -- Insert mode
 keymap("i", "<C-h>", "<Left>", { desc = "Move Left" })
 keymap("i", "<C-j>", "<Down>", { desc = "Move Down" })
-keymap("i", "<C-k>", "<Up>", { desc = "Move Rp" })
+keymap("i", "<C-k>", "<Up>", { desc = "Move Up" })
 keymap("i", "<C-l>", "<Right>", { desc = "Move Right" })
 -- Command mode
 keymap("c", "<C-h>", "<Left>", { desc = "Move Left (Command Mode)" })
