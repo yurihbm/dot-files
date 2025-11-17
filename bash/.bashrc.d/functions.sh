@@ -1,6 +1,4 @@
-# vim: filetype=sh
-
-# Functions
+#!/bin/bash
 
 # Load variables from a .env file into the current shell session.
 load-env() {
