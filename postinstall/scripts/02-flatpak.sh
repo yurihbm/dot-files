@@ -5,7 +5,6 @@ flatpak install -y --noninteractive \
   com.discordapp.Discord \
   com.github.tchx84.Flatseal \
   com.google.Chrome \
-  com.mattjakeman.ExtensionManager \
   com.valvesoftware.Steam \
   hu.irl.cameractrls \
   rest.insomnia.Insomnia \
