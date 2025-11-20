@@ -41,9 +41,10 @@ scripts=(
   "./scripts/01-bash.sh"
   "./scripts/02-flatpak.sh"
   "./scripts/03-font.sh"
-  "./scripts/04-git.sh"
-  "./scripts/05-eza.sh"
-  "./scripts/06-toolbox.sh"
+  "./scripts/04-theme.sh"
+  "./scripts/05-git.sh"
+  "./scripts/06-eza.sh"
+  "./scripts/07-toolbox.sh"
 )
 
 # Run each script in the array.
