@@ -6,9 +6,9 @@ RUN dnf update -y && \
   dnf copr enable -y atim/starship && \
   dnf copr enable -y jdxcode/mise && \
   dnf install -y \
+  pinentry \
   starship \
   neovim \
   tmux \
-  mise \
-  && \
+  mise && \
   dnf clean all

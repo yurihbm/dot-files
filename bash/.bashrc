@@ -29,3 +29,5 @@ if [ -d ~/.bashrc.d ]; then
   done
 fi
 unset rc
+
+export GPG_TTY=$(tty)
