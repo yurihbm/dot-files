@@ -56,11 +56,17 @@ for script in "${scripts[@]}"; do
   fi
 done
 
-echo "Remember to deviate the following buttons/keys on solaar configuration:"
+echo "Sourcing new .bashrc to apply changes..."
+
+source "$HOME/.bashrc"
+
+echo -e "\nPost-installation setup completed successfully!"
+
+echo "\nRemember to deviate the following buttons/keys on solaar configuration:"
 echo " - Mouse: Mouse Gestures and Smart Shift buttons"
 echo " - Keyboard: Emoji, Mute Microphone and Voice Dictation keys"
 
-echo "Gnome Extensions to install:"
+echo "\nGnome Extensions to install:"
 echo " - Blur my Shell"
 echo " - Caffeine"
 echo " - Hot Edge"
@@ -69,10 +75,10 @@ echo " - Solaar extension"
 echo " - System Monitor"
 echo " - GSConnect"
 
-echo "You can use tbx-create <container_name> to create new toolbox containers."
+echo "\nYou can use tbx-create <container_name> to create new toolbox containers."
 echo "Use tbx-remove <container_name> to remove them."
 
-echo "Restart the system to apply all changes."
+echo "\nRestart the system to apply all changes."
 
 # Delete log file if everything succeeded.
 rm -f "$LOG_FILE"
