@@ -1,11 +1,11 @@
-$FILE_TOOLBOX_NAME="_template"
+FILE_TOOLBOX_NAME="_template"
 
 # Check if toolbox name matches
 if [ "$TOOLBOX_NAME" != "$FILE_TOOLBOX_NAME" ]; then
   return
 fi
 
-CONTAINER_ROOT="$HOME/.toolbox-envs/$FILE_TOOLBOX_NAME"
+CONTAINER_ROOT="$TOOLBOX_ENVS_FOLDER/$FILE_TOOLBOX_NAME"
 
 export XDG_CONFIG_HOME="$CONTAINER_ROOT/config"
 export XDG_DATA_HOME="$CONTAINER_ROOT/data"
@@ -43,7 +43,7 @@ alias bash-config="nvim $TOOLBOX_FOLDER/.bashrc"
 alias bash-reload="source $HOME/.bashrc && clear && echo \"🔄 Bash configuration reloaded.\""
 
 # Tmux with custom config
-alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 # PNPM shortcuts
 alias pn="pnpm"

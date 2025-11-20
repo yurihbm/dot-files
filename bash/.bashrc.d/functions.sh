@@ -104,7 +104,7 @@ function tbx-create() {
   # Variables used in the function
   local SEPARATOR="----------------------------------------"
   local TOOLBOX_NAME="$1"
-  local TOOLBOX_FOLDER="$TOOLBOX_ENV_FOLDER/$TOOLBOX_NAME"
+  local TOOLBOX_FOLDER="$TOOLBOX_ENVS_FOLDER/$TOOLBOX_NAME"
 
   local TEMPLATE_FILE="$TOOLBOX_TEMPLATE_FOLDER/template.sh"
   local TEMPLATE_CONFIG_FOLDER="$TOOLBOX_TEMPLATE_FOLDER/config"
@@ -177,6 +177,8 @@ function tbx-create() {
     echo "$SEPARATOR"
     echo "📝 Generating toolbox configuration files..."
 
+    mkdir -p "$TOOLBOX_FOLDER"
+
     sed "s/FILE_TOOLBOX_NAME=\"_template\"/FILE_TOOLBOX_NAME=\"$TOOLBOX_NAME\"/" "$TEMPLATE_FILE" >"$DEST_FILE"
 
     if [ -s "$DEST_FILE" ]; then
@@ -214,14 +216,14 @@ function tbx-create() {
 function tbx-remove() {
   local SEPARATOR="----------------------------------------"
   local TOOLBOX_NAME="$1"
-  local TOOLBOX_FOLDER="$TOOLBOX_ENV_FOLDER/$TOOLBOX_NAME"
+  local TOOLBOX_FOLDER="$TOOLBOX_ENVS_FOLDER/$TOOLBOX_NAME"
 
   # --- Safety Checks ---
 
   # Check if name provided
   if [ -z "$TOOLBOX_NAME" ]; then
     echo "❌ Error: Container name not provided."
-    echo "   Usage: tbx-rm <name>"
+    echo "   Usage: tbx-remove <name>"
     return 1
   fi
 

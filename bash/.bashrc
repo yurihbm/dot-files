@@ -11,12 +11,12 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
-export TOOLBOX_ENV_FOLDER="$HOME/.toolbox-env"
-export TOOLBOX_TEMPLATE_FOLDER="$TOOLBOX_ENV_FOLDER/_template"
+export TOOLBOX_ENVS_FOLDER="$HOME/.toolbox-envs"
+export TOOLBOX_TEMPLATE_FOLDER="$TOOLBOX_ENVS_FOLDER/_template"
 
 if [ -f /run/.toolboxenv ]; then
   export TOOLBOX_NAME=$(awk -F= '$1 == "name" { sub(/^"/, "", $2); sub(/"$/, "", $2); print $2 }' /run/.containerenv)
-  export TOOLBOX_FOLDER="$TOOLBOX_ENV_FOLDER/$TOOLBOX_NAME"
+  export TOOLBOX_FOLDER="$TOOLBOX_ENVS_FOLDER/$TOOLBOX_NAME"
   . "$TOOLBOX_FOLDER/.bashrc"
 fi
 

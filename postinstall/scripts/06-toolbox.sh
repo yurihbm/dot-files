@@ -2,7 +2,7 @@
 
 echo -e "\nSetting up Toolbox environment template..."
 
-TOOLBOX_TEMPLATE_FOLDER="$HOME/.toolbox-env/_template"
+TOOLBOX_TEMPLATE_FOLDER="$HOME/.toolbox-envs/_template"
 
 mkdir -p "$TOOLBOX_TEMPLATE_FOLDER"
 
