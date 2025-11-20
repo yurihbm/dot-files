@@ -43,8 +43,7 @@ scripts=(
   "./scripts/03-font.sh"
   "./scripts/04-git.sh"
   "./scripts/05-eza.sh"
-  "./scripts/06-config.sh"
-  "./scripts/07-toolbox.sh"
+  "./scripts/06-toolbox.sh"
 )
 
 # Run each script in the array.
@@ -57,7 +56,7 @@ done
 
 echo "Remember to deviate the following buttons/keys on solaar configuration:"
 echo " - Mouse: Mouse Gestures and Smart Shift buttons"
-echo " - Keyboard: Open Emoji Panel, Mute Microphone and Voice Dictation keys"
+echo " - Keyboard: Emoji, Mute Microphone and Voice Dictation keys"
 
 echo "Gnome Extensions to install:"
 echo " - Blur my Shell"
@@ -66,6 +65,10 @@ echo " - Hot Edge"
 echo " - Lock Keys"
 echo " - Solaar extension"
 echo " - System Monitor"
+echo " - GSConnect"
+
+echo "You can use tbx-create <container_name> to create new toolbox containers."
+echo "Use tbx-remove <container_name> to remove them."
 
 echo "Restart the system to apply all changes."
 

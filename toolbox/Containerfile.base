@@ -1,0 +1,14 @@
+FROM registry.fedoraproject.org/fedora-toolbox:latest
+
+LABEL name="dev-toolbox"
+
+RUN dnf update -y && \
+  dnf copr enable -y atim/starship && \
+  dnf copr enable -y jdxcode/mise && \
+  dnf install -y \
+  starship \
+  neovim \
+  tmux \
+  mise \
+  && \
+  dnf clean all
