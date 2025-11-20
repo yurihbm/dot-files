@@ -20,5 +20,5 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 echo -e "\nGTK theme set to Adwaita Dark.\n"
 
 echo -e "\nCopying Solaar configuration...\n"
-cp ../.config/solaar/ "$HOME/.config/" -R
+cp ../config/solaar/ "$HOME/.config/" -R
 echo -e "\nSolaar configuration copied.\n"
