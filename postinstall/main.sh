@@ -22,7 +22,6 @@ if [ "$PWD" != "$SCRIPT_DIR" ]; then
   PUSHED=true
 fi
 
-# Function to clean up sudo cache and pop directory.
 cleanup() {
   if [ "$PUSHED" = true ]; then
     popd >/dev/null
