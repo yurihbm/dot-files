@@ -19,6 +19,8 @@ export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 # Initialize starship prompt and mise environment
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship.toml"
+export STARSHIP_CACHE="$XDG_CACHE_HOME/starship"
 eval "$(starship init bash)"
 eval "$(mise activate bash)"
 
