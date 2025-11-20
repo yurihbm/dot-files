@@ -56,10 +56,6 @@ for script in "${scripts[@]}"; do
   fi
 done
 
-echo "Sourcing new .bashrc to apply changes..."
-
-source "$HOME/.bashrc"
-
 echo -e "\nPost-installation setup completed successfully!"
 
 echo "\nRemember to deviate the following buttons/keys on solaar configuration:"
@@ -75,7 +71,10 @@ echo " - Solaar extension"
 echo " - System Monitor"
 echo " - GSConnect"
 
-echo "\nYou can use tbx-create <container_name> to create new toolbox containers."
+echo "\nSource the new .bashrc to apply changes:"
+echo "source \$HOME/.bashrc"
+
+echo "\nThen, you can use tbx-create <container_name> to create new toolbox containers."
 echo "Use tbx-remove <container_name> to remove them."
 
 echo "\nRestart the system to apply all changes."
