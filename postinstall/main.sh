@@ -44,7 +44,8 @@ scripts=(
   "./scripts/04-theme.sh"
   "./scripts/05-git.sh"
   "./scripts/06-eza.sh"
-  "./scripts/07-toolbox.sh"
+  "./scripts/07-gnome.sh"
+  "./scripts/08-toolbox.sh"
 )
 
 # Run each script in the array.
