@@ -24,4 +24,5 @@ SOLAAR_CONFIG_FOLDER="$HOME/.var/app/io.github.pwr_solaar.solaar/config/solaar"
 mkdir -p "$SOLAAR_CONFIG_FOLDER"
 cp ../config/solaar/*.yaml "$SOLAAR_CONFIG_FOLDER" -R
 sudo cp ../config/solaar/*.rules /etc/udev/rules.d
+sudo udevadm control --reload-rules
 echo -e "\nSolaar configuration copied.\n"
