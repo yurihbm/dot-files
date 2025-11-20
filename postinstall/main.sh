@@ -58,11 +58,11 @@ done
 
 echo -e "\nPost-installation setup completed successfully!"
 
-echo "\nRemember to deviate the following buttons/keys on solaar configuration:"
+echo -e "\nRemember to deviate the following buttons/keys on solaar configuration:"
 echo " - Mouse: Mouse Gestures and Smart Shift buttons"
 echo " - Keyboard: Emoji, Mute Microphone and Voice Dictation keys"
 
-echo "\nGnome Extensions to install:"
+echo -e "\nGnome Extensions to install:"
 echo " - Blur my Shell"
 echo " - Caffeine"
 echo " - Hot Edge"
@@ -71,13 +71,13 @@ echo " - Solaar extension"
 echo " - System Monitor"
 echo " - GSConnect"
 
-echo "\nSource the new .bashrc to apply changes:"
+echo -e "\nSource the new .bashrc to apply changes:"
 echo "source \$HOME/.bashrc"
 
-echo "\nThen, you can use tbx-create <container_name> to create new toolbox containers."
+echo -e "\nThen, you can use tbx-create <container_name> to create new toolbox containers."
 echo "Use tbx-remove <container_name> to remove them."
 
-echo "\nRestart the system to apply all changes."
+echo -e "\nRestart the system to apply all changes."
 
 # Delete log file if everything succeeded.
 rm -f "$LOG_FILE"
