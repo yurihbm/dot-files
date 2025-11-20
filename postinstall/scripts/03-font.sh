@@ -6,7 +6,7 @@ curl -L https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrai
 
 mkdir -p "$HOME/.local/share/fonts/"
 
-unzip -o "./JetBrainsMono.zip" "*.ttf" "*.otf" -d "$HOME/.local/share/fonts/"
+unzip -o "./JetBrainsMono.zip" "*.ttf" -d "$HOME/.local/share/fonts/"
 
 fc-cache -fv "$HOME/.local/share/fonts/"
 
