@@ -13,6 +13,20 @@ error_handler() {
 }
 trap error_handler ERR
 
+# Ask for sudo upfront and cache it.
+if ! sudo -v; then
+  echo "This script requires sudo privileges to run. Exiting."
+  exit 1
+fi
+
+# Keep sudo session alive while script runs.
+# This runs in background and will keep the sudo session alive.
+(while true; do
+  sudo -v
+  sleep 60
+done) &
+SUDO_KEEPALIVE_PID=$!
+
 # Checking if the script is run from its own directory.
 PUSHED=false
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -22,7 +36,12 @@ if [ "$PWD" != "$SCRIPT_DIR" ]; then
   PUSHED=true
 fi
 
+# Function to clean up sudo cache and pop directory.
 cleanup() {
+  if [ -n "$SUDO_KEEPALIVE_PID" ]; then
+    kill "$SUDO_KEEPALIVE_PID" 2>/dev/null
+    wait "$SUDO_KEEPALIVE_PID" 2>/dev/null
+  fi
   if [ "$PUSHED" = true ]; then
     popd >/dev/null
   fi
@@ -37,7 +56,7 @@ source ./scripts/00-vars.sh
 echo -e "\nStarting post-installation setup...\n"
 
 scripts=(
-  "./scripts/01-bash.sh"
+  "./scripts/01-zsh.sh"
   "./scripts/02-flatpak.sh"
   "./scripts/03-font.sh"
   "./scripts/04-theme.sh"

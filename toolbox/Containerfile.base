@@ -1,7 +1,5 @@
 FROM registry.fedoraproject.org/fedora-toolbox:latest
 
-LABEL name="dev-toolbox"
-
 RUN dnf update -y && \
   dnf copr enable -y atim/starship && \
   dnf copr enable -y jdxcode/mise && \
@@ -10,5 +8,7 @@ RUN dnf update -y && \
   starship \
   neovim \
   tmux \
-  mise && \
+  mise \
+  zsh && \
   dnf clean all
+
