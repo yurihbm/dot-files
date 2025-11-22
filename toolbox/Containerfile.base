@@ -6,6 +6,7 @@ RUN dnf update -y && \
   dnf install -y \
   pinentry \
   starship \
+  fd-find \
   neovim \
   tmux \
   mise \
