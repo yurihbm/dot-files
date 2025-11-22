@@ -89,8 +89,8 @@ echo " - Solaar extension"
 echo " - System Monitor"
 echo " - GSConnect"
 
-echo -e "\nSource the new .bashrc to apply changes:"
-echo "source \$HOME/.bashrc"
+echo -e "\nSource the new .zshrc to apply changes:"
+echo "source \$HOME/.zshrc"
 
 echo -e "\nThen, you can use tbx-create <container_name> to create new toolbox containers."
 echo "Use tbx-remove <container_name> to remove them."
