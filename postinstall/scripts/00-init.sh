@@ -1,5 +1,3 @@
-clear
-
 echo "First you should enable third party repositories through the Programs app."
 read -p $'Do you want to continue? (y/n): ' -r CONTINUE
 if [[ ! $CONTINUE =~ ^[Yy]$ ]]; then
@@ -10,7 +8,6 @@ fi
 echo "Getting necessary variables..."
 
 read -p $'Enter your Git name: ' -r GIT_NAME
-clear
 if [[ -z "$GIT_NAME" ]]; then
   echo -e "\nError: Git name not provided. Exiting..."
   exit 1

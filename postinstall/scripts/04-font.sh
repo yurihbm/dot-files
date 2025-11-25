@@ -2,6 +2,11 @@
 
 echo -e "\nDownloading and installing JetBrains Mono Nerd Font..."
 
+if ls "$HOME/.local/share/fonts/" | grep -q "JetBrainsMonoNerdFont"; then
+  echo -e "\nJetBrains Mono Nerd Font is already installed. Skipping..."
+  exit 0
+fi
+
 curl -L https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip -o "./JetBrainsMono.zip"
 
 mkdir -p "$HOME/.local/share/fonts/"

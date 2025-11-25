@@ -50,27 +50,29 @@ cleanup() {
 # Call cleanup on exit.
 trap cleanup EXIT
 
-# Load variables.
-source ./scripts/00-vars.sh
+# Load variables and utility functions.
+source ./scripts/00-init.sh
 
 echo -e "\nStarting post-installation setup...\n"
 
 scripts=(
-  "./scripts/01-zsh.sh"
+  "./scripts/01-dnf.sh"
   "./scripts/02-flatpak.sh"
-  "./scripts/03-font.sh"
-  "./scripts/04-theme.sh"
-  "./scripts/05-git.sh"
-  "./scripts/06-eza.sh"
+  "./scripts/03-eza.sh"
+  "./scripts/04-font.sh"
+  "./scripts/05-theme.sh"
+  "./scripts/06-git.sh"
   "./scripts/07-gnome.sh"
-  "./scripts/08-toolbox.sh"
+  "./scripts/08-config.sh"
 )
 
 # Run each script in the array.
 for script in "${scripts[@]}"; do
   echo "Running $script..."
   if ! source "$script"; then
-    echo "⚠️  $script failed with exit code $?. Continuing..."
+    echo "❌ $script failed with exit code $?."
+    echo "Installation cannot continue safely. Please fix the error and run again."
+    exit 1
   fi
 done
 
@@ -87,15 +89,10 @@ echo " - Hot Edge"
 echo " - Lock Keys"
 echo " - Solaar extension"
 echo " - System Monitor"
+echo " - Quick Settings Tweaks"
 echo " - GSConnect"
 
-echo -e "\nSource the new .zshrc to apply changes:"
+echo -e "\nSource the new .zshrc to apply Zsh changes:"
 echo "source \$HOME/.zshrc"
 
-echo -e "\nThen, you can use tbx-create <container_name> to create new toolbox containers."
-echo "Use tbx-remove <container_name> to remove them."
-
 echo -e "\nRestart the system to apply all changes."
-
-# Delete log file if everything succeeded.
-rm -f "$LOG_FILE"
