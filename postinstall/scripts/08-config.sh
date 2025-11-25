@@ -6,7 +6,6 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Resolves to the absolute path of your config folder (e.g., /home/user/.local/dot-files/config)
 SOURCE_CONFIG_DIR="$(realpath "$SCRIPT_DIR/../../config")"
-SOURCE_ZSH_DIR="$(realpath "$SCRIPT_DIR/../../zsh")"
 
 # ========== Utility Functions ==========
 
@@ -113,12 +112,12 @@ backup_and_link "$TMUX_SOURCE_FILE" "$TMUX_TARGET_FILE"
 
 echo -e "\n--- Configuring Zsh ---"
 
-ZSH_SOURCE_FILE="$(realpath "$SOURCE_ZSH_DIR/.zshrc")"
+ZSH_SOURCE_FILE="$(realpath "$SOURCE_CONFIG_DIR/zsh/zshrc")"
 ZSH_TARGET_FILE="$HOME/.zshrc"
-ZSH_SOURCE_DIR="$(realpath "$SOURCE_ZSH_DIR/.zshrc.d")"
+ZSH_SOURCE_DIR="$(realpath "$SOURCE_CONFIG_DIR/zsh/zshrc.d")"
 ZSH_TARGET_DIR="$HOME/.zshrc.d"
 
-backup_and_link "$ZSH_SOURCE_FILE" "$HOME/.zshrc"
-backup_and_link "$ZSH_SOURCE_DIR" "$HOME/.zshrc.d"
+backup_and_link "$ZSH_SOURCE_FILE" "$ZSH_TARGET_FILE"
+backup_and_link "$ZSH_SOURCE_DIR" "$ZSH_TARGET_DIR"
 
 echo -e "\nAll configurations linked successfully.\n"
