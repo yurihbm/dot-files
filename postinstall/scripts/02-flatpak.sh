@@ -3,11 +3,10 @@
 # ========== Flatpak Applications ==========
 
 echo -e "\nInstalling Flatpak applications...\n"
-flatpak install -y --noninteractive --user \
+flatpak install -y --noninteractive \
   com.belmoussaoui.Authenticator \
   com.discordapp.Discord \
   com.github.tchx84.Flatseal \
-  com.google.Chrome \
   com.valvesoftware.Steam \
   hu.irl.cameractrls \
   rest.insomnia.Insomnia \
