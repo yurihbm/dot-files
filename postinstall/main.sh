@@ -92,7 +92,13 @@ echo " - System Monitor"
 echo " - Quick Settings Tweaks"
 echo " - GSConnect"
 
-echo -e "\nSource the new .zshrc to apply Zsh changes:"
-echo "source \$HOME/.zshrc"
+echo -e "\nWant to change the default shell to zsh?"
+read -p $'Do you want to continue? (y/n): ' -r CONTINUE
+if [[ $CONTINUE =~ ^[Yy]$ ]]; then
+  chsh -s "$(which zsh)"
+  echo -e "\nDefault shell changed to zsh."
+else
+  echo -e "\nSkipping default shell change."
+fi
 
 echo -e "\nRestart the system to apply all changes."
