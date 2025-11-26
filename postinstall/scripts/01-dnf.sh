@@ -8,8 +8,7 @@ sudo dnf config-manager addrepo --from-repofile=https://download.docker.com/linu
 
 echo -e "\nInstalling DNF applications...\n"
 
-sudo dnf update -y &&
-  sudo dnf copr enable -y atim/starship &&
+sudo dnf copr enable -y atim/starship &&
   sudo dnf copr enable -y jdxcode/mise &&
   sudo dnf install -y \
     google-chrome-stable \
@@ -24,6 +23,7 @@ sudo dnf update -y &&
     docker-compose-plugin \
     fuse-overlayfs \
     zsh &&
+  sudo dnf update -y &&
   sudo dnf clean all
 
 echo -e "\nEnabling Docker Rootless mode...\n"
