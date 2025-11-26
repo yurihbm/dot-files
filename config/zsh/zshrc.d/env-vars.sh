@@ -4,6 +4,13 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export GIT_EDITOR="nvim"
 
-# ========== Docker Host ==========
+# ========== Docker Config ==========
 
 export DOCKER_HOST="unix:///run/user/$UID/docker.sock"
+export DOCKER_CONFIG="$HOME/.config/docker"
+
+# ========== NPM Config ==========
+
+export NPM_CONFIG_CACHE="$HOME/.cache/npm"
+export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/.npmrc"
+export NPM_CONFIG_INIT_MODULE="$HOME/.config/npm/.npm-init.js"

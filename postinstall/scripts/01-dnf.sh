@@ -32,6 +32,7 @@ if ! command -v dockerd-rootless-setuptool.sh &>/dev/null; then
   exit 1
 fi
 
+export DOCKER_CONFIG="$HOME/.config/docker"
 dockerd-rootless-setuptool.sh install
 
 echo -e "\nRootless Docker installed. Run 'systemctl --user start docker' to start the service."
