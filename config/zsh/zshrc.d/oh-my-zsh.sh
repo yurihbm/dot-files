@@ -4,8 +4,6 @@ export ZSH="$HOME/.config/.oh-my-zsh"
 if [ ! -d "$ZSH" ]; then
   echo "Oh My Zsh not found. Installing..."
 
-  mkdir -p "$ZSH"
-
   # Using --unattended to avoid prompts and preventing shell switch
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
