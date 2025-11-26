@@ -13,7 +13,6 @@ sudo dnf copr enable -y atim/starship &&
   sudo dnf install -y \
     google-chrome-stable \
     starship \
-    fd-find \
     tmux \
     mise \
     docker-ce \
