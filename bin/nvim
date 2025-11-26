@@ -1,0 +1,13 @@
+#!/bin/bash
+# vim: filetype=sh
+
+# This file is use to run the Flatpak Neovim package.
+#
+# I opted to create a separate script instead of using an alias, as this approach
+# prevent the terminal emulator's tab title from have brwap process binary and arguments
+# in it.
+#
+# With this script, the tab title will simply show "nvim" or whatever title
+# the nvim instance sets with the `vim.opt.titlestring`.
+
+flatpak run io.neovim.nvim "$@"

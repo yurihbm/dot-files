@@ -32,4 +32,16 @@ sudo flatpak override io.neovim.nvim --talk-name=org.freedesktop.Flatpak
 
 echo -e "\nNeovim Flatpak extensions installation complete.\n"
 
+echo -e "\nSetting up Neovim script in user local bin...\n"
+
+# bin/nvim path
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+NEOVIM_SCRIPT_SOURCE="$SCRIPT_DIR/../../bin/nvim"
+NEOVIM_SCRIPT_TARGET="$HOME/.local/bin/nvim"
+
+cp "$NEOVIM_SCRIPT_SOURCE" "$NEOVIM_SCRIPT_TARGET"
+chmod +x "$NEOVIM_SCRIPT_TARGET"
+
+echo -e "\nNeovim script setup complete.\n"
+
 echo -e "\nFlatpak application installation complete.\n"

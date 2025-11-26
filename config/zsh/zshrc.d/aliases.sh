@@ -2,9 +2,6 @@
 alias ls="eza --icons -T -L=1"
 alias lt="eza --icons -T"
 
-# Neovim alias for Flatpak installation
-alias nvim="flatpak run io.neovim.nvim"
-
 # Git aliases
 alias gac="ga -A && gc"
 alias gacm="ga -A && gc -m"

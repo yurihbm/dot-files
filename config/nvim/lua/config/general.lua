@@ -56,3 +56,30 @@ vim.api.nvim_command([[aunmenu PopUp.-1-]])
 -- Set leader key.
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+-- Set default shell to zsh in host environment when running in Flatpak
+vim.opt.shell = "flatpak-spawn --host --env=TERM=xterm-256color zsh"
+
+-- Enable window title modification
+vim.opt.title = true
+
+function _G.custom_titlestring()
+	local filename = vim.fn.expand("%:t")
+	local cwd = vim.fn.getcwd()
+	local dirname = vim.fn.fnamemodify(cwd, ":t")
+
+	if filename == "" then
+		return dirname .. " - nvim"
+	end
+
+	-- When running flatpak-spawn, the terminal mode is used
+	if vim.bo.filetype == "flatpak-spawn" then
+		return "terminal - nvim"
+	end
+
+	local modified = vim.bo.modified and " [+]" or ""
+
+	return string.format("%s%s (%s) - nvim", filename, modified, dirname)
+end
+
+vim.opt.titlestring = "%{v:lua.custom_titlestring()}"

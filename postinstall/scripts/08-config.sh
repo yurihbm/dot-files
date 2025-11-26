@@ -82,9 +82,6 @@ NEOVIM_SOURCE="$SOURCE_CONFIG_DIR/nvim"
 # Flatpak path
 NEOVIM_TARGET="$HOME/.var/app/io.neovim.nvim/config/nvim"
 
-# If switch to native Neovim later, just uncomment this:
-# NEOVIM_TARGET="$HOME/.config/nvim"
-
 backup_and_link "$NEOVIM_SOURCE" "$NEOVIM_TARGET"
 
 # ========== Starship ==========
