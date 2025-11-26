@@ -27,8 +27,8 @@ GO_EXT_ID="org.freedesktop.Sdk.Extension.golang"
 flatpak install -y --noninteractive \
   ${NODE_EXT_ID}//${NEOVIM_RUNTIME} \
   ${GO_EXT_ID}//${NEOVIM_RUNTIME}
-flatpak override io.neovim.nvim --env=FLATPAK_ENABLE_SDK_EXT="node${NODE_VERSION},golang"
-flatpak override io.neovim.nvim --talk-name=org.freedesktop.Flatpak
+sudo flatpak override io.neovim.nvim --env=FLATPAK_ENABLE_SDK_EXT="node${NODE_VERSION},golang"
+sudo flatpak override io.neovim.nvim --talk-name=org.freedesktop.Flatpak
 
 echo -e "\nNeovim Flatpak extensions installation complete.\n"
 
