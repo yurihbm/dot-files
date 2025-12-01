@@ -1,0 +1,29 @@
+FROM registry.fedoraproject.org/fedora-toolbox:latest
+
+RUN dnf update -y && \
+  dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo && \
+  dnf copr enable -y atim/starship && \
+  dnf copr enable -y jdxcode/mise && \
+  sudo dnf install -y \
+  zsh \
+  starship \
+  mise \
+  tmux \
+  fuse \
+  fuse-libs \
+  clang \
+  fd-find \
+  ripgrep \
+  pinentry \
+  flatpak-xdg-open \
+  docker-ce \
+  docker-ce-cli \
+  containerd.io \
+  docker-buildx-plugin \
+  docker-compose-plugin \
+  fuse-overlayfs && \
+  dnf clean all
+
+# Workround for https://github.com/containers/toolbox/issues/291
+RUN ln -s /usr/bin/flatpak-xdg-open /usr/bin/xdg-open
+
