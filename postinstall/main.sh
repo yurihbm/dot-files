@@ -51,30 +51,20 @@ cleanup() {
 trap cleanup EXIT
 
 # Load variables and utility functions.
-source ./scripts/00-init.sh
-
 echo -e "\nStarting post-installation setup...\n"
 
-scripts=(
-  "./scripts/01-dnf.sh"
-  "./scripts/02-flatpak.sh"
-  "./scripts/03-eza.sh"
-  "./scripts/04-font.sh"
-  "./scripts/05-theme.sh"
-  "./scripts/06-git.sh"
-  "./scripts/07-gnome.sh"
-  "./scripts/08-config.sh"
-)
-
-# Run each script in the array.
-for script in "${scripts[@]}"; do
-  echo "Running $script..."
-  if ! source "$script"; then
-    echo "❌ $script failed with exit code $?."
-    echo "Installation cannot continue safely. Please fix the error and run again."
-    exit 1
-  fi
-done
+if [ -d ./scripts ]; then
+  for rc in ./scripts/*; do
+    if [ -f "$rc" ]; then
+      if ! source "$script"; then
+        echo "❌ $script failed with exit code $?."
+        echo "Installation cannot continue safely. Please fix the error and run again."
+        exit 1
+      fi
+    fi
+  done
+fi
+unset rc
 
 echo -e "\nPost-installation setup completed successfully!"
 

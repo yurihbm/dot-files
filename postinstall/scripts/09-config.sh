@@ -80,7 +80,7 @@ echo -e "\n--- Configuring Neovim ---"
 
 NEOVIM_SOURCE="$SOURCE_CONFIG_DIR/nvim"
 # Flatpak path
-NEOVIM_TARGET="$HOME/.var/app/io.neovim.nvim/config/nvim"
+NEOVIM_TARGET="$HOME/.config/nvim"
 
 backup_and_link "$NEOVIM_SOURCE" "$NEOVIM_TARGET"
 
