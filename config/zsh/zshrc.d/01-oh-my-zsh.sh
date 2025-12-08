@@ -19,12 +19,21 @@ if [ ! -d "$ZSH" ]; then
 fi
 
 plugins=(
+  dnf
+  docker
+  docker-compose
+  eza
   git
-  zsh-syntax-highlighting
+  gpg-agent
+  mise
+  starship
   zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
-# Empty string disables the Oh My Zsh themes
-ZSH_THEME=""
+# eza plugin config
+zstyle ':omz:plugins:eza' 'dirs-first' yes
+zstyle ':omz:plugins:eza' 'header' yes
+zstyle ':omz:plugins:eza' 'icons' yes
 
 source $ZSH/oh-my-zsh.sh

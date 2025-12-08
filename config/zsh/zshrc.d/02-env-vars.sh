@@ -4,6 +4,10 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export GIT_EDITOR="nvim"
 
+# ========== Go Config ==========
+
+export GOPATH="$HOME/.local/share/go"
+
 # ========== Docker Config ==========
 
 export DOCKER_HOST="unix:///run/user/$UID/docker.sock"
@@ -19,7 +23,3 @@ export NPM_CONFIG_INIT_MODULE="$HOME/.config/npm/.npm-init.js"
 
 export YARN_GLOBAL_FOLDER="$HOME/.local/share/yarn"
 export YARN_ENABLE_TELEMETRY=false
-
-# ========== GPG Config ==========
-
-export GPG_TTY=$(tty)

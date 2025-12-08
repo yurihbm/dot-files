@@ -1,7 +1,3 @@
-# File and directory listing with eza
-alias ls="eza --icons -T -L=1"
-alias lt="eza --icons -T"
-
 # Git aliases
 alias gac="ga -A && gc"
 alias gacm="ga -A && gc -m"
