@@ -19,13 +19,6 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.splitright = true -- Vertical splits open on the left.
 vim.opt.splitbelow = true -- Horizontal splits open at the bottom.
 
--- Use one statusline globally.
-vim.opt.laststatus = 3
--- Hide mode information from cmdline.
-vim.opt.showmode = false
--- Hide cmdline.
-vim.opt.cmdheight = 0
-
 --- Global variable for border style.
 vim.g.border_style = "rounded"
 

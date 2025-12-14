@@ -49,19 +49,35 @@ keymap("c", "<C-k>", "<Up>", { desc = "Move Up (Command Mode)" })
 keymap("c", "<C-l>", "<Right>", { desc = "Move Right (Command Mode)" })
 
 -- =========================
--- Split Resizing Keymaps
+-- Intuitive Split Resizing Keymaps
 -- =========================
 keymap("n", "<C-Up>", function()
-	vim.cmd("resize " .. (vim.fn.winheight(0) - 2))
+	if vim.fn.winnr("j") == vim.fn.winnr() then
+		vim.cmd("resize +2")
+	else
+		vim.cmd("resize -2")
+	end
 end, vim.tbl_extend("force", opts, { desc = "Resize Split Up" }))
 keymap("n", "<C-Down>", function()
-	vim.cmd("resize " .. (vim.fn.winheight(0) + 2))
+	if vim.fn.winnr("j") == vim.fn.winnr() then
+		vim.cmd("resize -2")
+	else
+		vim.cmd("resize +2")
+	end
 end, vim.tbl_extend("force", opts, { desc = "Resize Split Down" }))
 keymap("n", "<C-Left>", function()
-	vim.cmd("vertical resize " .. (vim.fn.winwidth(0) - 2))
+	if vim.fn.winnr("l") == vim.fn.winnr() then
+		vim.cmd("vertical resize +2")
+	else
+		vim.cmd("vertical resize -2")
+	end
 end, vim.tbl_extend("force", opts, { desc = "Resize Split Left" }))
 keymap("n", "<C-Right>", function()
-	vim.cmd("vertical resize " .. (vim.fn.winwidth(0) + 2))
+	if vim.fn.winnr("l") == vim.fn.winnr() then
+		vim.cmd("vertical resize -2")
+	else
+		vim.cmd("vertical resize +2")
+	end
 end, vim.tbl_extend("force", opts, { desc = "Resize Split Right" }))
 
 -- =========================

@@ -26,4 +26,7 @@ require("lazy").setup({
 		border = vim.o.winborder,
 		backdrop = 100,
 	},
+	rocks = {
+		enabled = false,
+	},
 })

@@ -43,6 +43,13 @@ return {
 			-- Mock nvim-web-devicons to use mini.icons instead.
 			require("mini.icons").mock_nvim_web_devicons()
 
+			-- Use one statusline globally.
+			vim.opt.laststatus = 3
+			-- Hide mode information from cmdline.
+			vim.opt.showmode = false
+			-- Hide cmdline.
+			vim.opt.cmdheight = 0
+
 			require("lualine").setup({
 				options = {
 					global_status = true,
