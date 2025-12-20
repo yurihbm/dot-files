@@ -27,6 +27,7 @@ plugins=(
   gpg-agent
   mise
   starship
+  vi-mode
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -37,3 +38,9 @@ zstyle ':omz:plugins:eza' 'header' yes
 zstyle ':omz:plugins:eza' 'icons' yes
 
 source $ZSH/oh-my-zsh.sh
+
+MODE_INDICATOR=""
+INSERT_MODE_INDICATOR=""
+
+PROMPT="$PROMPT\$(vi_mode_prompt_info)"
+RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
