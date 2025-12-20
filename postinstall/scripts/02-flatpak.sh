@@ -12,6 +12,7 @@ flatpak install -y --noninteractive \
   hu.irl.cameractrls \
   rest.insomnia.Insomnia \
   io.github.pwr_solaar.solaar \
+  io.github.nozwock.Packet \
   org.gtk.Gtk3theme.adw-gtk3 \
   org.gtk.Gtk3theme.adw-gtk3-dark
 
