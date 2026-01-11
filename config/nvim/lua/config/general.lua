@@ -20,7 +20,7 @@ vim.opt.splitright = true -- Vertical splits open on the left.
 vim.opt.splitbelow = true -- Horizontal splits open at the bottom.
 
 --- Global variable for border style.
-vim.g.border_style = "rounded"
+vim.g.border_style = "single"
 
 -- Set border for floating windows.
 vim.o.winborder = vim.g.border_style
