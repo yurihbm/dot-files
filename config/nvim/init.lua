@@ -1,5 +1,4 @@
 require("config.general")
 require("config.keymaps")
-require("config.commands")
 require("config.autocommands")
-require("config.lazy")
+require("config.plugins")
