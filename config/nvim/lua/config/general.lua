@@ -49,6 +49,11 @@ vim.g.maplocalleader = "\\"
 -- Enable window title modification
 vim.opt.title = true
 
+-- netrw settings
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
+vim.g.netrw_keepdir = 0
+
 function _G.custom_titlestring()
 	local filename = vim.fn.expand("%:t")
 	local cwd = vim.fn.getcwd()

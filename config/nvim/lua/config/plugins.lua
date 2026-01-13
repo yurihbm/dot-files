@@ -2,6 +2,7 @@ local gh = function(x)
 	return "https://github.com/" .. x
 end
 local autocmd = vim.api.nvim_create_autocmd
+local keymap = vim.keymap.set
 
 vim.pack.add({
 	gh("nyoom-engineering/oxocarbon.nvim"),
@@ -17,6 +18,8 @@ vim.pack.add({
 	gh("nvim-mini/mini-git"),
 	gh("nvim-mini/mini.statusline"),
 	gh("nvim-mini/mini.completion"),
+	gh("nvim-mini/mini.cmdline"),
+	gh("nvim-mini/mini.files"),
 	gh("zbirenbaum/copilot.lua"),
 })
 
@@ -146,8 +149,26 @@ require("mini.icons").setup()
 require("mini.statusline").setup()
 vim.opt.laststatus = 3
 require("mini.completion").setup()
+vim.o.pumborder = "single"
+require("mini.cmdline").setup()
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+require("mini.files").setup({
+	windows = {
+		preview = true,
+		width_focus = 40,
+		width_nofocus = 40,
+		width_preview = 40,
+	},
+})
+keymap("n", "e", function()
+	MiniFiles.open()
+end)
 
 require("copilot").setup({
+	suggestion = {
+		hide_during_completion = false,
+	},
 	filetypes = {
 		markdown = true,
 	},
