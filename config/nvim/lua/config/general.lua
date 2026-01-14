@@ -11,6 +11,9 @@ vim.opt.cursorline = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+-- Ignore node_modules in file navigation and completion.
+vim.opt.wildignore:append({ "*/node_modules/**" })
+
 -- Set default split directions.
 vim.opt.splitright = true -- Vertical splits open on the left.
 vim.opt.splitbelow = true -- Horizontal splits open at the bottom.

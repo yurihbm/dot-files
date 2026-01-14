@@ -23,6 +23,9 @@ keymap("n", "gv", function()
 	vim.cmd("vsplit")
 	vim.lsp.buf.definition()
 end, vim.tbl_extend("force", opts, { desc = "Go to Definition (vsplit)" }))
+keymap("n", "gf", vim.diagnostic.open_float, vim.tbl_extend("force", opts, { desc = "Show Diagnostic Float" }))
+keymap("n", "[d", vim.diagnostic.goto_prev, vim.tbl_extend("force", opts, { desc = "Next Diagnostic" }))
+keymap("n", "]d", vim.diagnostic.goto_next, vim.tbl_extend("force", opts, { desc = "Next Diagnostic" }))
 
 -- =========================
 -- Intuitive Split Resizing Keymaps
