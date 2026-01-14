@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "5ace9ecd0db9a7a6c14064e4ce4ede5b800325f3",
+      "rev": "9688ca7ad7583c659979591d006e5ff0b0b0da07",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "mini-git": {
@@ -74,6 +74,10 @@
       "rev": "5a7e5638e7d220575b1c22c8a2e099b52231886e",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
+    "nvim-ts-autotag": {
+      "rev": "c4ca798ab95b316a768d51eaaaee48f64a4a46bc",
+      "src": "https://github.com/windwp/nvim-ts-autotag"
+    },
     "oxocarbon.nvim": {
       "rev": "9f85f6090322f39b11ae04a343d4eb9d12a86897",
       "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
@@ -83,7 +87,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "schemastore.nvim": {
-      "rev": "f35b7747d4d536fba96aa098a4144e5c85252828",
+      "rev": "2a8afcddb67a14dc80001f074f1eecedac2f27a7",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "which-key.nvim": {

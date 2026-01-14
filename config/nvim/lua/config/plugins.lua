@@ -21,6 +21,7 @@ vim.pack.add({
 	gh("nvim-mini/mini.cmdline"),
 	gh("nvim-mini/mini.files"),
 	gh("nvim-mini/mini.pick"),
+	gh("windwp/nvim-ts-autotag"),
 	gh("zbirenbaum/copilot.lua"),
 })
 
@@ -205,6 +206,8 @@ end)
 keymap("n", "fr", function()
 	MiniPick.builtin.resume()
 end)
+
+require("nvim-ts-autotag").setup()
 
 require("copilot").setup({
 	suggestion = {
