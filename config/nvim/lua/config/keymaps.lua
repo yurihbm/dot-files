@@ -60,12 +60,6 @@ keymap("n", "<C-Right>", function()
 end, vim.tbl_extend("force", opts, { desc = "Resize Split Right" }))
 
 -- =========================
--- Clipboard Keymaps
--- =========================
-keymap("v", "<leader>y", '"+y', vim.tbl_extend("force", opts, { desc = "Copy to System Clipboard" }))
-keymap("n", "<leader>p", '"+p', vim.tbl_extend("force", opts, { desc = "Paste from System Clipboard" }))
-
--- =========================
 -- Delete Unused Default Keymaps
 -- =========================
 del("n", "grt")

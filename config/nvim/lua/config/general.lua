@@ -11,12 +11,28 @@ vim.opt.cursorline = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+-- Set a shorter update time for better responsiveness.
+vim.opt.updatetime = 750
+
 -- Ignore node_modules in file navigation and completion.
 vim.opt.wildignore:append({ "*/node_modules/**" })
 
 -- Set default split directions.
 vim.opt.splitright = true -- Vertical splits open on the left.
 vim.opt.splitbelow = true -- Horizontal splits open at the bottom.
+
+-- Undo persistence
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
+
+-- Search improvements
+vim.opt.ignorecase = true -- Ignore case
+vim.opt.smartcase = true -- ...unless uppercase letters are used
+vim.opt.hlsearch = true -- Highlight search results
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Sync with system clipboard.
+vim.opt.clipboard = "unnamedplus"
 
 --- Global variable for border style.
 vim.g.border_style = "single"
