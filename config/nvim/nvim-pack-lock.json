@@ -25,6 +25,10 @@
       "rev": "df3881fec1d2fd7f8b9334821861de511e71f69e",
       "src": "https://github.com/nvim-mini/mini-git"
     },
+    "mini.clue": {
+      "rev": "e2f0c1eb3ce652e34b1e9a9c504a780acf3bd4e3",
+      "src": "https://github.com/nvim-mini/mini.clue"
+    },
     "mini.cmdline": {
       "rev": "9b55f71f84b11627e80f6a060979695cb5c6e0c0",
       "src": "https://github.com/nvim-mini/mini.cmdline"

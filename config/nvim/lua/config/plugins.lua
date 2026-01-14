@@ -12,8 +12,8 @@ vim.pack.add({
 	gh("b0o/schemastore.nvim"),
 	gh("stevearc/conform.nvim"),
 	gh("karb94/neoscroll.nvim"),
-	gh("folke/which-key.nvim"),
 	gh("windwp/nvim-autopairs"),
+	gh("nvim-mini/mini.clue"),
 	gh("nvim-mini/mini.cursorword"),
 	gh("nvim-mini/mini.icons"),
 	gh("nvim-mini/mini-git"),
@@ -142,12 +142,44 @@ require("conform").setup({
 
 require("neoscroll").setup()
 
-require("which-key").setup({
-	preset = "helix",
-})
-
 require("nvim-autopairs").setup()
+local miniclue = require("mini.clue")
+miniclue.setup({
+	triggers = {
+		-- Gatilhos Leader
+		{ mode = "n", keys = "<Leader>" },
+		{ mode = "x", keys = "<Leader>" },
 
+		-- Gatilhos Built-in (navegação, janelas, etc)
+		{ mode = "n", keys = "<C-w>" }, -- Janelas
+		{ mode = "n", keys = "g" }, -- Go to...
+		{ mode = "x", keys = "g" },
+		{ mode = "n", keys = "'" }, -- Marks
+		{ mode = "n", keys = "`" },
+		{ mode = "n", keys = '"' }, -- Registers
+		{ mode = "i", keys = "<C-r>" }, -- Paste register
+		{ mode = "c", keys = "<C-r>" },
+
+		-- Gatilhos do Mini.pick (ex: z=spell, etc)
+		{ mode = "n", keys = "z" },
+		{ mode = "n", keys = "f" },
+		{ mode = "x", keys = "z" },
+	},
+
+	clues = {
+		-- Melhora as descrições padrão do Vim (ex: <C-w>v = "Split vertical")
+		miniclue.gen_clues.builtin_completion(),
+		miniclue.gen_clues.g(),
+		miniclue.gen_clues.registers(),
+		miniclue.gen_clues.windows(),
+		miniclue.gen_clues.z(),
+		miniclue.gen_clues.marks(),
+	},
+
+	window = {
+		delay = 300, -- Demora um pouco para aparecer (menos intrusivo)
+	},
+})
 require("mini.cursorword").setup()
 require("mini.git").setup()
 require("mini.icons").setup()
@@ -227,24 +259,34 @@ require("mini.pick").setup({
 			-- Centered floating window
 			anchor = "NW",
 			height = math.floor(vim.o.lines * 0.6),
-			width = math.floor(vim.o.columns * 0.6),
+			width = math.floor(vim.o.columns * 0.4),
 			row = math.floor(vim.o.lines * 0.2),
-			col = math.floor(vim.o.columns * 0.2),
+			col = math.floor(vim.o.columns * 0.3),
 		},
 	},
 })
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	-- Captura qualquer buffer gerado pelo mini.pick (lista ou preview)
+	pattern = "minipick://*",
+	callback = function()
+		-- Desativa indentação visível (> >) e números de linha
+		vim.wo.list = false
+		vim.wo.number = false
+		vim.wo.relativenumber = false
+	end,
+})
 keymap("n", "ff", function()
 	MiniPick.builtin.files()
-end)
+end, { desc = "Open File Picker" })
 keymap("n", "fg", function()
 	MiniPick.builtin.grep_live()
-end)
+end, { desc = "Open Grep Picker" })
 keymap("n", "fb", function()
 	MiniPick.builtin.buffers()
-end)
+end, { desc = "Open Buffer Picker" })
 keymap("n", "fr", function()
 	MiniPick.builtin.resume()
-end)
+end, { desc = "Resume Last Picker" })
 
 require("nvim-ts-autotag").setup()
 
