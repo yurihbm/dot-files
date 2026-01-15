@@ -25,6 +25,10 @@
       "rev": "df3881fec1d2fd7f8b9334821861de511e71f69e",
       "src": "https://github.com/nvim-mini/mini-git"
     },
+    "mini.animate": {
+      "rev": "0365de8b69331c25d0d0d7573407a7dc7719e578",
+      "src": "https://github.com/nvim-mini/mini.animate"
+    },
     "mini.clue": {
       "rev": "e2f0c1eb3ce652e34b1e9a9c504a780acf3bd4e3",
       "src": "https://github.com/nvim-mini/mini.clue"
@@ -49,9 +53,17 @@
       "rev": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
+    "mini.indentscope": {
+      "rev": "0308f949f31769e509696af5d5f91cebb2159c69",
+      "src": "https://github.com/nvim-mini/mini.indentscope"
+    },
     "mini.pick": {
       "rev": "aa242acc17683515d8f749552aebe061bced9132",
       "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "mini.starter": {
+      "rev": "8ee6ce6a4c9be47682516908557cc062c4d595a2",
+      "src": "https://github.com/nvim-mini/mini.starter"
     },
     "mini.statusline": {
       "rev": "3e96596ebe51b899874d8174409cdc4f3c749d9a",
