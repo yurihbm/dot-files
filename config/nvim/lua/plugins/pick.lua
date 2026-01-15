@@ -15,6 +15,7 @@ require("mini.pick").setup({
 		},
 	},
 })
+
 keymap("n", "ff", function()
 	MiniPick.builtin.files()
 end, { desc = "Open File Picker" })

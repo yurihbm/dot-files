@@ -22,7 +22,7 @@ vim.pack.add({
 	gh("nvim-mini/mini.files"),
 	gh("nvim-mini/mini.pick"),
 	gh("nvim-mini/mini.indentscope"),
-	gh("nvim-mini/mini.starter"),
+	gh("nvim-mini/mini.notify"),
 })
 
 require("plugins.lsp")
@@ -42,3 +42,4 @@ require("plugins.cmdline")
 require("plugins.files")
 require("plugins.pick")
 require("plugins.indentscope")
+require("plugins.notify")
