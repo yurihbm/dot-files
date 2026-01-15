@@ -23,6 +23,7 @@ vim.pack.add({
 	gh("nvim-mini/mini.pick"),
 	gh("nvim-mini/mini.indentscope"),
 	gh("nvim-mini/mini.notify"),
+	gh("nvim-mini/mini.extra"),
 })
 
 require("plugins.lsp")
@@ -43,3 +44,4 @@ require("plugins.files")
 require("plugins.pick")
 require("plugins.indentscope")
 require("plugins.notify")
+require("plugins.extra")
