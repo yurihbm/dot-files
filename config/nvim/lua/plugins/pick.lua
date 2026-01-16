@@ -1,5 +1,6 @@
 local keymap = vim.keymap.set
 
+vim.o.listchars = "tab:  ,trail:-,nbsp:+"
 require("mini.pick").setup({
 	window = {
 		prompt_caret = "█ ",
