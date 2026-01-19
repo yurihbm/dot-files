@@ -32,7 +32,7 @@ end)
 
 local map_split = function(buf_id, lhs, direction)
 	local rhs = function()
-		-- Cria nova janela e define como alvo
+		-- Create a new split in the specified direction
 		local cur_target = MiniFiles.get_explorer_state().target_window
 		local new_target = vim.api.nvim_win_call(cur_target, function()
 			vim.cmd(direction .. " split")
@@ -40,7 +40,7 @@ local map_split = function(buf_id, lhs, direction)
 		end)
 
 		MiniFiles.set_target_window(new_target)
-		-- Ação extra: abre o arquivo e fecha o explorer para focar no código
+		-- Extra: open the file and close the explorer
 		MiniFiles.go_in({ close_on_file = true })
 	end
 
@@ -52,7 +52,6 @@ vim.api.nvim_create_autocmd("User", {
 	pattern = "MiniFilesBufferCreate",
 	callback = function(args)
 		local buf_id = args.data.buf_id
-		-- Tweak keys to your liking
 		map_split(buf_id, "<C-s>", "belowright horizontal")
 		map_split(buf_id, "<C-v>", "belowright vertical")
 
@@ -63,5 +62,12 @@ vim.api.nvim_create_autocmd("User", {
 				vim.notify("Path yanked: " .. path)
 			end
 		end, { buffer = buf_id, desc = "Yank path" })
+	end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+	pattern = { "MiniFilesActionRename", "MiniFilesActionMove" },
+	callback = function(event)
+		Snacks.rename.on_rename_file(event.data.from, event.data.to)
 	end,
 })

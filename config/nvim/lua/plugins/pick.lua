@@ -3,8 +3,12 @@ local keymap = vim.keymap.set
 vim.o.listchars = "tab:  ,trail:-,nbsp:+"
 require("mini.pick").setup({
 	window = {
-		prompt_caret = "█ ",
+		prompt_caret = "█",
 		prompt_prefix = "  ",
+		prompt_suffix = " ",
+		prompt_highlight_caret_position = true,
+		prompt_max_width = 30,
+		prompt_fixed_width = false,
 		config = {
 			border = vim.g.border_style,
 			-- Centered floating window
