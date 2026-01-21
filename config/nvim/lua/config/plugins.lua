@@ -3,48 +3,34 @@ local gh = function(x)
 end
 
 vim.pack.add({
-	gh("folke/lazydev.nvim"),
 	gh("nyoom-engineering/oxocarbon.nvim"),
+	gh("folke/lazydev.nvim"),
+	gh("b0o/schemastore.nvim"),
 	gh("neovim/nvim-lspconfig"),
 	gh("nvim-treesitter/nvim-treesitter"),
-	gh("b0o/schemastore.nvim"),
 	gh("stevearc/conform.nvim"),
 	gh("windwp/nvim-autopairs"),
 	gh("windwp/nvim-ts-autotag"),
+	gh("nvim-mini/mini.icons"),
+	gh("nvim-mini/mini.statusline"),
+	gh("nvim-mini/mini.indentscope"),
+	gh("folke/snacks.nvim"),
 	gh("zbirenbaum/copilot.lua"),
-	gh("folke/snacks.nvim"), -- For LSP renames until https://github.com/nvim-mini/mini.nvim/issues/2215 is fixed.
-	{ src = gh("yurihbm/mini.nvim"), version = "dev" },
-	-- gh("nvim-mini/mini.clue"),
-	-- gh("nvim-mini/mini.cursorword"),
-	-- gh("nvim-mini/mini.icons"),
-	-- gh("nvim-mini/mini-git"),
-	-- gh("nvim-mini/mini.statusline"),
-	-- gh("nvim-mini/mini.completion"),
-	-- gh("nvim-mini/mini.cmdline"),
-	-- gh("nvim-mini/mini.files"),
-	-- gh("nvim-mini/mini.pick"),
-	-- gh("nvim-mini/mini.indentscope"),
-	-- gh("nvim-mini/mini.notify"),
-	-- gh("nvim-mini/mini.extra"),
+	gh("fang2hou/blink-copilot"),
+	{ src = gh("saghen/blink.cmp"), version = vim.version.range("1.*") },
+	gh("folke/which-key.nvim"),
 })
 
-require("plugins.lsp")
 require("plugins.oxocarbon")
+require("plugins.lsp")
 require("plugins.treesitter")
 require("plugins.conform")
 require("plugins.autopairs")
 require("plugins.autotag")
-require("plugins.copilot")
-require("plugins.clue")
-require("plugins.cursorword")
 require("plugins.icons")
-require("plugins.git")
 require("plugins.statusline")
-require("plugins.completion")
-require("plugins.cmdline")
-require("plugins.snacks") -- Must be added before files.
-require("plugins.files")
-require("plugins.pick")
 require("plugins.indentscope")
-require("plugins.notify")
-require("plugins.extra")
+require("plugins.snacks")
+require("plugins.blink")
+require("plugins.copilot")
+require("plugins.which_key")
