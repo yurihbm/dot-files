@@ -4,6 +4,9 @@
 
 -- This file provides a collection of general settings.
 
+-- Blinking block cursor for insert mode.
+vim.o.guicursor = "i:block-blinkwait700-blinkoff400-blinkon250"
+
 -- Highlight current line.
 vim.opt.cursorline = true
 
