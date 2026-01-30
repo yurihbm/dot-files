@@ -79,7 +79,7 @@ require("snacks").setup({
 })
 
 keymap("n", "e", function()
-	Snacks.picker.explorer()
+	Snacks.picker.resume("explorer")
 end, { desc = "Open File Explorer" })
 keymap("n", "ff", function()
 	Snacks.picker.files()
