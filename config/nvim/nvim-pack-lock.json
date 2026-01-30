@@ -14,7 +14,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "2d7511494245129aa6c2176f9c71cc2bc1360ed9",
+      "rev": "9b8d77c6c847c83c784c05f5f86b4821ed90d3a1",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "lazydev.nvim": {
@@ -34,15 +34,15 @@
       "src": "https://github.com/nvim-mini/mini.statusline"
     },
     "nvim-autopairs": {
-      "rev": "c2a0dd0d931d0fb07665e1fedb1ea688da3b80b4",
+      "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lspconfig": {
-      "rev": "92ee7d42320edfbb81f3cad851314ab197fa324a",
+      "rev": "79c9a15be5731bc8694840a8fb0c9141c20a80c0",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "ec034813775d7e2974c7551c8c34499a828963f8",
+      "rev": "19c729dae6e0eeb79423df0cf37780aa9a7cc3b7",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-ts-autotag": {
@@ -54,7 +54,7 @@
       "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
     "schemastore.nvim": {
-      "rev": "a0375eb6f7f944723162ef41c200ac6b364f53ac",
+      "rev": "9afa445602e6191917b4d32f1355e77b4525f905",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
