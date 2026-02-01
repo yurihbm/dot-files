@@ -5,6 +5,7 @@ end
 vim.pack.add({
 	gh("nyoom-engineering/oxocarbon.nvim"),
 	gh("folke/lazydev.nvim"),
+	gh("christoomey/vim-tmux-navigator"),
 	gh("b0o/schemastore.nvim"),
 	gh("neovim/nvim-lspconfig"),
 	gh("nvim-treesitter/nvim-treesitter"),
