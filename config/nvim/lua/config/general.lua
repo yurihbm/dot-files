@@ -4,6 +4,9 @@
 
 -- This file provides a collection of general settings.
 
+-- Blinking block cursor for insert mode.
+vim.o.guicursor = "i:block-blinkwait700-blinkoff400-blinkon250"
+
 -- Highlight current line.
 vim.opt.cursorline = true
 
@@ -11,13 +14,28 @@ vim.opt.cursorline = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 
--- Disable netrw.
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- Set a shorter update time for better responsiveness.
+vim.opt.updatetime = 750
+
+-- Ignore node_modules in file navigation and completion.
+vim.opt.wildignore:append({ "*/node_modules/**" })
 
 -- Set default split directions.
 vim.opt.splitright = true -- Vertical splits open on the left.
 vim.opt.splitbelow = true -- Horizontal splits open at the bottom.
+
+-- Undo persistence
+vim.opt.undofile = true
+vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
+
+-- Search improvements
+vim.opt.ignorecase = true -- Ignore case
+vim.opt.smartcase = true -- ...unless uppercase letters are used
+vim.opt.hlsearch = true -- Highlight search results
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Sync with system clipboard.
+vim.opt.clipboard = "unnamedplus"
 
 --- Global variable for border style.
 vim.g.border_style = "single"
@@ -52,6 +70,11 @@ vim.g.maplocalleader = "\\"
 
 -- Enable window title modification
 vim.opt.title = true
+
+-- netrw settings
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
+vim.g.netrw_keepdir = 0
 
 function _G.custom_titlestring()
 	local filename = vim.fn.expand("%:t")

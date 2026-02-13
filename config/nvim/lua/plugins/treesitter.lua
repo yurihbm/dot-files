@@ -1,42 +1,44 @@
--- =========================
--- Treesitter Plugin
--- =========================
+require("nvim-treesitter").install({
+	"c",
+	"lua",
+	"vim",
+	"vimdoc",
+	"go",
+	"typescript",
+	"tsx",
+	"javascript",
+	"html",
+	"css",
+	"styled",
+	"regex",
+	"bash",
+	"yaml",
+	"toml",
+	"prisma",
+	"markdown",
+	"markdown_inline",
+	"dockerfile",
+})
 
--- This file provides a plugin for syntax highlighting and code parsing.
-
-return {
-	"nvim-treesitter/nvim-treesitter",
-	event = "VeryLazy",
-	build = ":TSUpdate",
-	config = function()
-		local configs = require("nvim-treesitter.configs")
-		---@diagnostic disable-next-line: missing-fields
-		configs.setup({
-			ensure_installed = {
-				"c",
-				"lua",
-				"vim",
-				"vimdoc",
-				"go",
-				"typescript",
-				"tsx",
-				"javascript",
-				"html",
-				"css",
-				"styled",
-				"regex",
-				"bash",
-				"yaml",
-				"toml",
-				"prisma",
-				"markdown",
-				"markdown_inline",
-				"dockerfile",
-			},
-			sync_install = false,
-			highlight = { enable = true },
-			indent = { enable = true },
-		})
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"c",
+		"lua",
+		"go",
+		"typescript",
+		"typescriptreact",
+		"javascript",
+		"javascriptreact",
+		"html",
+		"css",
+		"bash",
+		"yaml",
+		"toml",
+		"prisma",
+		"markdown",
+		"dockerfile",
+	},
+	callback = function()
+		vim.treesitter.start()
 	end,
-	dependencies = { "OXY2DEV/markview.nvim" },
-}
+})

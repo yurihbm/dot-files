@@ -26,6 +26,22 @@ autocmd("VimEnter", {
 	end,
 })
 
+-- Highlight on Yank
+autocmd("TextYankPost", {
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
+	end,
+})
+
+-- Auto-resize windows when neovim is resized.
+autocmd("VimResized", {
+	pattern = "*",
+	callback = function()
+		vim.cmd("tabdo wincmd =")
+	end,
+})
+
 -- =========================
 -- Terminal Autocommands
 -- =========================

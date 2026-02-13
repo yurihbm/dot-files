@@ -1,70 +1,40 @@
--- =========================
--- LSP (Language Server Protocol) Plugins
--- =========================
+require("lazydev").setup()
 
--- This file provides a collection of plugins for Language Server Protocol
--- support.
-
--- Define these filetypes based on mason-lspconfig's ensure_installed options.
-local lsp_filetypes = {
-	"dockerfile",
-	"go",
-	"javascript",
-	"javascriptreact",
-	"json",
-	"jsonc",
-	"lua",
-	"prisma",
-	"python",
-	"typescript",
-	"typescriptreact",
-	"yaml",
-}
-
-return {
-	{
-		"williamboman/mason.nvim",
-		cmd = "Mason",
-		opts = {
-			ui = {
-				backdrop = 100,
-				border = vim.g.border_style,
-				icons = {
-					package_installed = "",
-					package_pending = "󰦗",
-					package_uninstalled = "",
-				},
-			},
+vim.lsp.config("jsonls", {
+	settings = {
+		json = {
+			schemas = require("schemastore").json.schemas(),
+			validate = { enable = true },
 		},
 	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		ft = lsp_filetypes,
-		opts = {
-			ensure_installed = {
-				"dockerls",
-				"golangci_lint_ls",
-				"gopls",
-				"jsonls",
-				"lua_ls",
-				"prismals",
-				"pyright",
-				"tailwindcss",
-				"vtsls",
-				"yamlls",
-			},
+})
+
+vim.lsp.config("tailwindcss", {
+	settings = {
+		tailwindCSS = {
+			classFunctions = { "tw", "twMerge", "tv", "clsx" },
 		},
 	},
-	{
-		"neovim/nvim-lspconfig",
-		ft = lsp_filetypes,
-		config = function()
-			vim.lsp.config("jsonls", require("config.lsp.json"))
-			vim.lsp.config("tailwindcss", require("config.lsp.tailwind"))
-			vim.lsp.config("yamlls", require("config.lsp.yaml"))
-		end,
-		dependencies = {
-			"b0o/schemastore.nvim",
+})
+
+vim.lsp.config("yamlls", {
+	settings = {
+		yaml = {
+			schemas = require("schemastore").yaml.schemas(),
+			redhat = { telemetry = { enabled = false } },
 		},
 	},
-}
+})
+
+vim.lsp.enable({
+	"dockerls",
+	"golangci_lint_ls",
+	"gopls",
+	"jsonls",
+	"lua_ls",
+	"prismals",
+	"pyright",
+	"tailwindcss",
+	"ts_ls",
+	"yamlls",
+})
