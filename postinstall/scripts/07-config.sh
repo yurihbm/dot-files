@@ -79,10 +79,16 @@ sudo udevadm control --reload-rules
 echo -e "\n--- Configuring Neovim ---"
 
 NEOVIM_SOURCE="$SOURCE_CONFIG_DIR/nvim"
-# Flatpak path
 NEOVIM_TARGET="$HOME/.config/nvim"
 
 backup_and_link "$NEOVIM_SOURCE" "$NEOVIM_TARGET"
+
+# ========== Mise ==========
+
+MISE_SOURCE="$SOURCE_CONFIG_DIR/mise"
+MISE_TARGET="$HOME/.config/mise"
+
+backup_and_link "$MISE_SOURCE" "$MISE_TARGET"
 
 # ========== Starship ==========
 
