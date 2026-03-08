@@ -90,6 +90,13 @@ MISE_TARGET="$HOME/.config/mise"
 
 backup_and_link "$MISE_SOURCE" "$MISE_TARGET"
 
+# ========== OpenCode ==========
+
+OPENCODE_SOURCE="$SOURCE_CONFIG_DIR/opencode"
+OPENCODE_TARGET="$HOME/.config/opencode"
+
+backup_and_link "$OPENCODE_SOURCE" "$OPENCODE_TARGET"
+
 # ========== Starship ==========
 
 echo -e "\n--- Configuring Starship ---"

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["opencode-plan-manager@0.4.2"],
+  "permission": {
+    "edit": "ask",
+    "bash": {
+      "*": "ask",
+      "wc *": "allow",
+      "ls *": "allow",
+      "find *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "grep *": "allow",
+      "git log *": "allow",
+      "git diff *": "allow",
+      "git status *": "allow",
+      "go test *": "allow",
+      "bun test *": "allow",
+      "pnpm test *": "allow",
+      "yarn test *": "allow"
+    },
+    "lsp": "allow",
+    "question": "allow"
+  },
+  "small_model": "github-copilot/gpt-5-mini",
+  "agent": {
+    "plan": {
+      "model": "github-copilot/claude-opus-4.6",
+      "permission": {
+        "edit": {
+          "*": "deny",
+          ".opencode/plans/*": "ask"
+        }
+      },
+      "task": {
+        "*": "deny",
+        "ask": "ask",
+        "explore": "allow"
+      },
+      "color": "#ee5396"
+    },
+    "build": {
+      "model": "github-copilot/claude-sonnet-4.6",
+      "task": {
+        "*": "ask",
+        "general": "allow",
+        "explore": "allow"
+      },
+      "color": "#33b1ff"
+    },
+    "general": {
+      "model": "github-copilot/gemini-3-flash-preview"
+    },
+    "explore": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "compaction": {
+      "model": "github-copilot/gpt-5-mini"
+    }
+  },
+  "mcp": {
+    "context7": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
+    },
+    "tavily": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.tavily.com/mcp/?tavilyApiKey={env:TAVILY_API_KEY}"
+    },
+    "chrome-devtools": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--no-usage-statistics",
+        "--autoConnect",
+        "--no-category-emulation"
+      ]
+    }
+  },
+  "experimental": {
+    "continue_loop_on_deny": true
+  }
+}
