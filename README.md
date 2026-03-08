@@ -21,6 +21,7 @@ This repository manages personal configurations for shell, editor, and system to
 .
 ├── bin/            # Custom binary scripts
 ├── config/         # Configuration files
+│   ├── mise/       # Mise configuration
 │   ├── nvim/       # Neovim lua config
 │   ├── zsh/        # Zsh configuration and modules
 │   ├── tmux/       # Tmux configuration
@@ -81,4 +82,3 @@ toolbox enter dev-toolbox
 ```
 
 _(Adjust commands based on your specific toolbox workflow)_
-

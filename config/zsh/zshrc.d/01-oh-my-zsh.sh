@@ -22,10 +22,10 @@ plugins=(
   dnf
   docker
   docker-compose
+  mise
   eza
   git
   gpg-agent
-  mise
   starship
   vi-mode
   zsh-autosuggestions
