@@ -22,8 +22,6 @@ plugins=(
   dnf
   docker
   docker-compose
-  mise
-  eza
   git
   gpg-agent
   starship
@@ -31,6 +29,13 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
+
+if command -v mise &>/dev/null; then
+  plugins+=(mise)
+  # eza is installed with mise.
+  # See <root>/config/mise/config.toml
+  plugins+=(eza)
+fi
 
 # eza plugin config
 zstyle ':omz:plugins:eza' 'dirs-first' yes
