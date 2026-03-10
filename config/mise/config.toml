@@ -6,7 +6,7 @@ go = "latest"
 golangci-lint = "latest"
 lua-language-server = "latest"
 neovim = "nightly"
-node = "latest"
+node = "lts"
 ripgrep = "latest"
 ruff = "latest"
 shfmt = "latest"
@@ -19,3 +19,6 @@ usage = "latest"
 "npm:typescript" = "latest"
 eza = "latest"
 opencode = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
