@@ -9,12 +9,10 @@ sudo dnf config-manager addrepo --from-repofile=https://download.docker.com/linu
 echo -e "\nInstalling DNF applications...\n"
 
 sudo dnf copr enable -y atim/starship &&
-  sudo dnf copr enable -y jdxcode/mise &&
   sudo dnf install -y \
     google-chrome-stable \
     starship \
     tmux \
-    mise \
     docker-ce \
     docker-ce-cli \
     containerd.io \

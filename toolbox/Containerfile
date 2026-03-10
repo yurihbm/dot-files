@@ -5,23 +5,21 @@ RUN dnf update -y && \
   dnf copr enable -y atim/starship && \
   dnf copr enable -y jdxcode/mise && \
   sudo dnf install -y \
-  zsh \
-  starship \
-  mise \
-  tmux \
-  fuse \
-  fuse-libs \
-  clang \
-  fd-find \
-  ripgrep \
-  pinentry \
-  flatpak-xdg-open \
-  docker-ce \
-  docker-ce-cli \
-  containerd.io \
-  docker-buildx-plugin \
-  docker-compose-plugin \
-  fuse-overlayfs && \
+    zsh \
+    starship \
+    mise \
+    tmux \
+    fuse \
+    fuse-libs \
+    clang \
+    pinentry \
+    flatpak-xdg-open \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io \
+    docker-buildx-plugin \
+    docker-compose-plugin \
+    fuse-overlayfs && \
   dnf clean all
 
 # Workround for https://github.com/containers/toolbox/issues/291
