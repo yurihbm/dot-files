@@ -24,7 +24,6 @@ plugins=(
   docker-compose
   git
   gpg-agent
-  starship
   vi-mode
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -32,9 +31,10 @@ plugins=(
 
 if command -v mise &>/dev/null; then
   plugins+=(mise)
-  # eza is installed with mise.
+  # eza and starship are installed with mise.
   # See <root>/config/mise/config.toml
   plugins+=(eza)
+  plugins+=(starship)
 fi
 
 # eza plugin config

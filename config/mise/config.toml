@@ -19,6 +19,8 @@ usage = "latest"
 "npm:typescript" = "latest"
 eza = "latest"
 opencode = "latest"
+tmux = "latest"
+starship = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]

@@ -8,18 +8,15 @@ sudo dnf config-manager addrepo --from-repofile=https://download.docker.com/linu
 
 echo -e "\nInstalling DNF applications...\n"
 
-sudo dnf copr enable -y atim/starship &&
-  sudo dnf install -y \
-    google-chrome-stable \
-    starship \
-    tmux \
-    docker-ce \
-    docker-ce-cli \
-    containerd.io \
-    docker-buildx-plugin \
-    docker-compose-plugin \
-    fuse-overlayfs \
-    zsh &&
+sudo dnf install -y \
+  google-chrome-stable \
+  docker-ce \
+  docker-ce-cli \
+  containerd.io \
+  docker-buildx-plugin \
+  docker-compose-plugin \
+  fuse-overlayfs \
+  zsh &&
   sudo dnf update -y &&
   sudo dnf clean all
 
