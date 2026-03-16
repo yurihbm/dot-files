@@ -1,6 +1,7 @@
 ---
 description: Commit current changes to the repository.
 subtask: true
+model: github-copilot/gpt-4.1
 ---
 
 Perform a commit of the current changes in the repository.
