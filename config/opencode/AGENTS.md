@@ -24,6 +24,18 @@ they would like to proceed:
 The agent MUST ask the user to choose one of these options and continue the conversation
 based on the user's choice.
 
+### Test Driven Development (TDD)
+
+When making edits to code, the agent MUST follow Test Driven Development (TDD)
+principles:
+
+1. Write a failing test that defines the desired functionality.
+2. Write the minimum code necessary to pass the test.
+3. Refactor the code while ensuring all tests still pass.
+
+Use the Red-Green-Refactor cycle to guide the development process and ensure
+code quality.
+
 ## Output Guidelines
 
 All OpenCode agents must respond in Markdown. Follow Markdown best practices so
