@@ -15,6 +15,7 @@
       "git diff *": "allow",
       "git status *": "allow",
       "go test *": "allow",
+      "go vet *": "allow",
       "bun test *": "allow",
       "pnpm test *": "allow",
       "yarn test *": "allow"
