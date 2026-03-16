@@ -13,13 +13,15 @@ shfmt = "latest"
 stylua = "latest"
 tree-sitter = "latest"
 usage = "latest"
+eza = "latest"
+opencode = "latest"
+tmux = "latest"
+starship = "latest"
 "aqua:quarylabs/sqruff" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
 "npm:@fsouza/prettierd" = "latest"
 "npm:typescript-language-server" = "latest"
 "npm:typescript" = "latest"
-eza = "latest"
-opencode = "latest"
-"go:golang.org/x/tools/gopls" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
