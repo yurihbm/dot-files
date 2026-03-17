@@ -28,7 +28,7 @@ description: >-
     <commentary>
     Although this is a general knowledge question, use the ask agent to confirm
     accuracy and provide a well-structured explanation.
-    </commentary>e
+    </commentary>
   </example>
 mode: all
 model: github-copilot/gpt-4.1
