@@ -5,20 +5,20 @@
       "src": "https://github.com/fang2hou/blink-copilot"
     },
     "blink.cmp": {
-      "rev": "4b18c32adef2898f95cdef6192cbd5796c1a332d",
+      "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
     "conform.nvim": {
-      "rev": "40dcec5555f960b0a04340d76eabdf4efe78599d",
+      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "00446a63cba4cc59bb24fc1e210a555a3e4acdfb",
+      "rev": "0552b44fceedf0c4cba2cd4953d3976633b2509a",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "lazydev.nvim": {
-      "rev": "5231c62aa83c2f8dc8e7ba957aa77098cda1257d",
+      "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "mini.icons": {
@@ -42,11 +42,11 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "ead0f5f342d8d323441e7d4b88f0fc436a81ad5f",
+      "rev": "841c6d4139aedb8a3f2baf30cef5327371385b93",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "cb2cb74f3c3cbbcc17e79cada2060165d616d849",
+      "rev": "53f6ce29df5841ce26e5a9f06fb371088b8d8031",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-ts-autotag": {
@@ -54,15 +54,15 @@
       "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "oxocarbon.nvim": {
-      "rev": "9f85f6090322f39b11ae04a343d4eb9d12a86897",
+      "rev": "a7ba74849a00546a311f8c146320b433900393e7",
       "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
     "schemastore.nvim": {
-      "rev": "c4b3c25e5661600e04be787fbce8c6704583717f",
+      "rev": "cf2b276dc88696b35d55ea4bd55dfaf7d608c9a2",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
-      "rev": "9912042fc8bca2209105526ac7534e9a0c2071b2",
+      "rev": "a049339328e2599ad6e85a69fa034ac501e921b2",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "vim-tmux-navigator": {
