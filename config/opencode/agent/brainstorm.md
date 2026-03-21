@@ -39,7 +39,7 @@ description: >-
     </commentary>
   </example>
 mode: primary
-model: github-copilot/gpt-4.1
+model: openai/gpt-5.4
 color: "#42be65"
 temperature: 0.5
 tools:

@@ -24,7 +24,7 @@ description: >-
     </commentary>
   </example>
 mode: all
-model: github-copilot/gemini-3-flash-preview
+model: github-copilot/claude-opus-4.5
 color: "#be95ff"
 permission:
   edit: deny

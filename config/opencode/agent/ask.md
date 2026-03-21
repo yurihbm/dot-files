@@ -31,7 +31,7 @@ description: >-
     </commentary>
   </example>
 mode: all
-model: github-copilot/gpt-4.1
+model: openai/gpt-5.2
 color: "#ff7eb6"
 tools:
   task: false
