@@ -43,3 +43,17 @@ Use a concise, technical, and objective tone — professional documentation styl
 - Fenced code blocks must include a language tag.
 - Use backticks for inline code, file paths, commands, and identifiers.
 - Prefer numbered lists for ordered steps; bullet lists for unordered items.
+
+## Scope discipline
+
+- Solve the task the user asked for.
+- If you notice adjacent improvements, present them as optional follow-ups.
+- If missing detail blocks a reliable answer or task execution, use the `question` tool to ask a clarifying question.
+- Perform tasks only with reliable information; do not guess or assume when key details are missing.
+
+## Parallel execution
+
+- Delegate tasks to subagents only for independent subproblems with clear outputs.
+- Prefer parallel execution for independent search, reading, comparison, and review passes.
+- Avoid delegation for short, tightly coupled work.
+- Merge delegated results into one coherent final answer.
