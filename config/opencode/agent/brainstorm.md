@@ -6,8 +6,6 @@ model: openai/gpt-5.4
 color: "#42be65"
 temperature: 0.5
 tools:
-  edit: false
-  task: false
   todowrite: false
   todoread: false
   plan_*: false
