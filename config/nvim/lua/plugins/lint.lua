@@ -1,9 +1,9 @@
 require("lint").linters_by_ft = {
 	go = { "golangcilint" },
-	javascript = { "eslint" },
-	javascriptreact = { "eslint" },
-	typescript = { "eslint" },
-	typescriptreact = { "eslint" },
+	javascript = { "eslint_d" },
+	javascriptreact = { "eslint_d" },
+	typescript = { "eslint_d" },
+	typescriptreact = { "eslint_d" },
 	sql = { "sqruff" },
 	python = { "ruff" },
 }
