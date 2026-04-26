@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-plan-manager@1.0.1"],
+  "plugin": ["opencode-plan-manager@1.1.5"],
   "permission": {
     "edit": "ask",
     "bash": {
@@ -17,8 +17,17 @@
       "go test *": "allow",
       "go vet *": "allow",
       "bun test *": "allow",
+      "bun lint *": "allow",
+      "bun format *": "allow",
+      "bun typecheck *": "allow",
       "pnpm test *": "allow",
-      "yarn test *": "allow"
+      "pnpm lint *": "allow",
+      "pnpm format *": "allow",
+      "pnpm typecheck *": "allow",
+      "yarn test *": "allow",
+      "yarn lint *": "allow",
+      "yarn format *": "allow",
+      "yarn typecheck *": "allow"
     },
     "lsp": "allow",
     "question": "allow"
@@ -26,7 +35,7 @@
   "small_model": "github-copilot/gpt-5-mini",
   "agent": {
     "plan": {
-      "model": "github-copilot/claude-opus-4.5",
+      "model": "openai/gpt-5.5",
       "permission": {
         "edit": {
           "*": "deny",
@@ -41,7 +50,7 @@
       "color": "#ee5396"
     },
     "build": {
-      "model": "openai/gpt-5.3-codex",
+      "model": "openai/gpt-5.4",
       "task": {
         "*": "ask",
         "general": "allow",
@@ -50,13 +59,13 @@
       "color": "#33b1ff"
     },
     "general": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "openai/gpt-5.3-codex"
     },
     "explore": {
-      "model": "github-copilot/gpt-5-mini"
+      "model": "github-copilot/gemini-3-flash-preview"
     },
     "compaction": {
-      "model": "github-copilot/gpt-5-mini"
+      "model": "openai/gpt-5.2"
     }
   },
   "mcp": {
