@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-plan-manager@1.1.5"],
+  "plugin": ["opencode-plan-manager"],
   "permission": {
     "edit": "ask",
     "bash": {
@@ -35,7 +35,7 @@
   "small_model": "github-copilot/gpt-5-mini",
   "agent": {
     "plan": {
-      "model": "openai/gpt-5.5",
+      "model": "github-copilot/gemini-3.1-pro-preview",
       "permission": {
         "edit": {
           "*": "deny",
@@ -50,7 +50,7 @@
       "color": "#ee5396"
     },
     "build": {
-      "model": "openai/gpt-5.4",
+      "model": "github-copilot/gpt-5.2-codex",
       "task": {
         "*": "ask",
         "general": "allow",
@@ -59,13 +59,13 @@
       "color": "#33b1ff"
     },
     "general": {
-      "model": "openai/gpt-5.3-codex"
+      "model": "github-copilot/gpt-5-mini"
     },
     "explore": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "github-copilot/gpt-5-mini"
     },
     "compaction": {
-      "model": "openai/gpt-5.2"
+      "model": "github-copilot/gemini-3-flash-preview"
     }
   },
   "mcp": {

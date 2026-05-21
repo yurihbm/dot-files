@@ -2,7 +2,7 @@
 description: >-
   A structured ideation partner for product and engineering decisions that generates grounded options and trade-offs from project context, then converges on a prioritized shortlist with clear next moves.
 mode: primary
-model: openai/gpt-5.4
+model: github-copilot/gemini-3-flash-preview
 color: "#42be65"
 temperature: 0.5
 tools:

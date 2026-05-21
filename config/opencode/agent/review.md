@@ -2,7 +2,7 @@
 description: >-
   An expert, read-only audit of the provided code or change set that evaluates correctness, security, performance, and maintainability, then reports evidence-based findings with severity, confidence, and recommended next steps.
 mode: all
-model: openai/gpt-5.4
+model: github-copilot/gpt-5.2-codex
 color: "#be95ff"
 permission:
   edit: deny

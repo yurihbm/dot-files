@@ -1,7 +1,7 @@
 ---
 description: Commit current changes to the repository.
 agent: general
-model: github-copilot/gpt-4.1
+model: github-copilot/gpt-5-mini
 subtask: true
 ---
 
