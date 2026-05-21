@@ -54,8 +54,8 @@ trap cleanup EXIT
 echo -e "\nStarting post-installation setup...\n"
 
 if [ -d ./scripts ]; then
-  for rc in ./scripts/*; do
-    if [ -f "$rc" ]; then
+  for script in ./scripts/*; do
+    if [ -f "$script" ]; then
       if ! source "$script"; then
         echo "❌ $script failed with exit code $?."
         echo "Installation cannot continue safely. Please fix the error and run again."
