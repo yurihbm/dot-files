@@ -1,8 +1,8 @@
 [tools]
 bun = "latest"
+codex = "latest"
 eza = "latest"
 fd = "latest"
-gemini = "latest"
 github-cli = "latest"
 glow = "latest"
 go = "latest"
