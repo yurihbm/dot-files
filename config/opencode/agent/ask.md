@@ -2,7 +2,7 @@
 description: >-
   A research-driven Q&A agent that answers questions clearly and directly, using targeted external retrieval only when freshness, precision, or verification materially improves reliability, and explicitly labeling uncertainty when evidence is incomplete.
 mode: all
-model: github-copilot/gemini-3-flash-preview
+model: openai/gpt-5.4-mini
 color: "#ff7eb6"
 tools:
   todowrite: false

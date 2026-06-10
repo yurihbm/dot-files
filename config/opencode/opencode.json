@@ -35,7 +35,7 @@
   "small_model": "github-copilot/gpt-5-mini",
   "agent": {
     "plan": {
-      "model": "github-copilot/gemini-3.1-pro-preview",
+      "model": "openai/gpt-5.5",
       "permission": {
         "edit": {
           "*": "deny",
@@ -50,7 +50,7 @@
       "color": "#ee5396"
     },
     "build": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "openai/gpt-5.3-codex-spark",
       "task": {
         "*": "ask",
         "general": "allow",
@@ -59,7 +59,7 @@
       "color": "#33b1ff"
     },
     "general": {
-      "model": "github-copilot/gpt-5-mini"
+      "model": "openai/gpt-5.4-mini"
     },
     "explore": {
       "model": "github-copilot/gpt-5-mini"
