@@ -10,11 +10,11 @@
       "version": "1.0.0 - 2.0.0"
     },
     "conform.nvim": {
-      "rev": "18aeab3d63d350dcf44d64c462cc489a3412af40",
+      "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "407349117f176789df6ec1c23bca72f34e15b4e8",
+      "rev": "7df55b20b5b653941f0bcff87e559cabb6fafeb0",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "lazydev.nvim": {
@@ -22,15 +22,15 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "mini.icons": {
-      "rev": "520995f1d75da0e4cc901ee95080b1ff2bc46b94",
+      "rev": "e56797f90192d81f1fda02e662fc3e8e3d775027",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.indentscope": {
-      "rev": "ad19b1f02223391f3d40440f7ff10607f0043585",
+      "rev": "d3f955f09b1a05d25d5a7740338fba2baaee41a3",
       "src": "https://github.com/nvim-mini/mini.indentscope"
     },
     "mini.statusline": {
-      "rev": "7091f554d7d26b5d55f4c937634da53ba277a44a",
+      "rev": "b5547f44560dae3ccd81f914256fa6f705837022",
       "src": "https://github.com/nvim-mini/mini.statusline"
     },
     "nvim-autopairs": {
@@ -38,11 +38,11 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lint": {
-      "rev": "d48f3a76189d03b2239f6df1b2f7e3fa8353743b",
+      "rev": "01c9842c089069ab497430159312b2c8868a4590",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "dfbada1a311c4bf3369f8d5421369c9b6e8b888f",
+      "rev": "bfcc0171a43f22afa61d927ffe9fcb6cb85dc99e",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -54,15 +54,15 @@
       "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "oxocarbon.nvim": {
-      "rev": "a7ba74849a00546a311f8c146320b433900393e7",
+      "rev": "cf49e389c22dab56224e43ae16422ddcd5b61b28",
       "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
     "schemastore.nvim": {
-      "rev": "1f00d77909a88e5e228f3bc5ddbfac9b80fc5b9e",
+      "rev": "c73e2b170a4927d1dc1b48e878bba6cf0ed9b07c",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {
-      "rev": "0770753c88228f7f15449c6a5b242e3f7cd0d71c",
+      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "vim-tmux-navigator": {
