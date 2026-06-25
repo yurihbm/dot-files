@@ -34,7 +34,8 @@
   },
   "attribution": {
     "commit": "",
-    "pr": ""
+    "pr": "",
+    "sessionUrl": false
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
