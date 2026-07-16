@@ -1,0 +1,42 @@
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+font-thicken = true
+
+cursor-style = block
+cursor-style-blink = false
+
+shell-integration = detect
+shell-integration-features = no-cursor
+
+window-padding-x = 10
+window-padding-y = 10
+window-padding-color = background
+window-padding-balance = true
+window-decoration = true
+background-opacity = 1.0
+background-blur = false
+
+copy-on-select = true
+confirm-close-surface = false
+
+palette = 0=#262626
+palette = 1=#ee5396
+palette = 10=#42be65
+palette = 11=#ffe97b
+palette = 12=#33b1ff
+palette = 13=#ff7eb6
+palette = 14=#3ddbd9
+palette = 15=#ffffff
+palette = 2=#42be65
+palette = 3=#ffe97b
+palette = 4=#33b1ff
+palette = 5=#ff7eb6
+palette = 6=#3ddbd9
+palette = 7=#dde1e6
+palette = 8=#393939
+palette = 9=#ee5396
+background=#161616
+cursor-color=#ffffff
+foreground=#ffffff
+selection-foreground=#000000
+selection-background=#393939
