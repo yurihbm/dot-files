@@ -37,18 +37,8 @@
     "pr": "",
     "sessionUrl": false
   },
-  "extraKnownMarketplaces": {
-    "openai-codex": {
-      "source": {
-        "source": "github",
-        "repo": "openai/codex-plugin-cc"
-      }
-    }
-  },
   "enabledPlugins": {
-    "codex@openai-codex": true,
     "figma@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": false,
     "gopls-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
