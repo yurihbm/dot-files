@@ -10,7 +10,6 @@ export GOPATH="$HOME/.local/share/go"
 
 # ========== Docker Config ==========
 
-export DOCKER_HOST="unix:///run/user/$UID/docker.sock"
 export DOCKER_CONFIG="$HOME/.config/docker"
 
 # ========== NPM Config ==========
