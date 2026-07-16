@@ -21,6 +21,7 @@ vim.pack.add({
 	{ src = gh("saghen/blink.cmp"), version = vim.version.range("1.*") },
 	gh("mfussenegger/nvim-lint"),
 	gh("folke/which-key.nvim"),
+	gh("3rd/image.nvim"),
 })
 
 require("plugins.oxocarbon")
@@ -37,3 +38,4 @@ require("plugins.copilot")
 require("plugins.blink")
 require("plugins.lint")
 require("plugins.which_key")
+require("plugins.image")
