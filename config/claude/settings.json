@@ -7,7 +7,6 @@
     "allow": [
       "Read(**)",
       "Grep(**)",
-      "Glob(**)",
       "Bash(ls:*)",
       "Bash(find:*)",
       "Bash(wc:*)",
@@ -16,7 +15,13 @@
       "Bash(grep:*)",
       "Bash(git status:*)",
       "Bash(git diff:*)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Bash(pnpm i18n:*)",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm format:*)",
+      "Bash(pnpm prettier:*)",
+      "Bash(pnpm typecheck:*)",
+      "Bash(pnpm typescript:*)"
     ],
     "deny": [
       "Read(./.env)",
