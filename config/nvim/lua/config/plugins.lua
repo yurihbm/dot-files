@@ -19,7 +19,6 @@ vim.pack.add({
 	gh("zbirenbaum/copilot.lua"),
 	gh("fang2hou/blink-copilot"),
 	{ src = gh("saghen/blink.cmp"), version = vim.version.range("1.*") },
-	gh("mfussenegger/nvim-lint"),
 	gh("folke/which-key.nvim"),
 	gh("3rd/image.nvim"),
 })
@@ -36,6 +35,5 @@ require("plugins.indentscope")
 require("plugins.snacks")
 require("plugins.copilot")
 require("plugins.blink")
-require("plugins.lint")
 require("plugins.which_key")
 require("plugins.image")

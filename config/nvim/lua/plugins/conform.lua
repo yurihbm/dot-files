@@ -19,18 +19,18 @@ autocmd("BufWritePre", {
 
 require("conform").setup({
 	formatters_by_ft = {
-		css = { "prettierd" },
+		css = { "oxfmt" },
 		go = { "gofmt" },
-		javascript = { "prettierd" },
-		javascriptreact = { "prettierd" },
-		json = { "prettierd" },
-		jsonc = { "prettierd" },
+		javascript = { "oxfmt" },
+		javascriptreact = { "oxfmt" },
+		json = { "oxfmt" },
+		jsonc = { "oxfmt" },
 		lua = { "stylua" },
-		markdown = { "prettierd" },
+		markdown = { "oxfmt" },
 		python = { "ruff" },
 		sh = { "shfmt" },
-		typescript = { "prettierd" },
-		typescriptreact = { "prettierd" },
-		yaml = { "prettierd" },
+		typescript = { "oxfmt" },
+		typescriptreact = { "oxfmt" },
+		yaml = { "oxfmt" },
 	},
 })
