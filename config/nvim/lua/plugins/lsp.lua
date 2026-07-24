@@ -15,7 +15,7 @@ vim.lsp.config("tsgo", {
 				cmd = local_cmd
 			end
 		end
-		return vim.lsp.rpc.start({ "tsc", "--lsp", "--stdio" }, dispatchers)
+		return vim.lsp.rpc.start({ cmd, "--lsp", "--stdio" }, dispatchers)
 	end,
 })
 
@@ -50,6 +50,7 @@ vim.lsp.enable({
 	"gopls",
 	"jsonls",
 	"lua_ls",
+	"oxfmt",
 	"oxlint",
 	"prismals",
 	"pyright",

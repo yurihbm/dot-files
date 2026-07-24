@@ -13,24 +13,33 @@ autocmd("BufWritePre", {
 			return
 		end
 
+		local oxfmt_filetypes = {
+			"css",
+			"javascript",
+			"javascriptreact",
+			"json",
+			"jsonc",
+			"markdown",
+			"typescript",
+			"typescriptreact",
+			"yaml",
+		}
+		local filetype = vim.bo[args.buf].filetype
+
+		if vim.tbl_contains(oxfmt_filetypes, filetype) then
+			require("conform").format({ bufnr = args.buf, lsp_format = "prefer", name = "oxfmt" })
+			return
+		end
+
 		require("conform").format({ bufnr = args.buf })
 	end,
 })
 
 require("conform").setup({
 	formatters_by_ft = {
-		css = { "oxfmt" },
 		go = { "gofmt" },
-		javascript = { "oxfmt" },
-		javascriptreact = { "oxfmt" },
-		json = { "oxfmt" },
-		jsonc = { "oxfmt" },
 		lua = { "stylua" },
-		markdown = { "oxfmt" },
 		python = { "ruff" },
 		sh = { "shfmt" },
-		typescript = { "oxfmt" },
-		typescriptreact = { "oxfmt" },
-		yaml = { "oxfmt" },
 	},
 })
