@@ -23,6 +23,7 @@
       "Bash(git log:*)",
       "Bash(pnpm i18n:*)",
       "Bash(pnpm lint:*)",
+      "Bash(pnpm test:*)",
       "Bash(pnpm format:*)",
       "Bash(pnpm prettier:*)",
       "Bash(pnpm typecheck:*)",
