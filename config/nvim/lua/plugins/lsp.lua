@@ -28,6 +28,12 @@ vim.lsp.config("jsonls", {
 	},
 })
 
+vim.lsp.config("oxlint", {
+	settings = {
+		typeAware = false,
+	},
+})
+
 vim.lsp.config("tailwindcss", {
 	settings = {
 		tailwindCSS = {
